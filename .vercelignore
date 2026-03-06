@@ -1,0 +1,74 @@
+# ============================================
+# VERCEL DEPLOY IGNORE
+# Excludes large/unused files from deployment
+# ============================================
+
+# Claude internal files
+.claude/
+
+# Large videos > 100MB (Vercel file size limit)
+mediatouse/videos/eindejaarsvideo-2025-engels.mp4
+mediatouse/videos/social-johan-van-dijk-trailer-oplevering-v2.mp4
+mediatouse/videos/burgers-gelukkig-nieuw-jaar-english-1.mp4
+mediatouse/videos/1.-_hernan-searle-ferrari-1080-x-1920-v1-1.mp4
+mediatouse/ownmedia/20260219_125737.mp4
+
+# Unused videos in mediatouse/videos/
+mediatouse/videos/4.-_torben-krog-e28093-krog-transport-1080-x-1350-v1_1.mp4
+mediatouse/videos/onradar_web_animation_dark_medium.mp4
+mediatouse/videos/sectoren_breed.webm
+mediatouse/videos/sectoren_main_alpha.webm
+mediatouse/videos/service_maintenance_01_1.mp4
+mediatouse/videos/service_maintenance_01_2.mp4
+mediatouse/videos/service_maintenance_01_3.mp4
+mediatouse/videos/service_maintenance_01_alpha.webm
+
+# Unused files in mediatouse/ownmedia/
+mediatouse/ownmedia/onderbovenvideo.mp4
+mediatouse/ownmedia/20260219_124556.jpg
+mediatouse/ownmedia/20260219_124559.jpg
+mediatouse/ownmedia/20260219_125444.jpg
+mediatouse/ownmedia/20260219_125846.jpg
+mediatouse/ownmedia/20260219_125850.jpg
+mediatouse/ownmedia/20260219_130021.jpg
+mediatouse/ownmedia/20260219_130604.jpg
+mediatouse/ownmedia/20260219_130649.jpg
+mediatouse/ownmedia/20260219_130929.jpg
+mediatouse/ownmedia/20260219_130958.jpg
+mediatouse/ownmedia/20260219_131936.jpg
+mediatouse/ownmedia/20260219_132013.jpg
+mediatouse/ownmedia/20260219_132117.jpg
+mediatouse/ownmedia/20260219_133122.jpg
+mediatouse/ownmedia/20260219_133123.jpg
+mediatouse/ownmedia/11.jpeg
+mediatouse/ownmedia/aaaa.jpeg
+mediatouse/ownmedia/edited-image1.png
+mediatouse/ownmedia/logo-print-hd-transparent.png
+mediatouse/ownmedia/Gemini_Generated_Image_3x6ul03x6ul03x6u.png
+mediatouse/ownmedia/Generated Image December 05, 2025 - 5_19PM.jpeg
+mediatouse/ownmedia/Generated Image December 05, 2025 - 6_24PM.jpeg
+mediatouse/ownmedia/Generated Image December 05, 2025 - 6_36PM.jpeg
+mediatouse/ownmedia/Generated Image December 05, 2025 - 6_48PM.jpeg
+mediatouse/ownmedia/WhatsApp Image 112025-12-04 at 09.23.17.jpeg
+mediatouse/ownmedia/WhatsApp Image 2025-12-04 at 09.23.17.jpeg
+mediatouse/ownmedia/WhatsApp Image 2025-1dd2-04 at 09.23.17.jpeg
+mediatouse/ownmedia/WhatsApp Image 2026-02-19 at 15.44.35.jpeg
+mediatouse/ownmedia/WhatsApp Image 2026-02-19 at 15.44.36.jpeg
+mediatouse/ownmedia/WhatsApp Image 2026-02-19 at 15.44.3600.jpeg
+mediatouse/ownmedia/WhatsApp Image 2026-02-19 at 15.44.3690.jpeg
+mediatouse/ownmedia/WhatsApp Image 2026-02-19 at 15.44.3699.jpeg
+mediatouse/ownmedia/WhatsApp Image 2026-02-19 at 15.44.37.jpeg
+mediatouse/ownmedia/WhatsApp Image 2026-02-19 at 15.44.37009.jpeg
+mediatouse/ownmedia/WhatsApp Image 2026-02-19 at 15.44.370099.jpeg
+mediatouse/ownmedia/WhatsApp Image 2026-02-19 at 15.44.3790.jpeg
+mediatouse/ownmedia/WhatsApp Image 2026-02-19 at 15.47.28.jpeg
+mediatouse/ownmedia/WhatsApp Image 2026-02-19 at 15.47.36.jpeg
+mediatouse/ownmedia/WhatsApp Imddage 2025-12-04 at 09.23.17.jpeg
+mediatouse/ownmedia/Amerika concept 02 JL 10-11-2025 Double Deck opzet beladingsschema.pdf
+mediatouse/ownmedia/Annex to Cabinet Resolution of 2023 Regulating the Weights and Dimensions of Heavy Vehicles and the Administrative Penalties Imposed Upon its Violation.pdf
+mediatouse/ownmedia/Burgers - DD ENG DRUK.pdf
+mediatouse/ownmedia/DD_Burgers_DIGITAL-ENG-V2.pdf
+mediatouse/ownmedia/Offer-AR-DoubleDeck.pdf
+mediatouse/ownmedia/Offer-DoubleDeck-Bosnian.pdf
+mediatouse/ownmedia/Offer-Used-DoubleDeck-Interfleet.pdf
+mediatouse/ownmedia/USA 53ft Dry Double Deck load scheme 100x120cm pallets.pdf

@@ -9,3 +9,5 @@ mediatouse/videos/eindejaarsvideo-2025-engels.mp4
 *.mov
 *.avi
 *.mkv
+
+.vercel
