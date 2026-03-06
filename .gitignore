@@ -1,5 +1,11 @@
-*.mp4
-*.webm
+# Video files too large for GitHub (>100MB)
+mediatouse/ownmedia/20260219_125737.mp4
+mediatouse/videos/1.-_hernan-searle-ferrari-1080-x-1920-v1-1.mp4
+mediatouse/videos/burgers-gelukkig-nieuw-jaar-english-1.mp4
+mediatouse/videos/social-johan-van-dijk-trailer-oplevering-v2.mp4
+mediatouse/videos/eindejaarsvideo-2025-engels.mp4
+
+# Other large formats
 *.mov
 *.avi
 *.mkv
