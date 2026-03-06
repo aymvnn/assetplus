@@ -10,7 +10,11 @@
       "Bash(where php)",
       "Bash(npx --version)",
       "WebFetch(domain:www.burgersgroup.com)",
-      "Bash(ls -la \"C:\\\\Users\\\\AYM\\\\OneDrive - GHAYM Group\\\\[GHAYM] GHAYMGROUP\\\\[GHAYM] Interfleet\\\\Website Interfleet\\\\mediatouse\\\\ownmedia\"\"*.mp4 \"C:UsersAYMOneDrive - GHAYM Group[GHAYM] GHAYMGROUP[GHAYM] InterfleetWebsite Interfleetmediatousevideos\"\"*.mp4 \"C:\\\\Users\\\\AYM\\\\OneDrive - GHAYM Group\\\\[GHAYM] GHAYMGROUP\\\\[GHAYM] Interfleet\\\\Website Interfleet\\\\mediatouse\\\\videos\"\"*.webm)"
+      "Bash(ls -la \"C:\\\\Users\\\\AYM\\\\OneDrive - GHAYM Group\\\\[GHAYM] GHAYMGROUP\\\\[GHAYM] Interfleet\\\\Website Interfleet\\\\mediatouse\\\\ownmedia\"\"*.mp4 \"C:UsersAYMOneDrive - GHAYM Group[GHAYM] GHAYMGROUP[GHAYM] InterfleetWebsite Interfleetmediatousevideos\"\"*.mp4 \"C:\\\\Users\\\\AYM\\\\OneDrive - GHAYM Group\\\\[GHAYM] GHAYMGROUP\\\\[GHAYM] Interfleet\\\\Website Interfleet\\\\mediatouse\\\\videos\"\"*.webm)",
+      "Bash(xargs du -sh)",
+      "Bash(git add .gitignore mediatouse/videos/ mediatouse/ownmedia/aym-interfleet-introvideo.mp4 mediatouse/ownmedia/onderbovenvideo.mp4 assets/images/aym-interfleet-introvideo.mp4)",
+      "Bash(git commit:*)",
+      "Bash(git push origin main)"
     ]
   }
 }
