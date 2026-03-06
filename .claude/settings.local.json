@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where python)",
+      "Bash(where python3)",
+      "Bash(where py)",
+      "Bash(where node)",
+      "Bash(where npx)",
+      "Bash(where php)",
+      "Bash(npx --version)",
+      "WebFetch(domain:www.burgersgroup.com)",
+      "Bash(ls -la \"C:\\\\Users\\\\AYM\\\\OneDrive - GHAYM Group\\\\[GHAYM] GHAYMGROUP\\\\[GHAYM] Interfleet\\\\Website Interfleet\\\\mediatouse\\\\ownmedia\"\"*.mp4 \"C:UsersAYMOneDrive - GHAYM Group[GHAYM] GHAYMGROUP[GHAYM] InterfleetWebsite Interfleetmediatousevideos\"\"*.mp4 \"C:\\\\Users\\\\AYM\\\\OneDrive - GHAYM Group\\\\[GHAYM] GHAYMGROUP\\\\[GHAYM] Interfleet\\\\Website Interfleet\\\\mediatouse\\\\videos\"\"*.webm)"
+    ]
+  }
+}

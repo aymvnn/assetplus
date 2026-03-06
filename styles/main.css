@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../assets/fonts/SpaceGrotesk-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../assets/fonts/SpaceGrotesk-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../assets/fonts/SpaceGrotesk-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Space Grotesk';
+  src: url('../assets/fonts/SpaceGrotesk-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* ========================================
+   INTERFLEET MOBILITY GCC — Design System
+   Theme: Clean Industrial Precision
+======================================== */
+
+:root {
+  /* Colors - Light & Professional with Industrial Edge */
+  --bg-color: #FFFFFF;
+  --bg-dark: #0A0A0A;
+  --bg-light: #F5F5F3;
+  --bg-warm: #EFEDEB;
+  --text-primary: #111111;
+  --text-light: #FFFFFF;
+  --text-muted: #6B6B6B;
+  --accent: #CC0000;
+  --grid-line: rgba(0, 0, 0, 0.08);
+  --grid-line-light: rgba(255, 255, 255, 0.1);
+  --surface: #F0F0F0;
+
+  /* Typography */
+  --font-heavy: 'Space Grotesk', sans-serif;
+  --font-tech: 'Space Mono', monospace;
+  --font-reading: 'Inter', sans-serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 8rem;
+  --space-xxl: 12rem;
+
+  /* Layout */
+  --container-width: 1400px;
+  --nav-height: 96px;
+}
+
+/* ========================================
+   GLOBAL RESETS
+======================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--text-light);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-reading);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Cursor */
+body {
+  cursor: default;
+}
+
+a,
+button,
+[role="button"],
+.btn,
+.nav-link,
+.nav-logo,
+.menu-toggle {
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  cursor: text;
+}
+
+/* ========================================
+   TYPOGRAPHY
+======================================== */
+
+h1,
+h2,
+h3,
+h4,
+.text-heavy {
+  font-family: var(--font-heavy);
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.title-massive {
+  font-size: clamp(3.5rem, 10vw, 12rem);
+  letter-spacing: -0.02em;
+}
+
+.title-large {
+  font-size: clamp(2.5rem, 7vw, 7rem);
+  letter-spacing: -0.01em;
+}
+
+.title-medium {
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+}
+
+.text-tech {
+  font-family: var(--font-tech);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+.tech-number {
+  font-family: var(--font-heavy);
+  font-size: clamp(3rem, 8vw, 7rem);
+  color: var(--accent);
+  line-height: 0.9;
+}
+
+p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin-bottom: var(--space-md);
+  line-height: 1.8;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ========================================
+   UTILITIES
+======================================== */
+.grid-box {
+  border: 1px solid var(--grid-line);
+  background: var(--bg-color);
+  padding: var(--space-md);
+  position: relative;
+}
+
+/* Modifier to only have specific borders */
+.border-right {
+  border-right: 1px solid var(--grid-line);
+}
+
+.border-left {
+  border-left: 1px solid var(--grid-line);
+}
+
+.border-top {
+  border-top: 1px solid var(--grid-line);
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--grid-line);
+}
+
+.red-line {
+  height: 2px;
+  width: 100%;
+  background: var(--accent);
+}
+
+.red-line-vertical {
+  width: 2px;
+  height: 100%;
+  background: var(--accent);
+}
+
+/* Crosshairs */
+.crosshair {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  pointer-events: none;
+}
+
+.crosshair::before,
+.crosshair::after {
+  content: '';
+  position: absolute;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.crosshair::before {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+  left: 0;
+}
+
+.crosshair::after {
+  height: 100%;
+  width: 1px;
+  left: 50%;
+  top: 0;
+}
+
+.crosshair.top-left {
+  top: -10px;
+  left: -10px;
+}
+
+.crosshair.top-right {
+  top: -10px;
+  right: -10px;
+}
+
+.crosshair.bottom-left {
+  bottom: -10px;
+  left: -10px;
+}
+
+.crosshair.bottom-right {
+  bottom: -10px;
+  right: -10px;
+}
+
+/* On dark backgrounds */
+.dark-section .crosshair::before,
+.dark-section .crosshair::after {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.container {
+  width: 90%;
+  max-width: var(--container-width);
+  margin: 0 auto;
+  position: relative;
+}
+
+.border-box {
+  border: 1px solid var(--grid-line);
+  position: relative;
+}
+
+/* Section backgrounds */
+.dark-section {
+  background: var(--bg-dark);
+  color: var(--text-light);
+}
+
+.dark-section h1,
+.dark-section h2,
+.dark-section h3,
+.dark-section h4 {
+  color: var(--text-light);
+}
+
+.dark-section p,
+.dark-section .text-tech {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.light-section {
+  background: var(--bg-light);
+}
+
+.warm-section {
+  background: var(--bg-warm);
+}
+
+/* ========================================
+   PAGE TRANSITIONS
+======================================== */
+
+body {
+  animation: pageIn 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes pageIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,223 @@
+/* ========================================
+   INTERFLEET MOBILITY GCC — Components
+======================================== */
+
+/* ========== BUTTONS ========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-tech);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 1rem 2.2rem;
+  border: 2px solid var(--text-primary);
+  background: transparent;
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1;
+}
+
+/* Fill-from-bottom animation — all buttons */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--text-primary);
+  z-index: -1;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn:hover::before { transform: scaleY(1); }
+.btn:hover { color: var(--text-light); }
+
+/* Primary — red fill, dark sweep */
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--text-light);
+}
+
+.btn-primary::before { background: var(--text-primary); }
+.btn-primary:hover { color: var(--text-light); border-color: var(--text-primary); }
+
+/* Outline — muted border, dark sweep */
+.btn-outline {
+  border: 2px solid var(--text-muted);
+  color: var(--text-muted);
+}
+
+.btn-outline:hover {
+  border-color: var(--text-primary);
+  color: var(--text-light);
+}
+
+/* Dark section buttons — white sweep */
+.dark-section .btn {
+  border-color: var(--text-light);
+  color: var(--text-light);
+}
+
+.dark-section .btn::before {
+  background: var(--text-light);
+}
+
+.dark-section .btn:hover {
+  background: transparent;
+  color: var(--bg-dark) !important;
+}
+
+/* ========== DATA MODULES ========== */
+.data-module {
+  border: 1px solid var(--grid-line);
+  padding: var(--space-lg);
+  position: relative;
+  background: var(--bg-color);
+  transition: border-color 0.3s ease;
+}
+
+.data-module:hover { border-color: var(--accent); }
+
+.data-module::before {
+  content: attr(data-index);
+  position: absolute;
+  top: 0; left: 0;
+  background: var(--accent);
+  color: var(--text-light);
+  font-family: var(--font-tech);
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+}
+
+.data-subtitle {
+  font-family: var(--font-tech);
+  color: var(--accent);
+  margin-bottom: var(--space-sm);
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+}
+
+/* ========== SPEC TABLES ========== */
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-tech);
+  font-size: 0.85rem;
+}
+
+.spec-table th, .spec-table td {
+  padding: 1.2rem 0.5rem;
+  border-bottom: 1px solid var(--grid-line);
+  text-align: left;
+}
+
+.spec-table th {
+  color: var(--text-muted);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+}
+
+.spec-table td { color: var(--text-primary); }
+.spec-table td.highlight { color: var(--accent); font-weight: 700; }
+
+/* Dark section tables */
+.dark-section .spec-table th { color: rgba(255,255,255,0.4); }
+.dark-section .spec-table td { color: var(--text-light); }
+.dark-section .spec-table td.highlight { color: var(--accent); }
+.dark-section .spec-table th,
+.dark-section .spec-table td { border-bottom-color: var(--grid-line-light); }
+
+/* ========== FORMS ========== */
+.form-group {
+  margin-bottom: var(--space-md);
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-tech);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-control {
+  width: 100%;
+  background: var(--bg-light);
+  border: 1px solid var(--grid-line);
+  padding: 1rem;
+  color: var(--text-primary);
+  font-family: var(--font-reading);
+  font-size: 1rem;
+  transition: border-color 0.3s ease, background 0.3s ease;
+  border-radius: 2px;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--bg-color);
+}
+
+textarea.form-control { min-height: 150px; resize: vertical; }
+
+/* ========== FEATURE LISTS ========== */
+.feature-list { list-style: none; }
+
+.feature-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--grid-line);
+  position: relative;
+  padding-left: 2rem;
+  font-size: 0.95rem;
+}
+
+.feature-list li::before {
+  content: '+';
+  position: absolute;
+  left: 0; top: 1rem;
+  color: var(--accent);
+  font-family: var(--font-tech);
+  font-weight: 700;
+}
+
+/* Dark section feature lists */
+.dark-section .feature-list li { border-bottom-color: var(--grid-line-light); color: rgba(255,255,255,0.8); }
+
+/* ========== CUTAWAY SECTION ========== */
+.cutaway-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-light);
+  border-radius: 4px;
+  padding: var(--space-lg);
+}
+
+.cutaway-section img {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+}
+
+/* ========== STATS GRID ========== */
+.stat-item {
+  text-align: center;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.stat-item .tech-number {
+  display: block;
+  margin-bottom: 0.5rem;
+}
