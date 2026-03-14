@@ -1,5 +1,5 @@
 /* ========================================
-   INTERFLEET — Main JavaScript
+   ASSET+ — Main JavaScript
    Smooth scroll reveals, parallax, counters
 ======================================== */
 
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCountUp();
   initVideoAutoplay();
   initFlickeringGrid();
+  initFaqAccordion();
 });
 
 /* ========== Navbar — shrink on scroll ========== */
@@ -203,6 +204,30 @@ function animateNumber(el, start, end, duration, prefix, suffix) {
   requestAnimationFrame(update);
 }
 
+/* ========== FAQ Accordion ========== */
+function initFaqAccordion() {
+  const questions = document.querySelectorAll('.faq-question');
+  if (!questions.length) return;
+
+  questions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+
+      // Close all other items in the same FAQ section
+      const parent = item.parentElement;
+      parent.querySelectorAll('.faq-item.open').forEach(openItem => {
+        openItem.classList.remove('open');
+      });
+
+      // Toggle clicked item
+      if (!isOpen) {
+        item.classList.add('open');
+      }
+    });
+  });
+}
+
 /* ========== Flickering Grid Footer ========== */
 function initFlickeringGrid() {
   const container = document.getElementById('flickeringGridContainer');
@@ -220,8 +245,11 @@ function initFlickeringGrid() {
   const colorRgb = '204, 0, 0'; // Brutalist Red
   const isMobile = window.innerWidth <= 768;
   const isTablet = window.innerWidth <= 1024;
-  const textLines = isMobile ? ["BUILT TO", "PERFORM"] : ["BUILT TO PERFORM"];
-  const fontSize = isMobile ? Math.floor(window.innerWidth * 0.17) : (isTablet ? 88 : 180);
+  const containerHeight = document.getElementById('flickeringGridContainer')?.offsetHeight || 200;
+  const textLines = isMobile ? ["BUILT TO", "PERFORM."] : ["BUILT TO PERFORM."];
+  const fontSize = isMobile
+    ? Math.floor(containerHeight * 0.26)
+    : (isTablet ? Math.floor(containerHeight * 0.35) : Math.floor(containerHeight * 0.50));
   const fontWeight = 700;
   const fontFamily = "'Space Grotesk', sans-serif";
 
@@ -264,15 +292,14 @@ function initFlickeringGrid() {
       maskCtx.textAlign = "center";
       maskCtx.textBaseline = "middle";
 
-      // Draw single or multi-line text
+      // Draw single or multi-line text — offset upward to avoid bottom gradient
+      const centerY = height * 0.42;
       if (textLines.length === 1) {
-        // Single line — slightly offset toward bottom
-        maskCtx.fillText(textLines[0], width / 2, height / 1.5);
+        maskCtx.fillText(textLines[0], width / 2, centerY);
       } else {
-        // Multi-line — vertically centered
         const lineHeight = fontSize * 1.15;
         const totalH = lineHeight * textLines.length;
-        const startY = height / 2 - totalH / 2 + lineHeight / 2;
+        const startY = centerY - totalH / 2 + lineHeight / 2;
         textLines.forEach((line, i) => {
           maskCtx.fillText(line, width / 2, startY + i * lineHeight);
         });

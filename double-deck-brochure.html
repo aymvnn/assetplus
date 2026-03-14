@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASSET+ Fleet Solutions — Double Deck Trailer Brochure</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap">
+  <style>
+    /* ========================================
+       FONT DEFINITIONS
+    ======================================== */
+    @font-face {
+      font-family: 'Space Grotesk';
+      src: url('assets/fonts/SpaceGrotesk-Light.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Space Grotesk';
+      src: url('assets/fonts/SpaceGrotesk-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Space Grotesk';
+      src: url('assets/fonts/SpaceGrotesk-Medium.ttf') format('truetype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Space Grotesk';
+      src: url('assets/fonts/SpaceGrotesk-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    /* ========================================
+       DESIGN TOKENS — Exact match to website
+    ======================================== */
+    :root {
+      --accent: #CC0000;
+      --accent-dark: #990000;
+      --bg-dark: #0A0A0A;
+      --bg-light: #F5F5F3;
+      --bg-color: #FFFFFF;
+      --bg-warm: #EFEDEB;
+      --text-primary: #111111;
+      --text-light: #FFFFFF;
+      --text-muted: #6B6B6B;
+      --grid-line: rgba(0, 0, 0, 0.08);
+      --grid-line-light: rgba(255, 255, 255, 0.1);
+      --surface: #F0F0F0;
+
+      --font-heavy: 'Space Grotesk', sans-serif;
+      --font-tech: 'Space Mono', monospace;
+      --font-reading: 'Inter', sans-serif;
+    }
+
+    /* ========================================
+       PRINT CONFIGURATION
+    ======================================== */
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      color-adjust: exact !important;
+    }
+
+    html, body {
+      width: 210mm;
+      margin: 0 auto;
+      padding: 0;
+      background: #E0E0E0;
+      font-family: var(--font-reading);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    @media print {
+      html, body {
+        background: none;
+      }
+      .page {
+        box-shadow: none !important;
+        margin-bottom: 0 !important;
+      }
+    }
+
+    /* ========================================
+       PAGE BASE
+    ======================================== */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      overflow: hidden;
+      position: relative;
+      page-break-after: always;
+      background: var(--bg-color);
+      margin-bottom: 10mm;
+      box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+    }
+    .page:last-child {
+      page-break-after: auto;
+      margin-bottom: 0;
+    }
+
+    /* ========================================
+       COMMON ELEMENTS
+    ======================================== */
+    .label {
+      font-family: var(--font-tech);
+      font-size: 8pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+    }
+    .label-muted {
+      font-family: var(--font-tech);
+      font-size: 7.5pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
+    }
+    .label-light {
+      font-family: var(--font-tech);
+      font-size: 8pt;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .heading-massive {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 0.88;
+      letter-spacing: -0.02em;
+    }
+
+    .heading-large {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 0.92;
+      letter-spacing: -0.01em;
+    }
+
+    .heading-medium {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 0.95;
+    }
+
+    .body-text {
+      font-family: var(--font-reading);
+      font-size: 10.5pt;
+      font-weight: 500;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .tech-text {
+      font-family: var(--font-tech);
+      font-size: 9pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .red-line {
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .red-line-v {
+      width: 2px;
+      background: var(--accent);
+    }
+
+    /* ========================================
+       PAGE 1 — COVER
+    ======================================== */
+    .cover {
+      background: var(--bg-color);
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .cover-hero-photo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .cover-hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+
+    .cover-hero-photo::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60%;
+      background: linear-gradient(to top, #FFFFFF 0%, rgba(255,255,255,0.8) 40%, transparent 100%);
+    }
+
+    .cover-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 10mm 12mm 0;
+      z-index: 10;
+      position: relative;
+    }
+
+    .cover-logo img {
+      height: 22mm;
+    }
+
+    .cover-distributor {
+      text-align: right;
+      padding-top: 4mm;
+    }
+
+    .cover-visual {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 0 8mm;
+      margin-top: -8mm;
+    }
+
+    .cover-visual img {
+      width: 88%;
+      max-height: 130mm;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 50px rgba(0,0,0,0.6));
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Subtle background glow */
+    .cover-visual::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 70%;
+      height: 60%;
+      background: radial-gradient(ellipse, rgba(204,0,0,0.06) 0%, transparent 70%);
+      z-index: 1;
+    }
+
+    /* Grid pattern overlay — removed for light bg */
+    .cover-grid {
+      display: none;
+    }
+
+    .cover-bottom {
+      padding: 0 12mm 10mm;
+      position: relative;
+      z-index: 10;
+    }
+
+    .cover-title {
+      font-size: 46pt;
+      margin-bottom: 5mm;
+    }
+
+    .cover-stats {
+      display: flex;
+      gap: 6mm;
+      margin-top: 6mm;
+      padding-top: 4mm;
+      border-top: 1px solid var(--grid-line);
+    }
+
+    .cover-stat {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cover-stat .stat-value {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      font-size: 22pt;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .cover-stat .stat-label {
+      font-family: var(--font-tech);
+      font-size: 7.5pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      margin-top: 1.5mm;
+    }
+
+    .cover-accent-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent);
+    }
+
+    /* ========================================
+       PAGE 2 — PRODUCT OVERVIEW
+    ======================================== */
+    .overview {
+      background: var(--bg-color);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .overview-header {
+      padding: 10mm 12mm 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+    .overview-hero {
+      display: grid;
+      grid-template-columns: 52% 48%;
+      padding: 6mm 12mm 0;
+      gap: 4mm;
+      flex: 0 0 auto;
+    }
+
+    .overview-render {
+      background: var(--bg-light);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .overview-render::before {
+      display: none;
+    }
+
+    .overview-render::after {
+      display: none;
+    }
+
+    .overview-render img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+    }
+
+    .overview-usps {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4mm;
+    }
+
+    .usp-item {
+      border: 1px solid var(--grid-line);
+      padding: 4mm 5mm;
+      position: relative;
+    }
+
+    .usp-item::before {
+      content: attr(data-index);
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: var(--accent);
+      color: var(--text-light);
+      font-family: var(--font-tech);
+      font-size: 5.5pt;
+      padding: 1mm 2mm;
+    }
+
+    .usp-value {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      font-size: 28pt;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 1mm;
+    }
+
+    .usp-desc {
+      font-family: var(--font-tech);
+      font-size: 8pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    /* Features section */
+    .overview-features {
+      padding: 5mm 12mm 0;
+      flex: 1;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-top: 1px solid var(--grid-line);
+    }
+
+    .feature-item {
+      padding: 3.5mm 4mm 3.5mm 7mm;
+      border-bottom: 1px solid var(--grid-line);
+      position: relative;
+      font-family: var(--font-tech);
+      font-size: 8.5pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+    }
+
+    .feature-item:nth-child(odd) {
+      border-right: 1px solid var(--grid-line);
+    }
+
+    .feature-item::before {
+      content: '+';
+      position: absolute;
+      left: 2mm;
+      top: 3.5mm;
+      color: var(--accent);
+      font-weight: 700;
+      font-family: var(--font-tech);
+    }
+
+    /* Interior photo strip */
+    .overview-photo-strip {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      gap: 0;
+      margin-top: auto;
+    }
+
+    .photo-strip-image {
+      height: 52mm;
+      overflow: hidden;
+    }
+
+    .photo-strip-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-strip-text {
+      background: var(--bg-light);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6mm 6mm;
+    }
+
+    .photo-strip-text .heading-medium {
+      font-size: 18pt;
+      color: var(--text-primary);
+      margin-bottom: 2mm;
+    }
+
+    /* Loading sequence */
+    .loading-sequence {
+      display: flex;
+      gap: 3mm;
+      padding: 3mm 12mm 5mm;
+    }
+
+    .load-step {
+      flex: 1;
+      text-align: center;
+      padding: 2.5mm;
+      border: 1px solid var(--grid-line);
+      background: var(--bg-light);
+    }
+
+    .load-step-num {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      font-size: 14pt;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 1mm;
+    }
+
+    .load-step-text {
+      font-family: var(--font-tech);
+      font-size: 7pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ========================================
+       PAGE 3 — TECHNICAL SPECIFICATIONS
+    ======================================== */
+    .specs-page {
+      background: var(--bg-color);
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .specs-header {
+      padding: 10mm 12mm 0;
+    }
+
+    .specs-header .heading-large {
+      font-size: 32pt;
+      color: var(--text-primary);
+      margin-top: 2mm;
+    }
+
+    .specs-tables {
+      padding: 6mm 12mm;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6mm;
+    }
+
+    .spec-table-wrap {
+      /* wrapper */
+    }
+
+    .spec-table-wrap h3 {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      font-size: 14pt;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: 3mm;
+      line-height: 1.1;
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--font-tech);
+      font-size: 8.5pt;
+      font-weight: 500;
+    }
+
+    .spec-table th {
+      padding: 2.5mm 2mm;
+      border-bottom: 1px solid var(--grid-line);
+      text-align: left;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 7.5pt;
+    }
+
+    .spec-table td {
+      padding: 2.5mm 2mm;
+      border-bottom: 1px solid var(--grid-line);
+      color: var(--text-primary);
+      text-transform: uppercase;
+    }
+
+    .spec-table td.highlight {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Cutaway section */
+    .specs-cutaway {
+      padding: 2mm 12mm;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .specs-cutaway img {
+      width: 82%;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 40px rgba(0,0,0,0.4));
+      margin: 2mm 0;
+    }
+
+    .specs-cutaway-legend {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2mm 8mm;
+      padding: 0 6mm;
+      width: 100%;
+    }
+
+    .legend-item {
+      display: flex;
+      gap: 2mm;
+      align-items: flex-start;
+      padding: 2mm 0;
+      border-bottom: 1px solid var(--grid-line);
+    }
+
+    .legend-num {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      font-size: 9pt;
+      color: var(--accent);
+      min-width: 5mm;
+    }
+
+    .legend-text {
+      font-family: var(--font-tech);
+      font-size: 8pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+
+    /* Compliance bar */
+    .compliance-bar {
+      margin-top: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-top: 1px solid var(--grid-line-light);
+      background: var(--bg-dark);
+    }
+
+    .compliance-item {
+      padding: 5mm 5mm;
+      border-right: 1px solid var(--grid-line-light);
+      text-align: center;
+    }
+
+    .compliance-item:last-child {
+      border-right: none;
+    }
+
+    .compliance-value {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      font-size: 13pt;
+      color: var(--text-light);
+      line-height: 1;
+      margin-bottom: 1mm;
+    }
+
+    .compliance-label {
+      font-family: var(--font-tech);
+      font-size: 7pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Red bottom accent */
+    .specs-accent {
+      height: 3px;
+      background: var(--accent);
+    }
+
+    /* ========================================
+       PAGE 4 — CTA / CONTACT
+    ======================================== */
+    .cta-page {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cta-top {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 15mm 20mm;
+      position: relative;
+    }
+
+    .cta-top .heading-massive {
+      font-size: 52pt;
+      color: var(--text-light);
+      margin: 4mm 0;
+    }
+
+    .cta-subtitle {
+      font-family: var(--font-reading);
+      font-size: 11pt;
+      font-weight: 500;
+      color: rgba(255,255,255,0.6);
+      max-width: 45ch;
+      line-height: 1.7;
+      margin-top: 3mm;
+    }
+
+    /* Contact grid */
+    .cta-contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0;
+      margin-top: 8mm;
+      border-top: 1px solid var(--grid-line-light);
+      width: 100%;
+      max-width: 165mm;
+    }
+
+    .contact-block {
+      padding: 5mm 4mm;
+      text-align: center;
+      border-right: 1px solid var(--grid-line-light);
+    }
+
+    .contact-block:last-child {
+      border-right: none;
+    }
+
+    .contact-block .contact-icon {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      font-size: 16pt;
+      color: var(--accent);
+      margin-bottom: 2mm;
+      display: block;
+    }
+
+    .contact-block .contact-label {
+      font-family: var(--font-tech);
+      font-size: 7pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1.5mm;
+      display: block;
+    }
+
+    .contact-block .contact-value {
+      font-family: var(--font-tech);
+      font-size: 8pt;
+      font-weight: 500;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* CTA grid pattern */
+    .cta-grid-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 15mm 15mm;
+      pointer-events: none;
+    }
+
+    .cta-top > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Bottom brand section */
+    .cta-bottom {
+      background: var(--bg-light);
+      padding: 10mm 12mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 3px solid var(--accent);
+    }
+
+    .cta-brand {
+      display: flex;
+      align-items: center;
+      gap: 6mm;
+    }
+
+    .cta-brand img {
+      height: 18mm;
+    }
+
+    .cta-brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1mm;
+    }
+
+    .cta-brand-name {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      font-size: 11pt;
+      text-transform: uppercase;
+      color: var(--text-primary);
+    }
+
+    .cta-brand-desc {
+      font-family: var(--font-tech);
+      font-size: 7pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .cta-legal {
+      text-align: right;
+    }
+
+    .cta-legal span {
+      display: block;
+      font-family: var(--font-tech);
+      font-size: 7pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .cta-legal .accent {
+      color: var(--accent);
+    }
+
+    /* ========================================
+       UTILITY: Page number indicators
+    ======================================== */
+    .page-indicator {
+      position: absolute;
+      bottom: 4mm;
+      right: 5mm;
+      font-family: var(--font-tech);
+      font-size: 7pt;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .page-indicator-light {
+      color: rgba(255,255,255,0.25);
+    }
+
+    .page-indicator-dark {
+      color: rgba(0,0,0,0.2);
+    }
+
+    /* Crosshair decorative element */
+    .crosshair {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+    }
+
+    .crosshair::before,
+    .crosshair::after {
+      content: '';
+      position: absolute;
+    }
+
+    .crosshair::before {
+      width: 100%;
+      height: 1px;
+      top: 50%;
+      left: 0;
+    }
+
+    .crosshair::after {
+      height: 100%;
+      width: 1px;
+      left: 50%;
+      top: 0;
+    }
+
+    .crosshair-light::before,
+    .crosshair-light::after {
+      background: rgba(0,0,0,0.08);
+    }
+
+    .crosshair-dark::before,
+    .crosshair-dark::after {
+      background: rgba(0,0,0,0.1);
+    }
+
+    /* Sectors / Applications icons row */
+    .sectors-row {
+      display: flex;
+      gap: 0;
+      margin: 4mm 12mm 0;
+      border: 1px solid var(--grid-line);
+    }
+
+    .sector-item {
+      flex: 1;
+      padding: 3mm 3mm;
+      text-align: center;
+      border-right: 1px solid var(--grid-line);
+      background: var(--bg-light);
+    }
+
+    .sector-item:last-child {
+      border-right: none;
+    }
+
+    .sector-name {
+      font-family: var(--font-tech);
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    .sector-desc {
+      font-family: var(--font-tech);
+      font-size: 7pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.5mm;
+      letter-spacing: 0.06em;
+    }
+
+    /* Burgers logo on cover */
+    .cover-burgers-logo {
+      position: absolute;
+      bottom: 5mm;
+      left: 12mm;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 2mm;
+    }
+
+    .cover-burgers-logo img {
+      height: 8mm;
+      opacity: 0.35;
+    }
+
+    /* Photo strip on specs page */
+    .specs-photo-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4mm;
+      padding: 0 12mm;
+      margin-top: 3mm;
+    }
+
+    .specs-photo-strip img {
+      width: 100%;
+      height: 45mm;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================================
+     PAGE 1 — COVER
+     ============================================================ -->
+<section class="page cover">
+  <div class="cover-grid"></div>
+
+  <!-- Hero photo background -->
+  <div class="cover-hero-photo">
+    <img src="mediatouse/DJI_20241018121447_0046_D-scaled.jpg" alt="Burgers Double Deck Trailer aerial photo">
+  </div>
+
+  <div class="cover-header" style="z-index: 10; position: relative;">
+    <div class="cover-logo">
+      <img src="assets/images/logo-print-hd-transparent.png" alt="ASSET+ Fleet Solutions">
+    </div>
+    <div class="cover-distributor">
+      <span class="label" style="display: block;">Official Burgers Carrosserie</span>
+      <span class="label" style="display: block; margin-top: 1mm;">Distributor // UAE &amp; GCC</span>
+    </div>
+  </div>
+
+  <div class="cover-visual" style="z-index: 10; position: relative;">
+    <img src="mediatouse/bloemen-burgers-3-2-1-1536x1044.png" alt="Burgers Double Deck Trailer">
+  </div>
+
+  <div class="cover-bottom" style="z-index: 10; position: relative;">
+    <span class="label" style="color: var(--accent); display: block; margin-bottom: 3mm;">Hardware // Double Deck Trailer</span>
+    <h1 class="heading-massive cover-title" style="color: var(--text-primary);">ENGINEERED<br>FOR MAXIMUM<br>YIELD.</h1>
+
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <span class="stat-value">55</span>
+        <span class="stat-label">EUR Pallets<br>Per Transit</span>
+      </div>
+      <div class="cover-stat">
+        <span class="stat-value">60%</span>
+        <span class="stat-label">More Cargo<br>Capacity</span>
+      </div>
+      <div class="cover-stat">
+        <span class="stat-value">40%</span>
+        <span class="stat-label">CO₂<br>Reduction</span>
+      </div>
+      <div class="cover-stat">
+        <span class="stat-value">1 YR</span>
+        <span class="stat-label">Return On<br>Investment</span>
+      </div>
+      <div class="cover-stat" style="margin-left: auto;">
+        <span class="stat-value" style="font-size: 11pt; color: var(--text-muted);">UAE CABINET<br>RES. 138/2023</span>
+        <span class="stat-label" style="color: var(--accent);">Fully Compliant</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-accent-line"></div>
+
+  <!-- Burgers logo small at bottom -->
+  <div class="cover-burgers-logo">
+    <img src="mediatouse/logo-blue.svg" alt="Burgers">
+  </div>
+
+  <!-- Crosshairs decorative -->
+  <div class="crosshair crosshair-light" style="top: 8mm; right: 8mm;"></div>
+  <div class="crosshair crosshair-light" style="bottom: 14mm; left: 8mm;"></div>
+
+  <span class="page-indicator" style="color: var(--text-muted);">01 / 04</span>
+</section>
+
+
+<!-- ============================================================
+     PAGE 2 — PRODUCT OVERVIEW
+     ============================================================ -->
+<section class="page overview">
+  <div class="overview-header">
+    <div>
+      <span class="label">Product Overview // Double Deck System</span>
+      <h2 class="heading-large" style="font-size: 28pt; color: var(--text-primary); margin-top: 2mm;">TWO FLOORS.<br>ONE CHASSIS.</h2>
+    </div>
+    <div style="text-align: right; padding-top: 1mm;">
+      <img src="assets/images/logo-print-hd-transparent.png" alt="ASSET+" style="height: 12mm; opacity: 0.15;">
+    </div>
+  </div>
+
+  <div class="overview-hero">
+    <div class="overview-render">
+      <img src="mediatouse/projecten-burgers-14-1536x956.jpg" alt="Burgers Double Deck Trailer">
+    </div>
+    <div class="overview-usps">
+      <div class="usp-item" data-index="01">
+        <div class="usp-value">60%</div>
+        <div class="usp-desc">More cargo per trip vs standard trailer</div>
+      </div>
+      <div class="usp-item" data-index="02">
+        <div class="usp-value">40%</div>
+        <div class="usp-desc">CO₂ emission reduction per pallet</div>
+      </div>
+      <div class="usp-item" data-index="03">
+        <div class="usp-value">&lt;1 YR</div>
+        <div class="usp-desc">Documented return on investment</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overview-features" style="padding-top: 5mm;">
+    <span class="label" style="display: block; margin-bottom: 2mm;">Key Features</span>
+    <div class="feature-grid">
+      <div class="feature-item">53-55 Europallets per transit</div>
+      <div class="feature-item">Hydraulic adjustable upper deck</div>
+      <div class="feature-item">Ground-level loading ramp</div>
+      <div class="feature-item">No specialised labour required</div>
+      <div class="feature-item">Dual-zone temperature control</div>
+      <div class="feature-item">Standard warehouse equipment</div>
+      <div class="feature-item">Integrated cargo lashing rails</div>
+      <div class="feature-item">Identical chassis footprint</div>
+    </div>
+  </div>
+
+  <!-- Sectors strip -->
+  <div class="sectors-row">
+    <div class="sector-item">
+      <div class="sector-name">Retail / Dry</div>
+      <div class="sector-desc">Plywood lining</div>
+    </div>
+    <div class="sector-item">
+      <div class="sector-name">Frozen / Chilled</div>
+      <div class="sector-desc">Dual-zone cooling</div>
+    </div>
+    <div class="sector-item">
+      <div class="sector-name">Pharma (JAFZA)</div>
+      <div class="sector-desc">GxP compliant</div>
+    </div>
+    <div class="sector-item">
+      <div class="sector-name">E-Commerce</div>
+      <div class="sector-desc">High volume</div>
+    </div>
+  </div>
+
+  <!-- Loading sequence -->
+  <div style="padding: 4mm 12mm 0;">
+    <span class="label" style="display: block; margin-bottom: 2mm;">Loading Sequence</span>
+  </div>
+  <div class="loading-sequence">
+    <div class="load-step">
+      <div class="load-step-num">01</div>
+      <div class="load-step-text">Lower deck<br>via standard dock</div>
+    </div>
+    <div class="load-step">
+      <div class="load-step-num">02</div>
+      <div class="load-step-text">Upper deck<br>raised hydraulically</div>
+    </div>
+    <div class="load-step">
+      <div class="load-step-num">03</div>
+      <div class="load-step-text">Upper deck<br>loaded</div>
+    </div>
+    <div class="load-step">
+      <div class="load-step-num">04</div>
+      <div class="load-step-text">Sequence secured<br>Depart</div>
+    </div>
+  </div>
+
+  <!-- Interior photo strip -->
+  <div class="overview-photo-strip">
+    <div class="photo-strip-image">
+      <img src="mediatouse/must-use/Double-deck-2layers.jpg" alt="Double Deck Interior — Dual Level">
+    </div>
+    <div class="photo-strip-text">
+      <span class="label" style="margin-bottom: 1mm;">Interior</span>
+      <div class="heading-medium" style="font-size: 16pt;">DUAL LEVEL<br>LOADING.</div>
+      <p style="font-family: var(--font-tech); font-size: 8pt; font-weight: 500; text-transform: uppercase; color: var(--text-muted); margin-top: 2mm; letter-spacing: 0.06em; line-height: 1.5;">
+        Full rear-door opening. Both levels accessible from ground level. Integrated cargo securing.
+      </p>
+    </div>
+  </div>
+
+  <!-- Crosshairs -->
+  <div class="crosshair crosshair-dark" style="top: 8mm; right: 8mm;"></div>
+  <span class="page-indicator page-indicator-dark">02 / 04</span>
+</section>
+
+
+<!-- ============================================================
+     PAGE 3 — TECHNICAL SPECIFICATIONS
+     ============================================================ -->
+<section class="page specs-page">
+  <div class="specs-header">
+    <span class="label" style="color: var(--accent);">Technical Parameters</span>
+    <h2 class="heading-large specs-title" style="font-size: 30pt;">SPECIFICATIONS</h2>
+  </div>
+
+  <div class="specs-tables">
+    <div class="spec-table-wrap">
+      <h3>Hardware<br>Variants</h3>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Class</th>
+            <th>Length</th>
+            <th>Axles</th>
+            <th>Payload</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>City</td>
+            <td>11.30m</td>
+            <td>2-3</td>
+            <td class="highlight">53 Pallets</td>
+          </tr>
+          <tr>
+            <td>Standard</td>
+            <td>13.60m</td>
+            <td>2-4</td>
+            <td class="highlight">55 Pallets</td>
+          </tr>
+          <tr>
+            <td>Longhaul</td>
+            <td>16.15m</td>
+            <td>3-4</td>
+            <td class="highlight">55 Pallets</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="spec-table-wrap">
+      <h3>Application<br>Matrix</h3>
+      <table class="spec-table">
+        <thead>
+          <tr>
+            <th>Environment</th>
+            <th>Configuration</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Retail / Dry</td>
+            <td>Plywood or dry lining. External elevator.</td>
+          </tr>
+          <tr>
+            <td>Frozen / Chilled</td>
+            <td>Cooled config. Dual-zone temperature.</td>
+          </tr>
+          <tr>
+            <td>Pharma (JAFZA)</td>
+            <td>Insulated. GxP thermal retention.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Cutaway diagram -->
+  <div class="specs-cutaway">
+    <span class="label" style="color: var(--accent); margin-bottom: 1mm;">Internal Architecture</span>
+    <img src="assets/images/double-deck-transparent-1-8.png" alt="Double Deck Trailer Cutaway Diagram">
+
+    <div class="specs-cutaway-legend">
+      <div class="legend-item">
+        <span class="legend-num">01.</span>
+        <span class="legend-text">Ground-level rear loading ramp</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-num">05.</span>
+        <span class="legend-text">Multi-axle load distribution</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-num">02.</span>
+        <span class="legend-text">Reinforced rear door threshold</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-num">06.</span>
+        <span class="legend-text">Structural frame with mech. systems</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-num">03.</span>
+        <span class="legend-text">Lower deck cargo floor</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-num">07.</span>
+        <span class="legend-text">Front wall cargo containment</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-num">04.</span>
+        <span class="legend-text">Hydraulic adjustable upper deck</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-num">08.</span>
+        <span class="legend-text">Roof structure / upper deck ceiling</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compliance bar -->
+  <div class="compliance-bar">
+    <div class="compliance-item">
+      <div class="compliance-value">4.00<span style="font-size: 8pt; color: rgba(255,255,255,0.5);">m</span></div>
+      <div class="compliance-label">Height (max 4.60m)</div>
+    </div>
+    <div class="compliance-item">
+      <div class="compliance-value">2.55<span style="font-size: 8pt; color: rgba(255,255,255,0.5);">m</span></div>
+      <div class="compliance-label">Width (max 2.60m)</div>
+    </div>
+    <div class="compliance-item">
+      <div class="compliance-value" style="color: var(--accent);">RES. 138</div>
+      <div class="compliance-label">UAE Cabinet Resolution 2023</div>
+    </div>
+  </div>
+
+  <div class="specs-accent"></div>
+
+  <!-- Crosshairs -->
+  <div class="crosshair crosshair-light" style="top: 8mm; right: 8mm;"></div>
+  <span class="page-indicator" style="color: var(--text-muted);">03 / 04</span>
+</section>
+
+
+<!-- ============================================================
+     PAGE 4 — CTA / CONTACT
+     ============================================================ -->
+<section class="page cta-page">
+  <div class="cta-top">
+    <div class="cta-grid-pattern"></div>
+
+    <span class="label" style="color: var(--accent);">Need a Custom Specification?</span>
+    <h2 class="heading-massive cta-heading">REQUEST<br>A QUOTE.</h2>
+    <p class="cta-subtitle">
+      Tell us about your fleet requirements. We'll prepare a tailored specification within 48 hours.
+      Our team is ready to discuss the right configuration for your fleet in the UAE and GCC region.
+    </p>
+
+    <div class="cta-contact-grid">
+      <div class="contact-block">
+        <span class="contact-icon">✉</span>
+        <span class="contact-label">Email</span>
+        <span class="contact-value">info@assetplus.ae</span>
+      </div>
+      <div class="contact-block">
+        <span class="contact-icon" style="color: #25D366;">W</span>
+        <span class="contact-label">WhatsApp</span>
+        <span class="contact-value">+971 (0) XX<br>XXX XXXX</span>
+      </div>
+      <div class="contact-block">
+        <span class="contact-icon">⌂</span>
+        <span class="contact-label">Web</span>
+        <span class="contact-value">assetplus.ae</span>
+      </div>
+    </div>
+
+    <!-- Crosshairs -->
+    <div class="crosshair crosshair-light" style="top: 8mm; right: 8mm; z-index: 10;"></div>
+    <div class="crosshair crosshair-light" style="bottom: 12mm; left: 8mm; z-index: 10;"></div>
+  </div>
+
+  <!-- Proven at scale strip -->
+  <div style="background: var(--bg-dark); border-top: 1px solid var(--grid-line-light); display: flex; justify-content: center; gap: 12mm; padding: 5mm 12mm;">
+    <div style="text-align: center;">
+      <span style="font-family: var(--font-heavy); font-weight: 700; font-size: 18pt; color: var(--accent);">2,400+</span>
+      <span style="display: block; font-family: var(--font-tech); font-size: 5pt; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); margin-top: 1mm;">Action Stores Supplied</span>
+    </div>
+    <div style="text-align: center;">
+      <span style="font-family: var(--font-heavy); font-weight: 700; font-size: 18pt; color: var(--accent);">1,350+</span>
+      <span style="display: block; font-family: var(--font-tech); font-size: 5pt; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); margin-top: 1mm;">Zeeman Stores Supplied</span>
+    </div>
+    <div style="text-align: center;">
+      <span style="font-family: var(--font-heavy); font-weight: 700; font-size: 18pt; color: var(--accent);">100+</span>
+      <span style="display: block; font-family: var(--font-tech); font-size: 5pt; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.4); margin-top: 1mm;">Years Engineering Heritage</span>
+    </div>
+  </div>
+
+  <!-- Brand footer -->
+  <div class="cta-bottom">
+    <div class="cta-brand">
+      <img src="assets/images/logo-print-hd-transparent.png" alt="ASSET+ Fleet Solutions">
+      <div class="cta-brand-text">
+        <span class="cta-brand-name">ASSET+ Fleet Solutions</span>
+        <span class="cta-brand-desc">Official distributor of Burgers Carrosserie<br>for the UAE and GCC</span>
+      </div>
+    </div>
+    <div class="cta-legal">
+      <span>&copy; 2026 ASSET+ Fleet Solutions</span>
+      <span class="accent">Dubai, UAE</span>
+    </div>
+  </div>
+
+  <span class="page-indicator page-indicator-dark" style="bottom: 4mm;">04 / 04</span>
+</section>
+
+</body>
+</html>

@@ -11,3 +11,7 @@ mediatouse/videos/eindejaarsvideo-2025-engels.mp4
 *.mkv
 
 .vercel
+
+# Claude Code
+.agents/
+*.skill

@@ -4,12 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Interfleet Mobility GCC | Contact</title>
-  <meta name="description" content="Contact Interfleet Mobility GCC for Double Deck Trailer solutions in the UAE.">
+  <title>Request a Quote | Double Deck Trailers Dubai &amp; UAE | ASSET+ Fleet Solutions</title>
+  <meta name="description" content="Request a custom double deck trailer specification for your UAE fleet. No obligation quote within 48 hours. Tell us your fleet size and cargo type.">
   <link rel="icon" type="image/png" href="assets/images/logo.png">
-  <meta property="og:title" content="Interfleet Mobility GCC | Contact">
-  <meta property="og:description" content="Contact us for Double Deck Trailer solutions in the UAE.">
-  <meta property="og:image" content="assets/images/interfleet-hero.jpeg">
+  <link rel="canonical" href="https://www.assetplus.ae/contact.html">
+  <meta property="og:title" content="Request a Quote | Double Deck Trailers Dubai | ASSET+">
+  <meta property="og:description" content="Get a custom double deck trailer specification for your UAE fleet. No obligation, response within 48 hours.">
+  <meta property="og:image" content="https://www.assetplus.ae/assets/images/interfleet-hero.jpeg">
+  <meta property="og:url" content="https://www.assetplus.ae/contact.html">
+  <meta property="og:site_name" content="ASSET+ Fleet Solutions">
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/components.css">
@@ -20,7 +23,7 @@
 
   <nav class="navbar" id="navbar">
     <a href="index.html" class="nav-logo"><img src="assets/images/logo-print-hd-transparent.png"
-        alt="Interfleet Mobility GCC"></a>
+        alt="ASSET+ Fleet Solutions"></a>
     <button class="menu-toggle" id="menuToggle"
       aria-label="Toggle navigation"><span></span><span></span><span></span></button>
     <div class="nav-links" id="navLinks">
@@ -50,7 +53,7 @@
           <div style="margin-bottom: var(--space-lg);" class="reveal reveal-delay-2">
             <span class="text-tech" style="display:block; margin-bottom: 0.5rem;">EMAIL //</span>
             <h3 style="font-size: 1.3rem; text-transform: lowercase; font-weight: 400; font-family: var(--font-tech);">
-              info@interfleetmobility.com</h3>
+              info@assetplus.ae</h3>
           </div>
 
           <div class="reveal reveal-delay-3">
@@ -75,10 +78,12 @@
         <!-- Form -->
         <div class="reveal reveal-delay-2"
           style="background: var(--bg-light); padding: var(--space-lg); border-radius: 0; border: 1px solid var(--grid-line);">
-          <span class="text-tech" style="color: var(--accent); display:block; margin-bottom: var(--space-md);">SEND US A
-            MESSAGE</span>
-          <form id="contactForm" action="https://formsubmit.co/info@interfleetmobility.com" method="POST">
-            <input type="hidden" name="_subject" value="New Interfleet Website Inquiry">
+          <span class="text-tech" style="color: var(--accent); display:block; margin-bottom: var(--space-sm);">REQUEST A QUOTE</span>
+          <p style="font-family: var(--font-tech); font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--space-md); line-height: 1.6;">
+            Custom specification within 48 hours. No obligation.
+          </p>
+          <form id="contactForm" action="https://formsubmit.co/info@assetplus.ae" method="POST">
+            <input type="hidden" name="_subject" value="New ASSET+ Website Inquiry">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_template" value="table">
             <input type="text" name="_honey" style="display:none">
@@ -93,26 +98,59 @@
               <input type="text" id="company" name="company" class="form-control" required placeholder="Company name">
             </div>
 
-            <div class="form-group">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" id="email" name="email" class="form-control" required placeholder="Your email">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control" required placeholder="Your email">
+              </div>
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone / WhatsApp</label>
+                <input type="tel" id="phone" name="phone" class="form-control" placeholder="+971 XX XXX XXXX">
+              </div>
             </div>
 
-            <div class="form-group">
-              <label for="phone" class="form-label">Phone / WhatsApp</label>
-              <input type="tel" id="phone" name="phone" class="form-control" placeholder="+971 XX XXX XXXX">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="fleet-size" class="form-label">Fleet Size</label>
+                <select id="fleet-size" name="fleet_size" class="form-select">
+                  <option value="" disabled selected>Select fleet size</option>
+                  <option value="1-10">1 - 10 units</option>
+                  <option value="11-50">11 - 50 units</option>
+                  <option value="51-200">51 - 200 units</option>
+                  <option value="200+">200+ units</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="sector" class="form-label">Sector</label>
+                <select id="sector" name="sector" class="form-select">
+                  <option value="" disabled selected>Select sector</option>
+                  <option value="retail-dry">Retail / Dry Goods</option>
+                  <option value="frozen-chilled">Frozen / Chilled</option>
+                  <option value="pharma">Pharmaceutical</option>
+                  <option value="ecommerce">E-Commerce / Parcel</option>
+                  <option value="fmcg">FMCG / Consumer Goods</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
             </div>
 
             <div class="form-group">
               <label for="message" class="form-label">Message</label>
               <textarea id="message" name="message" class="form-control" required
-                placeholder="Tell us about your fleet requirements..."></textarea>
+                placeholder="Tell us about your fleet requirements, routes, and cargo type..."></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Request Custom Specification</button>
+
+            <!-- Trust indicators -->
+            <div style="margin-top: var(--space-md); display: flex; flex-wrap: wrap; gap: 0.8rem;">
+              <span class="trust-badge"><span class="trust-icon">&#10003;</span> No obligation</span>
+              <span class="trust-badge"><span class="trust-icon">&#10003;</span> Response within 48h</span>
+              <span class="trust-badge"><span class="trust-icon">&#10003;</span> Data never shared</span>
+            </div>
 
             <div id="formStatus" class="text-tech" style="margin-top: 1rem; color: var(--accent); display:none;">MESSAGE
-              SENT SUCCESSFULLY.</div>
+              SENT SUCCESSFULLY. WE WILL RESPOND WITHIN 48 HOURS.</div>
           </form>
         </div>
       </div>
@@ -123,7 +161,7 @@
   <footer class="footer-brutal">
     <div class="footer-content">
       <div style="border-right: 1px solid var(--grid-line-light); padding-right: 5vw;">
-        <img src="assets/images/logo-print-hd-transparent.png" alt="Interfleet Mobility"
+        <img src="assets/images/logo-print-hd-transparent.png" alt="ASSET+ Fleet Solutions"
           style="height: 80px; filter: brightness(200%); margin-bottom: var(--space-lg);">
         <p class="text-tech" style="font-size: 0.7rem; max-width: 40ch; color: rgba(255,255,255,0.4);">Official
           distributor of Burgers Carrosserie for the UAE and GCC.</p>
@@ -142,7 +180,7 @@
           <span class="text-tech"
             style="color: var(--text-light); margin-bottom: var(--space-md); display:block;">CONTACT</span>
           <span class="text-tech" style="display:block; margin-bottom: 8px;">WhatsApp: +971 (0) XX XXX XXXX</span>
-          <span class="text-tech" style="display:block; margin-bottom: 8px;">info@interfleetmobility.com</span>
+          <span class="text-tech" style="display:block; margin-bottom: 8px;">info@assetplus.ae</span>
           <a href="https://linkedin.com" target="_blank" rel="noopener" class="text-tech"
             style="color: var(--accent); display:block;">LinkedIn</a>
         </div>
@@ -158,7 +196,7 @@
 
     <div
       style="border-top: 1px solid rgba(255,255,255,0.15); padding: 10px 5vw; display:flex; justify-content:space-between; position:relative; z-index:2; background: var(--bg-dark);">
-      <span class="text-tech" style="font-size: 0.6rem;">&copy; 2026 Interfleet Mobility GCC</span>
+      <span class="text-tech" style="font-size: 0.6rem;">&copy; 2026 ASSET+ Fleet Solutions</span>
       <span class="text-tech" style="font-size: 0.6rem; color: var(--accent);">DUBAI, UAE</span>
     </div>
   </footer>

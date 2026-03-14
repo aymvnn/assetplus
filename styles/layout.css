@@ -1,5 +1,5 @@
 /* ========================================
-   INTERFLEET MOBILITY GCC — Layout
+   ASSET+ FLEET SOLUTIONS — Layout
    Premium UX — €50K Agency Grade
 ======================================== */
 
@@ -761,7 +761,7 @@
 /* Flickering Grid Container */
 .flickering-grid-wrapper {
   width: 100%;
-  height: 200px;
+  height: 250px;
   position: relative;
   margin-top: -10px;
   /* Pull it up closer to content */
@@ -774,9 +774,9 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, var(--bg-dark) 0%, transparent 100%);
+  background: linear-gradient(to top, var(--bg-dark) 0%, transparent 30%);
   z-index: 1;
-  /* Fade into content */
+  /* Fade into footer bar */
 }
 
 .flickering-canvas-container {

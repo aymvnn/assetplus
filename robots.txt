@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.assetplus.ae/sitemap.xml
+
+# ASSET+ Fleet Solutions — Double Deck Trailers UAE
+# Official Burgers Carrosserie Distributor
