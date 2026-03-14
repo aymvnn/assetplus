@@ -119,6 +119,11 @@ function initVideoAutoplay() {
     video.muted = true;
     video.playsInline = true;
 
+    // Slow down hero video for smoother feel
+    if (video.classList.contains('hero-video')) {
+      video.playbackRate = 0.7;
+    }
+
     // Try immediate play
     const playPromise = video.play();
     if (playPromise !== undefined) {
