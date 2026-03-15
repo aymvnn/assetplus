@@ -189,10 +189,14 @@ function animateNumber(el, start, end, duration, prefix, suffix) {
   const startTime = performance.now();
   const isFloat = end % 1 !== 0;
 
+  function easeOutQuart(t) {
+    return 1 - Math.pow(1 - t, 4);
+  }
+
   function update(currentTime) {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+    const eased = easeOutQuart(progress);
     const current = start + (end - start) * eased;
 
     if (isFloat) {

@@ -13,6 +13,17 @@
   <meta property="og:image" content="https://www.assetplus.ae/assets/images/interfleet-hero.jpeg">
   <meta property="og:url" content="https://www.assetplus.ae/contact.html">
   <meta property="og:site_name" content="ASSET+ Fleet Solutions">
+  <!-- Font preloading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+  <!-- Hreflang -->
+  <link rel="alternate" hreflang="en" href="https://www.assetplus.ae/contact.html">
+  <link rel="alternate" hreflang="ar" href="https://www.assetplus.ae/ar/contact.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.assetplus.ae/contact.html">
+
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/layout.css">
   <link rel="stylesheet" href="styles/components.css">
@@ -22,7 +33,7 @@
 <body>
 
   <nav class="navbar" id="navbar">
-    <a href="index.html" class="nav-logo"><img src="assets/images/logo-print-hd-transparent.png"
+    <a href="index.html" class="nav-logo"><img src="assets/images/ASSETPLUSlogo-web-hd-transparent-V2.png"
         alt="ASSET+ Fleet Solutions"></a>
     <button class="menu-toggle" id="menuToggle"
       aria-label="Toggle navigation"><span></span><span></span><span></span></button>
@@ -48,7 +59,7 @@
 
           <div style="margin-bottom: var(--space-lg);" class="reveal reveal-delay-1">
             <span class="text-tech" style="display:block; margin-bottom: 0.5rem;">PHONE //</span>
-            <h3 style="font-size: 1.8rem;">+971 (0) XX XXX XXXX</h3>
+            <h3 style="font-size: 1.8rem;">+971 58 580 5907</h3>
           </div>
 
           <div style="margin-bottom: var(--space-lg);" class="reveal reveal-delay-2">
@@ -64,7 +75,7 @@
           </div>
 
           <div style="margin-top: var(--space-xl);" class="reveal reveal-delay-4">
-            <a href="https://wa.me/971XXXXXXXXX" target="_blank" rel="noopener" class="btn"
+            <a href="https://wa.me/971585805907" target="_blank" rel="noopener" class="btn"
               style="border-color: #25D366; color: #25D366; display: inline-flex; align-items: center; gap: 0.6rem;">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
                 style="width:18px; height:18px; fill:#25D366;">
@@ -151,7 +162,7 @@
                 placeholder="Tell us about your fleet requirements, routes, and cargo type..."></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Request Custom Specification</button>
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Request Custom Specification <span class="btn-arrow">&rarr;</span></button>
 
             <!-- Trust indicators -->
             <div style="margin-top: var(--space-md); display: flex; flex-wrap: wrap; gap: 0.8rem;">
@@ -172,7 +183,7 @@
   <footer class="footer-brutal">
     <div class="footer-content">
       <div style="border-right: 1px solid var(--grid-line-light); padding-right: 5vw;">
-        <img src="assets/images/logo-print-hd-transparent.png" alt="ASSET+ Fleet Solutions"
+        <img src="assets/images/ASSETPLUSlogo-web-hd-transparent-V2.png" alt="ASSET+ Fleet Solutions"
           style="height: 80px; filter: brightness(200%); margin-bottom: var(--space-lg);">
         <p class="text-tech" style="font-size: 0.7rem; max-width: 40ch; color: rgba(255,255,255,0.4);">Official
           distributor of Burgers Carrosserie for the UAE and GCC.</p>
@@ -190,10 +201,8 @@
         <div>
           <span class="text-tech"
             style="color: var(--text-light); margin-bottom: var(--space-md); display:block;">CONTACT</span>
-          <span class="text-tech" style="display:block; margin-bottom: 8px;">WhatsApp: +971 (0) XX XXX XXXX</span>
+          <span class="text-tech" style="display:block; margin-bottom: 8px;">WhatsApp: +971 58 580 5907</span>
           <span class="text-tech" style="display:block; margin-bottom: 8px;">info@assetplus.ae</span>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="text-tech"
-            style="color: var(--accent); display:block;">LinkedIn</a>
         </div>
       </div>
     </div>
@@ -206,14 +215,18 @@
     </div>
 
     <div
-      style="border-top: 1px solid rgba(255,255,255,0.15); padding: 10px 5vw; display:flex; justify-content:space-between; position:relative; z-index:2; background: var(--bg-dark);">
+      style="border-top: 1px solid rgba(255,255,255,0.15); padding: 10px 5vw; display:flex; justify-content:space-between; flex-wrap: wrap; gap: 8px; position:relative; z-index:2; background: var(--bg-dark);">
       <span class="text-tech" style="font-size: 0.6rem;">&copy; 2026 ASSET+ Fleet Solutions</span>
+      <span class="text-tech" style="font-size: 0.6rem;">
+        <a href="privacy-policy.html" style="color: rgba(255,255,255,0.4);">Privacy Policy</a> &nbsp;|&nbsp;
+        <a href="terms-of-service.html" style="color: rgba(255,255,255,0.4);">Terms of Service</a>
+      </span>
       <span class="text-tech" style="font-size: 0.6rem; color: var(--accent);">DUBAI, UAE</span>
     </div>
   </footer>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/971XXXXXXXXX" target="_blank" rel="noopener" class="whatsapp-float"
+  <a href="https://wa.me/971585805907" target="_blank" rel="noopener" class="whatsapp-float"
     aria-label="Chat on WhatsApp">
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -222,6 +235,7 @@
   </a>
   <script src="js/main.js"></script>
   <script src="js/contact.js"></script>
+  <script src="js/cookie-consent.js"></script>
 </body>
 
 </html>

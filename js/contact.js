@@ -37,5 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled = true;
       btn.style.pointerEvents = 'none';
     }
+
+    // GA4 conversion event — fires when form is successfully submitted
+    // Will activate once GA4 is installed (Item 1 — comes later)
+    if (typeof gtag === 'function') {
+      gtag('event', 'generate_lead', {
+        event_category: 'form',
+        event_label: form.querySelector('#interest')?.value || 'general',
+        value: 1
+      });
+    }
   });
 });

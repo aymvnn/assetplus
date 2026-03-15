@@ -7,6 +7,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.6rem;
   font-family: var(--font-tech);
   font-size: 0.85rem;
   font-weight: 700;
@@ -20,6 +21,18 @@
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 1;
+}
+
+/* Arrow icon in buttons — slides right on hover */
+.btn .btn-arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 1em;
+  line-height: 1;
+}
+
+.btn:hover .btn-arrow {
+  transform: translateX(4px);
 }
 
 /* Fill-from-bottom animation — all buttons */
@@ -78,11 +91,16 @@
   border: 1px solid var(--grid-line);
   padding: var(--space-lg);
   position: relative;
-  background: var(--bg-color);
-  transition: border-color 0.3s ease;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.data-module:hover { border-color: var(--accent); }
+.data-module:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
 
 .data-module::before {
   content: attr(data-index);
@@ -168,6 +186,7 @@
   outline: none;
   border-color: var(--accent);
   background: var(--bg-color);
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.08);
 }
 
 textarea.form-control { min-height: 150px; resize: vertical; }
@@ -215,11 +234,26 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 .stat-item {
   text-align: center;
   padding: var(--space-lg) var(--space-md);
+  position: relative;
 }
 
 .stat-item .tech-number {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  position: relative;
+}
+
+/* Accent underline under stat numbers */
+.stat-item .tech-number::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 32px;
+  height: 2px;
+  background: var(--accent);
 }
 
 /* ========== FAQ ACCORDION ========== */
@@ -236,22 +270,30 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
+  padding: 1.5rem 1rem;
+  margin: 0 -1rem;
   font-family: var(--font-heavy);
   font-size: clamp(1rem, 1.4vw, 1.25rem);
   text-transform: uppercase;
   font-weight: 700;
   color: var(--text-primary);
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, background 0.3s ease;
   background: none;
   border: none;
-  width: 100%;
+  width: calc(100% + 2rem);
   text-align: left;
   line-height: 1.3;
 }
 
-.faq-question:hover { color: var(--accent); }
+.faq-question:hover {
+  color: var(--accent);
+  background: rgba(204, 0, 0, 0.03);
+}
+
+.faq-item.open .faq-question {
+  color: var(--accent);
+}
 
 .faq-question::after {
   content: '+';
@@ -261,7 +303,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   font-weight: 700;
   flex-shrink: 0;
   margin-left: 1rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .faq-item.open .faq-question::after {
@@ -271,7 +313,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
+  transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), padding 0.5s ease;
   padding: 0 0 0 0;
 }
 
@@ -394,6 +436,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   outline: none;
   border-color: var(--accent);
   background-color: var(--bg-color);
+  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.08);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23CC0000' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
 }
 
@@ -423,10 +466,13 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   text-align: center;
   border-right: 1px solid var(--grid-line);
   position: relative;
+  overflow: hidden;
+  transition: background 0.4s ease;
 }
 
 .roi-item:last-child { border-right: none; }
 
+/* Index badge — upgraded with wider tag look */
 .roi-item::before {
   content: attr(data-index);
   position: absolute;
@@ -434,8 +480,33 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   background: var(--accent);
   color: var(--text-light);
   font-family: var(--font-tech);
-  font-size: 0.65rem;
-  padding: 0.2rem 0.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  padding: 0.3rem 0.7rem;
+  z-index: 2;
+}
+
+/* Corner crosshair — bottom-right industrial accent */
+.roi-item::after {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  border-right: 1px solid rgba(204, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(204, 0, 0, 0.2);
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+}
+
+/* Hover — subtle background shift + accent corners */
+.roi-item:hover {
+  background: rgba(204, 0, 0, 0.02);
+}
+
+.roi-item:hover::after {
+  border-color: var(--accent);
 }
 
 .roi-value {
@@ -445,7 +516,26 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   color: var(--accent);
   line-height: 1;
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  position: relative;
+}
+
+/* Accent underline — animates in from left */
+.roi-value::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.roi-item:hover .roi-value::after {
+  width: 80px;
 }
 
 .roi-label {
@@ -455,12 +545,22 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   letter-spacing: 0.1em;
   color: var(--text-muted);
   display: block;
+  line-height: 1.6;
 }
 
 /* Dark section ROI */
 .dark-section .roi-grid { border-color: var(--grid-line-light); }
 .dark-section .roi-item { border-right-color: var(--grid-line-light); }
 .dark-section .roi-label { color: rgba(255,255,255,0.5); }
+.dark-section .roi-item::after {
+  border-color: rgba(204, 0, 0, 0.15);
+}
+.dark-section .roi-item:hover {
+  background: rgba(204, 0, 0, 0.04);
+}
+.dark-section .roi-item:hover::after {
+  border-color: var(--accent);
+}
 
 /* ========== ELC PROCESS STEPS ========== */
 .boxed-grid-4 {
@@ -474,6 +574,8 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   padding: var(--space-lg) var(--space-md);
   border-right: 1px solid var(--grid-line-light);
   position: relative;
+  overflow: hidden;
+  transition: background 0.4s ease;
 }
 
 .elc-step:last-child { border-right: none; }
@@ -485,10 +587,35 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   background: var(--accent);
   color: var(--text-light);
   font-family: var(--font-tech);
-  font-size: 0.65rem;
-  padding: 0.2rem 0.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  padding: 0.3rem 0.7rem;
+  z-index: 2;
 }
 
+/* Corner crosshair — bottom-right */
+.elc-step::after {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  border-right: 1px solid rgba(204, 0, 0, 0.15);
+  border-bottom: 1px solid rgba(204, 0, 0, 0.15);
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+}
+
+.elc-step:hover {
+  background: rgba(204, 0, 0, 0.04);
+}
+
+.elc-step:hover::after {
+  border-color: var(--accent);
+}
+
+/* Red accent line on top of title */
 .elc-step-title {
   font-family: var(--font-heavy);
   font-size: 1.1rem;
@@ -497,6 +624,8 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   color: var(--text-light);
   line-height: 1.2;
   margin-bottom: var(--space-sm);
+  padding-top: var(--space-sm);
+  border-top: 2px solid var(--accent);
 }
 
 .elc-step-desc {
