@@ -462,6 +462,64 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 .dark-section .roi-item { border-right-color: var(--grid-line-light); }
 .dark-section .roi-label { color: rgba(255,255,255,0.5); }
 
+/* ========== ELC PROCESS STEPS ========== */
+.boxed-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--grid-line-light);
+}
+
+.elc-step {
+  padding: var(--space-lg) var(--space-md);
+  border-right: 1px solid var(--grid-line-light);
+  position: relative;
+}
+
+.elc-step:last-child { border-right: none; }
+
+.elc-step::before {
+  content: attr(data-index);
+  position: absolute;
+  top: 0; left: 0;
+  background: var(--accent);
+  color: var(--text-light);
+  font-family: var(--font-tech);
+  font-size: 0.65rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.elc-step-title {
+  font-family: var(--font-heavy);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-light);
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+.elc-step-desc {
+  font-family: var(--font-tech);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.5);
+}
+
+@media (max-width: 1024px) {
+  .boxed-grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .elc-step:nth-child(2) { border-right: none; }
+  .elc-step:nth-child(1),
+  .elc-step:nth-child(2) { border-bottom: 1px solid var(--grid-line-light); }
+}
+
+@media (max-width: 768px) {
+  .boxed-grid-4 { grid-template-columns: 1fr; }
+  .elc-step { border-right: none !important; border-bottom: 1px solid var(--grid-line-light); }
+  .elc-step:last-child { border-bottom: none; }
+}
+
 /* Responsive: ROI + comparison + FAQ */
 @media (max-width: 768px) {
   .roi-grid { grid-template-columns: 1fr; }
