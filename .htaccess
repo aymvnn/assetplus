@@ -5,16 +5,20 @@
 
 # --- Force HTTPS & remove www ---
 # NOTE: Only enable these when a real domain + SSL is configured.
-# On Cloudways staging subdomain, these cause redirect loops.
-# Uncomment below when assetplus.ae is connected with SSL:
-#
-# RewriteEngine On
-# RewriteCond %{HTTP:X-Forwarded-Proto} !https
-# RewriteCond %{HTTPS} off
-# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-#
-# RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-# RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+# On Cloudways, HTTPS redirect is handled at the server level (Nginx).
+# Do NOT enable the rewrite rules below — Cloudways handles SSL termination.
+# Only the www-removal is active, scoped to production domains.
+
+RewriteEngine On
+
+# Redirect www to non-www (only for production domains)
+RewriteCond %{HTTP_HOST} ^www\.assetplusgcc\.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www\.assetplus\.ae$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Redirect assetplus.ae to assetplusgcc.com (primary domain)
+RewriteCond %{HTTP_HOST} ^(www\.)?assetplus\.ae$ [NC]
+RewriteRule ^(.*)$ https://assetplusgcc.com/$1 [R=301,L]
 
 # --- Custom 404 ---
 ErrorDocument 404 /404.html
