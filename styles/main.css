@@ -41,7 +41,7 @@
   --bg-warm: #EFEDEB;
   --text-primary: #111111;
   --text-light: #FFFFFF;
-  --text-muted: #6B6B6B;
+  --text-muted: #4A4A4A;
   --accent: #CC0000;
   --grid-line: rgba(0, 0, 0, 0.08);
   --grid-line-light: rgba(255, 255, 255, 0.1);
@@ -298,7 +298,7 @@ a {
 
 .dark-section p,
 .dark-section .text-tech {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .light-section {

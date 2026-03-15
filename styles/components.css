@@ -148,7 +148,7 @@
 .spec-table td.highlight { color: var(--accent); font-weight: 700; }
 
 /* Dark section tables */
-.dark-section .spec-table th { color: rgba(255,255,255,0.4); }
+.dark-section .spec-table th { color: rgba(255,255,255,0.6); }
 .dark-section .spec-table td { color: var(--text-light); }
 .dark-section .spec-table td.highlight { color: var(--accent); }
 .dark-section .spec-table th,
@@ -163,7 +163,7 @@
 .form-label {
   display: block;
   font-family: var(--font-tech);
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
   margin-bottom: 0.5rem;
   text-transform: uppercase;
@@ -212,7 +212,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 }
 
 /* Dark section feature lists */
-.dark-section .feature-list li { border-bottom-color: var(--grid-line-light); color: rgba(255,255,255,0.8); }
+.dark-section .feature-list li { border-bottom-color: var(--grid-line-light); color: rgba(255,255,255,0.88); }
 
 /* ========== CUTAWAY SECTION ========== */
 .cutaway-section {
@@ -332,7 +332,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 /* Dark section FAQ */
 .dark-section .faq-question { color: var(--text-light); }
 .dark-section .faq-item { border-bottom-color: var(--grid-line-light); }
-.dark-section .faq-answer p { color: rgba(255,255,255,0.6); }
+.dark-section .faq-answer p { color: rgba(255,255,255,0.75); }
 
 /* ========== COMPARISON TABLE ========== */
 .comparison-table {
@@ -380,8 +380,8 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 .dark-section .comparison-table th { border-bottom-color: var(--grid-line-light); }
 .dark-section .comparison-table td { border-bottom-color: var(--grid-line-light); }
 .dark-section .comparison-table th:first-child,
-.dark-section .comparison-table td:first-child { color: rgba(255,255,255,0.4); }
-.dark-section .comparison-table td.standard-val { color: rgba(255,255,255,0.7); }
+.dark-section .comparison-table td:first-child { color: rgba(255,255,255,0.6); }
+.dark-section .comparison-table td.standard-val { color: rgba(255,255,255,0.8); }
 .dark-section .comparison-table td.dd-val { color: var(--accent); }
 
 /* ========== TRUST BADGES ========== */
