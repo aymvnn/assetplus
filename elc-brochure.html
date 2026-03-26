@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ASSET+ Fleet Solutions — Double Deck Trailer Brochure</title>
+  <title>ASSET+ Fleet Solutions — ELC Trailer Brochure</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap">
   <style>
     /* ========================================
@@ -213,7 +213,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 40%;
+      object-position: center 30%;
+      opacity: 0.2;
     }
 
     .cover-hero-photo::after {
@@ -250,20 +251,20 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 0 8mm;
-      margin-top: -8mm;
+      padding: 4mm 12mm;
+      margin-top: 0;
     }
 
     .cover-visual img {
-      width: 88%;
-      max-height: 130mm;
-      object-fit: contain;
-      filter: drop-shadow(0 15px 50px rgba(0,0,0,0.6));
-      position: relative;
-      z-index: 2;
+      width: 100%;
+      height: 118mm;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      border-radius: 2px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
     }
 
-    /* Subtle background glow */
     .cover-visual::before {
       content: '';
       position: absolute;
@@ -274,11 +275,6 @@
       height: 60%;
       background: radial-gradient(ellipse, rgba(204,0,0,0.06) 0%, transparent 70%);
       z-index: 1;
-    }
-
-    /* Grid pattern overlay — removed for light bg */
-    .cover-grid {
-      display: none;
     }
 
     .cover-bottom {
@@ -333,22 +329,22 @@
     }
 
     /* ========================================
-       PAGE 2 — PRODUCT OVERVIEW
+       PAGE 2 — WHY ELC + PROCESS
     ======================================== */
-    .overview {
+    .process-page {
       background: var(--bg-color);
       display: flex;
       flex-direction: column;
     }
 
-    .overview-header {
+    .process-header {
       padding: 10mm 12mm 0;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
     }
 
-    .overview-hero {
+    .process-hero {
       display: grid;
       grid-template-columns: 52% 48%;
       padding: 6mm 12mm 0;
@@ -356,26 +352,17 @@
       flex: 0 0 auto;
     }
 
-    .overview-render {
+    .process-render {
       background: var(--bg-light);
       border-radius: 3px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0;
-      position: relative;
       overflow: hidden;
+      position: relative;
     }
 
-    .overview-render::before {
-      display: none;
-    }
-
-    .overview-render::after {
-      display: none;
-    }
-
-    .overview-render img {
+    .process-render img {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -383,7 +370,7 @@
       z-index: 1;
     }
 
-    .overview-usps {
+    .process-usps {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -411,7 +398,7 @@
     .usp-value {
       font-family: var(--font-heavy);
       font-weight: 700;
-      font-size: 28pt;
+      font-size: 24pt;
       color: var(--accent);
       line-height: 1;
       margin-bottom: 1mm;
@@ -426,46 +413,74 @@
       color: var(--text-muted);
     }
 
-    /* Features section */
-    .overview-features {
-      padding: 5mm 12mm 0;
-      flex: 1;
-    }
-
-    .feature-grid {
+    /* ELC 4-step process */
+    .elc-process-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 0;
-      border-top: 1px solid var(--grid-line);
+      margin: 5mm 12mm 0;
+      border: 1px solid var(--grid-line);
     }
 
-    .feature-item {
-      padding: 3.5mm 4mm 3.5mm 7mm;
-      border-bottom: 1px solid var(--grid-line);
+    .elc-step-box {
+      padding: 5mm 4mm;
+      border-right: 1px solid var(--grid-line);
       position: relative;
+    }
+
+    .elc-step-box:last-child {
+      border-right: none;
+    }
+
+    .elc-step-num {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      font-size: 18pt;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 2mm;
+    }
+
+    .elc-step-title {
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      font-size: 9pt;
+      text-transform: uppercase;
+      color: var(--text-primary);
+      margin-bottom: 2mm;
+      line-height: 1.2;
+    }
+
+    .elc-step-desc {
+      font-family: var(--font-tech);
+      font-size: 7pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+    }
+
+    /* Smart choice text block */
+    .smart-choice-block {
+      padding: 4mm 12mm 0;
+    }
+
+    .smart-choice-block p {
       font-family: var(--font-tech);
       font-size: 8.5pt;
       font-weight: 500;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--text-primary);
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      line-height: 1.6;
     }
 
-    .feature-item:nth-child(odd) {
-      border-right: 1px solid var(--grid-line);
-    }
-
-    .feature-item::before {
-      content: '+';
-      position: absolute;
-      left: 2mm;
-      top: 3.5mm;
+    .smart-choice-block .accent {
       color: var(--accent);
-      font-weight: 700;
-      font-family: var(--font-tech);
     }
 
-    /* Interior photo strip */
+    /* Sustainability / Field proven photo strip */
     .overview-photo-strip {
       display: grid;
       grid-template-columns: 60% 40%;
@@ -493,168 +508,167 @@
     }
 
     .photo-strip-text .heading-medium {
-      font-size: 18pt;
+      font-size: 16pt;
       color: var(--text-primary);
       margin-bottom: 2mm;
     }
 
-    /* Loading sequence */
-    .loading-sequence {
-      display: flex;
-      gap: 3mm;
-      padding: 3mm 12mm 5mm;
-    }
-
-    .load-step {
-      flex: 1;
-      text-align: center;
-      padding: 2.5mm;
-      border: 1px solid var(--grid-line);
-      background: var(--bg-light);
-    }
-
-    .load-step-num {
-      font-family: var(--font-heavy);
-      font-weight: 700;
-      font-size: 14pt;
-      color: var(--accent);
-      line-height: 1;
-      margin-bottom: 1mm;
-    }
-
-    .load-step-text {
-      font-family: var(--font-tech);
-      font-size: 7pt;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-muted);
-      line-height: 1.4;
-    }
-
     /* ========================================
-       PAGE 3 — TECHNICAL SPECIFICATIONS
+       PAGE 3 — COMPARISON + CONFIGURATIONS
     ======================================== */
-    .specs-page {
+    .comparison-page {
       background: var(--bg-color);
       color: var(--text-primary);
       display: flex;
       flex-direction: column;
     }
 
-    .specs-header {
+    .comparison-header {
       padding: 10mm 12mm 0;
     }
 
-    .specs-header .heading-large {
-      font-size: 32pt;
+    .comparison-header .heading-large {
+      font-size: 30pt;
       color: var(--text-primary);
       margin-top: 2mm;
     }
 
-    .specs-tables {
-      padding: 6mm 12mm;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6mm;
+    /* Comparison table */
+    .comp-table-wrap {
+      padding: 5mm 12mm 0;
     }
 
-    .spec-table-wrap {
-      /* wrapper */
-    }
-
-    .spec-table-wrap h3 {
-      font-family: var(--font-heavy);
-      font-weight: 700;
-      font-size: 14pt;
-      text-transform: uppercase;
-      color: var(--text-primary);
-      margin-bottom: 3mm;
-      line-height: 1.1;
-    }
-
-    .spec-table {
+    .comp-table {
       width: 100%;
       border-collapse: collapse;
       font-family: var(--font-tech);
-      font-size: 8.5pt;
+      font-size: 8pt;
       font-weight: 500;
     }
 
-    .spec-table th {
-      padding: 2.5mm 2mm;
-      border-bottom: 1px solid var(--grid-line);
+    .comp-table th {
+      padding: 3mm 3mm;
+      border-bottom: 2px solid var(--grid-line);
       text-align: left;
       color: var(--text-muted);
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       font-size: 7.5pt;
+      background: var(--bg-light);
     }
 
-    .spec-table td {
-      padding: 2.5mm 2mm;
+    .comp-table th.elc-col {
+      background: var(--accent);
+      color: var(--text-light);
+      letter-spacing: 0.08em;
+    }
+
+    .comp-table td {
+      padding: 2.5mm 3mm;
       border-bottom: 1px solid var(--grid-line);
       color: var(--text-primary);
       text-transform: uppercase;
+      vertical-align: middle;
     }
 
-    .spec-table td.highlight {
+    .comp-table td.elc-val {
+      background: rgba(204,0,0,0.04);
       color: var(--accent);
+      font-weight: 700;
+      border-left: 2px solid var(--accent);
+      border-right: 2px solid var(--accent);
+    }
+
+    .comp-table td.generic-val {
+      color: var(--text-muted);
+    }
+
+    .comp-table tr:last-child td.elc-val {
+      border-bottom: 2px solid var(--accent);
+    }
+
+    /* Criteria column label style */
+    .comp-table td:first-child {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Configurations row */
+    .config-row {
+      display: flex;
+      gap: 0;
+      margin: 5mm 12mm 0;
+      border: 1px solid var(--grid-line);
+    }
+
+    .config-item {
+      flex: 1;
+      padding: 3.5mm 3mm;
+      text-align: center;
+      border-right: 1px solid var(--grid-line);
+      background: var(--bg-light);
+    }
+
+    .config-item:last-child {
+      border-right: none;
+    }
+
+    .config-name {
+      font-family: var(--font-tech);
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-primary);
       font-weight: 700;
     }
 
-    /* Cutaway section */
-    .specs-cutaway {
-      padding: 2mm 12mm;
-      text-align: center;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      position: relative;
+    .config-desc {
+      font-family: var(--font-tech);
+      font-size: 7pt;
+      font-weight: 500;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.5mm;
+      letter-spacing: 0.06em;
     }
 
-    .specs-cutaway img {
-      width: 82%;
-      object-fit: contain;
-      filter: drop-shadow(0 10px 40px rgba(0,0,0,0.4));
-      margin: 2mm 0;
+    /* Same specs block */
+    .same-specs-block {
+      padding: 5mm 12mm 0;
     }
 
-    .specs-cutaway-legend {
+    .feature-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2mm 8mm;
-      padding: 0 6mm;
-      width: 100%;
+      gap: 0;
+      border-top: 1px solid var(--grid-line);
     }
 
-    .legend-item {
-      display: flex;
-      gap: 2mm;
-      align-items: flex-start;
-      padding: 2mm 0;
+    .feature-item {
+      padding: 3mm 4mm 3mm 7mm;
       border-bottom: 1px solid var(--grid-line);
-    }
-
-    .legend-num {
-      font-family: var(--font-heavy);
-      font-weight: 700;
-      font-size: 9pt;
-      color: var(--accent);
-      min-width: 5mm;
-    }
-
-    .legend-text {
+      position: relative;
       font-family: var(--font-tech);
       font-size: 8pt;
       font-weight: 500;
       text-transform: uppercase;
-      color: var(--text-muted);
       letter-spacing: 0.04em;
-      line-height: 1.4;
+      color: var(--text-primary);
+    }
+
+    .feature-item:nth-child(odd) {
+      border-right: 1px solid var(--grid-line);
+    }
+
+    .feature-item::before {
+      content: '+';
+      position: absolute;
+      left: 2mm;
+      top: 3mm;
+      color: var(--accent);
+      font-weight: 700;
+      font-family: var(--font-tech);
     }
 
     /* Compliance bar */
@@ -694,10 +708,43 @@
       color: rgba(255,255,255,0.7);
     }
 
-    /* Red bottom accent */
     .specs-accent {
       height: 3px;
       background: var(--accent);
+    }
+
+    /* Photo strip on comparison page */
+    .comp-photo-strip {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      gap: 0;
+      margin-top: 4mm;
+    }
+
+    .comp-photo-strip-image {
+      height: 48mm;
+      overflow: hidden;
+    }
+
+    .comp-photo-strip-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+    }
+
+    .comp-photo-strip-text {
+      background: var(--bg-dark);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5mm 6mm;
+    }
+
+    .comp-photo-strip-text .heading-medium {
+      font-size: 14pt;
+      color: var(--text-light);
+      margin-bottom: 2mm;
     }
 
     /* ========================================
@@ -737,7 +784,6 @@
       margin-top: 3mm;
     }
 
-    /* Contact grid */
     .cta-contact-grid {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
@@ -787,7 +833,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* CTA grid pattern */
     .cta-grid-pattern {
       position: absolute;
       top: 0;
@@ -806,7 +851,6 @@
       z-index: 2;
     }
 
-    /* Bottom brand section */
     .cta-bottom {
       background: var(--bg-light);
       padding: 10mm 12mm;
@@ -869,7 +913,7 @@
     }
 
     /* ========================================
-       UTILITY: Page number indicators
+       UTILITY
     ======================================== */
     .page-indicator {
       position: absolute;
@@ -882,15 +926,10 @@
       text-transform: uppercase;
     }
 
-    .page-indicator-light {
-      color: rgba(255,255,255,0.25);
-    }
-
     .page-indicator-dark {
       color: rgba(0,0,0,0.2);
     }
 
-    /* Crosshair decorative element */
     .crosshair {
       position: absolute;
       width: 16px;
@@ -927,45 +966,6 @@
       background: rgba(0,0,0,0.1);
     }
 
-    /* Sectors / Applications icons row */
-    .sectors-row {
-      display: flex;
-      gap: 0;
-      margin: 4mm 12mm 0;
-      border: 1px solid var(--grid-line);
-    }
-
-    .sector-item {
-      flex: 1;
-      padding: 3mm 3mm;
-      text-align: center;
-      border-right: 1px solid var(--grid-line);
-      background: var(--bg-light);
-    }
-
-    .sector-item:last-child {
-      border-right: none;
-    }
-
-    .sector-name {
-      font-family: var(--font-tech);
-      font-size: 8pt;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-primary);
-      font-weight: 700;
-    }
-
-    .sector-desc {
-      font-family: var(--font-tech);
-      font-size: 7pt;
-      font-weight: 500;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-top: 0.5mm;
-      letter-spacing: 0.06em;
-    }
-
     /* Burgers logo on cover */
     .cover-burgers-logo {
       position: absolute;
@@ -982,20 +982,32 @@
       opacity: 0.35;
     }
 
-    /* Photo strip on specs page */
-    .specs-photo-strip {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4mm;
-      padding: 0 12mm;
-      margin-top: 3mm;
+    /* ELC badge on cover */
+    .elc-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: var(--text-light);
+      font-family: var(--font-tech);
+      font-size: 7pt;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 1.5mm 4mm;
+      margin-bottom: 3mm;
     }
 
-    .specs-photo-strip img {
-      width: 100%;
-      height: 45mm;
-      object-fit: cover;
-      border-radius: 2px;
+    /* Arrow connector between process steps */
+    .elc-step-box:not(:last-child)::after {
+      content: '›';
+      position: absolute;
+      right: -3mm;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-heavy);
+      font-weight: 700;
+      font-size: 14pt;
+      color: var(--accent);
+      z-index: 2;
     }
   </style>
 </head>
@@ -1005,14 +1017,16 @@
      PAGE 1 — COVER
      ============================================================ -->
 <section class="page cover">
-  <div class="cover-grid"></div>
 
-  <!-- Hero photo background -->
+  <!-- Hero photo background: Burgers factory aerial -->
   <div class="cover-hero-photo">
-    <picture><source srcset="mediatouse/DJI_20241018121447_0046_D-scaled.webp" type="image/webp"><img src="mediatouse/DJI_20241018121447_0046_D-scaled.jpg" alt="Burgers Double Deck Trailer aerial photo"></picture>
+    <picture>
+      <source srcset="mediatouse/DJI_20241018121447_0046_D-scaled.webp" type="image/webp">
+      <img src="mediatouse/DJI_20241018121447_0046_D-scaled.jpg" alt="Burgers Carrosserie Factory — Vianen, Netherlands">
+    </picture>
   </div>
 
-  <div class="cover-header" style="z-index: 10; position: relative;">
+  <div class="cover-header">
     <div class="cover-logo">
       <img src="assets/images/ASSETPLUSlogo-web-hd-transparent-V2.png" alt="ASSET+ Fleet Solutions">
     </div>
@@ -1022,13 +1036,17 @@
     </div>
   </div>
 
-  <div class="cover-visual" style="z-index: 10; position: relative;">
-    <picture><source srcset="mediatouse/bloemen-burgers-3-2-1-1536x1044.webp" type="image/webp"><img src="mediatouse/bloemen-burgers-3-2-1-1536x1044.png" alt="Burgers Double Deck Trailer"></picture>
+  <!-- Main visual: Double Deck interior — both levels visible -->
+  <div class="cover-visual">
+    <picture>
+      <source srcset="mediatouse/must-use/Double-deck-2layers.webp" type="image/webp">
+      <img src="mediatouse/must-use/Double-deck-2layers.jpg" alt="Burgers ELC Double Deck Trailer — Dual Level Interior">
+    </picture>
   </div>
 
-  <div class="cover-bottom" style="z-index: 10; position: relative;">
-    <span class="label" style="color: var(--accent); display: block; margin-bottom: 3mm;">Hardware // Double Deck Trailer</span>
-    <h1 class="heading-massive cover-title" style="color: var(--text-primary);">ENGINEERED<br>FOR MAXIMUM<br>YIELD.</h1>
+  <div class="cover-bottom">
+    <div class="elc-badge">ELC // Extended Life Cycle</div>
+    <h1 class="heading-massive cover-title" style="color: var(--text-primary);">LOAD DOUBLE.<br>DRIVE SMARTER.<br><span style="color: var(--accent);">FACTORY<br>RENEWED.</span></h1>
 
     <div class="cover-stats">
       <div class="cover-stat">
@@ -1036,33 +1054,26 @@
         <span class="stat-label">Loading<br>Floors</span>
       </div>
       <div class="cover-stat">
-        <span class="stat-value">3</span>
-        <span class="stat-label">Trailer<br>Variants</span>
+        <span class="stat-value">OEM</span>
+        <span class="stat-label">Certified by<br>Burgers</span>
       </div>
       <div class="cover-stat">
-        <span class="stat-value">40%</span>
-        <span class="stat-label">CO₂<br>Reduction</span>
+        <span class="stat-value">60-70%</span>
+        <span class="stat-label">Of New<br>Trailer Price</span>
       </div>
       <div class="cover-stat">
-        <span class="stat-value">100+</span>
-        <span class="stat-label">Years<br>Engineering</span>
+        <span class="stat-value">NOW</span>
+        <span class="stat-label">Available<br>Immediately</span>
       </div>
-      <div class="cover-stat" style="margin-left: auto;">
-        <span class="stat-value" style="font-size: 11pt; color: var(--text-muted);">UAE CABINET<br>RES. 138/2023</span>
-        <span class="stat-label" style="color: var(--accent);">Fully Compliant</span>
+      <div style="margin-left: auto; display: flex; align-items: center;">
+        <img src="mediatouse/logo-blue.svg" alt="Burgers" style="height: 9mm; opacity: 0.55;">
       </div>
     </div>
   </div>
 
   <div class="cover-accent-line"></div>
 
-  <!-- Burgers logo small at bottom -->
-  <div class="cover-burgers-logo">
-    <img src="mediatouse/logo-blue.svg" alt="Burgers">
-  </div>
-
-  <!-- Crosshairs decorative -->
-  <div class="crosshair crosshair-light" style="top: 8mm; right: 8mm;"></div>
+<div class="crosshair crosshair-light" style="top: 8mm; right: 8mm;"></div>
   <div class="crosshair crosshair-light" style="bottom: 14mm; left: 8mm;"></div>
 
   <span class="page-indicator" style="color: var(--text-muted);">01 / 04</span>
@@ -1070,225 +1081,222 @@
 
 
 <!-- ============================================================
-     PAGE 2 — PRODUCT OVERVIEW
+     PAGE 2 — WHY ELC + THE PROCESS
      ============================================================ -->
-<section class="page overview">
-  <div class="overview-header">
+<section class="page process-page">
+
+  <div class="process-header">
     <div>
-      <span class="label">Product Overview // Double Deck System</span>
-      <h2 class="heading-large" style="font-size: 28pt; color: var(--text-primary); margin-top: 2mm;">TWO FLOORS.<br>ONE CHASSIS.</h2>
+      <span class="label">Product Overview // ELC Program</span>
+      <h2 class="heading-large" style="font-size: 26pt; color: var(--text-primary); margin-top: 2mm;">WHY PAY NEW<br>WHEN YOU CAN<br>PAY SMART?</h2>
     </div>
     <div style="text-align: right; padding-top: 1mm;">
       <img src="assets/images/ASSETPLUSlogo-web-hd-transparent-V2.png" alt="ASSET+" style="height: 12mm; opacity: 0.15;">
     </div>
   </div>
 
-  <div class="overview-hero">
-    <div class="overview-render">
-      <picture><source srcset="mediatouse/projecten-burgers-14-1536x956.webp" type="image/webp"><img src="mediatouse/projecten-burgers-14-1536x956.jpg" alt="Burgers Double Deck Trailer"></picture>
+  <!-- Smart choice intro text -->
+  <div class="smart-choice-block">
+    <p>
+      New trailers take 6–12 months to manufacture and deliver.
+      ELC trailers are available <span class="accent">now</span> — factory renewed by Burgers Carrosserie themselves,
+      with the same performance guarantees, OEM certification, and UAE compliance.
+      <span class="accent">Same capacity. Same compliance. Fraction of the lead time.</span>
+    </p>
+  </div>
+
+  <!-- Hero: Photo left + USPs right -->
+  <div class="process-hero" style="margin-top: 4mm;">
+    <div class="process-render">
+      <picture>
+        <source srcset="mediatouse/projecten-burgers-14-1536x956.webp" type="image/webp">
+        <img src="mediatouse/projecten-burgers-14-1536x956.jpg" alt="Burgers Double Deck Trailer — Field Proven">
+      </picture>
     </div>
-    <div class="overview-usps">
+    <div class="process-usps">
       <div class="usp-item" data-index="01">
-        <div class="usp-value">2X</div>
-        <div class="usp-desc">Two loading floors on one chassis</div>
+        <div class="usp-value">55</div>
+        <div class="usp-desc">Pallets per trip — identical to new</div>
       </div>
       <div class="usp-item" data-index="02">
-        <div class="usp-value">40%</div>
-        <div class="usp-desc">CO₂ emission reduction per unit</div>
+        <div class="usp-value">OEM</div>
+        <div class="usp-desc">Certified by original manufacturer</div>
       </div>
       <div class="usp-item" data-index="03">
-        <div class="usp-value">100+</div>
-        <div class="usp-desc">Years of Burgers Carrosserie engineering</div>
+        <div class="usp-value">FAST</div>
+        <div class="usp-desc">Shorter delivery time than new build</div>
       </div>
     </div>
   </div>
 
-  <div class="overview-features" style="padding-top: 5mm;">
-    <span class="label" style="display: block; margin-bottom: 2mm;">Key Features</span>
-    <div class="feature-grid">
-      <div class="feature-item">Two independent loading floors</div>
-      <div class="feature-item">Hydraulic adjustable upper deck</div>
-      <div class="feature-item">Ground-level loading ramp</div>
-      <div class="feature-item">No specialised labour required</div>
-      <div class="feature-item">Dual-zone temperature control</div>
-      <div class="feature-item">Standard warehouse equipment</div>
-      <div class="feature-item">Integrated cargo lashing rails</div>
-      <div class="feature-item">Identical chassis footprint</div>
+  <!-- The ELC Process -->
+  <div style="padding: 5mm 12mm 0;">
+    <span class="label" style="display: block; margin-bottom: 3mm;">The ELC Process // Rebuilt By The Company That Built It</span>
+  </div>
+
+  <div class="elc-process-grid">
+    <div class="elc-step-box">
+      <div class="elc-step-num">01</div>
+      <div class="elc-step-title">Intake &amp;<br>Inspection</div>
+      <div class="elc-step-desc">Complete multi-point inspection at the Burgers factory. Structural integrity, hydraulics, axles, floor systems.</div>
+    </div>
+    <div class="elc-step-box">
+      <div class="elc-step-num">02</div>
+      <div class="elc-step-title">Strip-down &amp;<br>Rebuild</div>
+      <div class="elc-step-desc">Stripped to frame level. Worn parts replaced with genuine OEM components. Hydraulics recalibrated.</div>
+    </div>
+    <div class="elc-step-box">
+      <div class="elc-step-num">03</div>
+      <div class="elc-step-title">OEM<br>Certification</div>
+      <div class="elc-step-desc">Each trailer passes the same quality standards as a new unit. Burgers certifies full operational readiness.</div>
+    </div>
+    <div class="elc-step-box">
+      <div class="elc-step-num">04</div>
+      <div class="elc-step-title">Delivery<br>to the GCC</div>
+      <div class="elc-step-desc">Certified ELC trailers shipped to the GCC. Fully compliant with Cabinet Resolution 138/2023.</div>
     </div>
   </div>
 
-  <!-- Sectors strip -->
-  <div class="sectors-row">
-    <div class="sector-item">
-      <div class="sector-name">Retail / Dry</div>
-      <div class="sector-desc">Plywood lining</div>
-    </div>
-    <div class="sector-item">
-      <div class="sector-name">Frozen / Chilled</div>
-      <div class="sector-desc">Dual-zone cooling</div>
-    </div>
-    <div class="sector-item">
-      <div class="sector-name">Pharma (JAFZA)</div>
-      <div class="sector-desc">GxP compliant</div>
-    </div>
-    <div class="sector-item">
-      <div class="sector-name">E-Commerce</div>
-      <div class="sector-desc">High volume</div>
-    </div>
-  </div>
-
-  <!-- Loading sequence -->
-  <div style="padding: 4mm 12mm 0;">
-    <span class="label" style="display: block; margin-bottom: 2mm;">Loading Sequence</span>
-  </div>
-  <div class="loading-sequence">
-    <div class="load-step">
-      <div class="load-step-num">01</div>
-      <div class="load-step-text">Lower deck<br>via standard dock</div>
-    </div>
-    <div class="load-step">
-      <div class="load-step-num">02</div>
-      <div class="load-step-text">Upper deck<br>raised hydraulically</div>
-    </div>
-    <div class="load-step">
-      <div class="load-step-num">03</div>
-      <div class="load-step-text">Upper deck<br>loaded</div>
-    </div>
-    <div class="load-step">
-      <div class="load-step-num">04</div>
-      <div class="load-step-text">Sequence secured<br>Depart</div>
-    </div>
-  </div>
-
-  <!-- Interior photo strip -->
-  <div class="overview-photo-strip">
+  <!-- Photo strip -->
+  <div class="overview-photo-strip" style="margin-top: 4mm;">
     <div class="photo-strip-image">
-      <picture><source srcset="mediatouse/must-use/Double-deck-2layers.webp" type="image/webp"><img src="mediatouse/must-use/Double-deck-2layers.jpg" alt="Double Deck Interior — Dual Level"></picture>
+      <picture>
+        <source srcset="mediatouse/must-use/Double-deck-2layers.webp" type="image/webp">
+        <img src="mediatouse/must-use/Double-deck-2layers.jpg" alt="ELC Double Deck — Dual Level Interior">
+      </picture>
     </div>
     <div class="photo-strip-text">
-      <span class="label" style="margin-bottom: 1mm;">Interior</span>
-      <div class="heading-medium" style="font-size: 16pt;">DUAL LEVEL<br>LOADING.</div>
-      <p style="font-family: var(--font-tech); font-size: 8pt; font-weight: 500; text-transform: uppercase; color: var(--text-muted); margin-top: 2mm; letter-spacing: 0.06em; line-height: 1.5;">
-        Full rear-door opening. Both levels accessible from ground level. Integrated cargo securing.
+      <span class="label" style="margin-bottom: 1mm;">Factory Renewed</span>
+      <div class="heading-medium" style="font-size: 14pt;">REBUILT AT<br>THE SOURCE.</div>
+      <p style="font-family: var(--font-tech); font-size: 7.5pt; font-weight: 500; text-transform: uppercase; color: var(--text-muted); margin-top: 2mm; letter-spacing: 0.06em; line-height: 1.5;">
+        The same factory. The same engineers. The same tools. This is not third-party refurbishment. This is OEM factory renewal.
       </p>
     </div>
   </div>
 
-  <!-- Crosshairs -->
   <div class="crosshair crosshair-dark" style="top: 8mm; right: 8mm;"></div>
   <span class="page-indicator page-indicator-dark">02 / 04</span>
 </section>
 
 
 <!-- ============================================================
-     PAGE 3 — TECHNICAL SPECIFICATIONS
+     PAGE 3 — COMPARISON + CONFIGURATIONS + SPECS
      ============================================================ -->
-<section class="page specs-page">
-  <div class="specs-header">
-    <span class="label" style="color: var(--accent);">Technical Parameters</span>
-    <h2 class="heading-large specs-title" style="font-size: 30pt;">SPECIFICATIONS</h2>
+<section class="page comparison-page">
+
+  <div class="comparison-header">
+    <span class="label" style="color: var(--accent);">Head-to-Head</span>
+    <h2 class="heading-large" style="font-size: 28pt; margin-top: 2mm;">ELC vs NEW<br>vs GENERIC USED</h2>
   </div>
 
-  <div class="specs-tables">
-    <div class="spec-table-wrap">
-      <h3>Hardware<br>Variants</h3>
-      <table class="spec-table">
-        <thead>
-          <tr>
-            <th>Class</th>
-            <th>Length</th>
-            <th>Axles</th>
-            <th>Payload</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>City</td>
-            <td>11.30m</td>
-            <td>2-3</td>
-            <td class="highlight">53 Pallets</td>
-          </tr>
-          <tr>
-            <td>Standard</td>
-            <td>13.60m</td>
-            <td>2-4</td>
-            <td class="highlight">55 Pallets</td>
-          </tr>
-          <tr>
-            <td>Longhaul</td>
-            <td>16.15m</td>
-            <td>3-4</td>
-            <td class="highlight">55 Pallets</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <!-- Comparison table -->
+  <div class="comp-table-wrap">
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th style="width: 28%;">Criteria</th>
+          <th style="width: 24%;">Generic Used</th>
+          <th style="width: 24%;">New Trailer</th>
+          <th class="elc-col" style="width: 24%;">ELC by Burgers</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Loading floors</td>
+          <td class="generic-val">1 floor</td>
+          <td>2 floors</td>
+          <td class="elc-val">2 floors</td>
+        </tr>
+        <tr>
+          <td>OEM certification</td>
+          <td class="generic-val">No</td>
+          <td>Yes</td>
+          <td class="elc-val">Yes — same factory</td>
+        </tr>
+        <tr>
+          <td>Delivery time</td>
+          <td class="generic-val">Varies</td>
+          <td>6–12 months</td>
+          <td class="elc-val">Available now</td>
+        </tr>
+        <tr>
+          <td>Availability</td>
+          <td class="generic-val">Varies</td>
+          <td>New build lead time</td>
+          <td class="elc-val">Available now</td>
+        </tr>
+        <tr>
+          <td>Inspection standard</td>
+          <td class="generic-val">Unknown</td>
+          <td>Factory QC</td>
+          <td class="elc-val">Full factory rebuild</td>
+        </tr>
+        <tr>
+          <td>UAE compliance</td>
+          <td class="generic-val">Not guaranteed</td>
+          <td>Compliant</td>
+          <td class="elc-val">Fully compliant</td>
+        </tr>
+        <tr>
+          <td>Maintenance history</td>
+          <td class="generic-val">Rarely available</td>
+          <td>N/A</td>
+          <td class="elc-val">Complete OEM records</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
-    <div class="spec-table-wrap">
-      <h3>Application<br>Matrix</h3>
-      <table class="spec-table">
-        <thead>
-          <tr>
-            <th>Environment</th>
-            <th>Configuration</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Retail / Dry</td>
-            <td>Plywood or dry lining. External elevator.</td>
-          </tr>
-          <tr>
-            <td>Frozen / Chilled</td>
-            <td>Cooled config. Dual-zone temperature.</td>
-          </tr>
-          <tr>
-            <td>Pharma (JAFZA)</td>
-            <td>Insulated. GxP thermal retention.</td>
-          </tr>
-        </tbody>
-      </table>
+  <!-- Available configurations -->
+  <div style="padding: 4mm 12mm 0;">
+    <span class="label" style="display: block; margin-bottom: 2mm;">Available Configurations</span>
+  </div>
+  <div class="config-row">
+    <div class="config-item">
+      <div class="config-name">Retail / Dry</div>
+      <div class="config-desc">Plywood lining</div>
+    </div>
+    <div class="config-item">
+      <div class="config-name">Frozen / Chilled</div>
+      <div class="config-desc">Dual-zone cooling</div>
+    </div>
+    <div class="config-item">
+      <div class="config-name">Pharma (JAFZA)</div>
+      <div class="config-desc">GxP compliant</div>
+    </div>
+    <div class="config-item">
+      <div class="config-name">E-Commerce</div>
+      <div class="config-desc">High volume</div>
     </div>
   </div>
 
-  <!-- Cutaway diagram -->
-  <div class="specs-cutaway">
-    <span class="label" style="color: var(--accent); margin-bottom: 1mm;">Internal Architecture</span>
-    <picture><source srcset="assets/images/double-deck-transparent-1-8.webp" type="image/webp"><img src="assets/images/double-deck-transparent-1-8.png" alt="Double Deck Trailer Cutaway Diagram"></picture>
+  <!-- Same hardware features -->
+  <div class="same-specs-block">
+    <span class="label" style="display: block; margin-bottom: 2mm;">Same Hardware. Same Performance.</span>
+    <div class="feature-grid">
+      <div class="feature-item">53–55 Europallets per transit</div>
+      <div class="feature-item">Hydraulic adjustable upper deck</div>
+      <div class="feature-item">Ground-level loading ramp</div>
+      <div class="feature-item">No specialised labour required</div>
+      <div class="feature-item">Integrated cargo lashing rails</div>
+      <div class="feature-item">Identical chassis footprint</div>
+    </div>
+  </div>
 
-    <div class="specs-cutaway-legend">
-      <div class="legend-item">
-        <span class="legend-num">01.</span>
-        <span class="legend-text">Ground-level rear loading ramp</span>
-      </div>
-      <div class="legend-item">
-        <span class="legend-num">05.</span>
-        <span class="legend-text">Multi-axle load distribution</span>
-      </div>
-      <div class="legend-item">
-        <span class="legend-num">02.</span>
-        <span class="legend-text">Reinforced rear door threshold</span>
-      </div>
-      <div class="legend-item">
-        <span class="legend-num">06.</span>
-        <span class="legend-text">Structural frame with mech. systems</span>
-      </div>
-      <div class="legend-item">
-        <span class="legend-num">03.</span>
-        <span class="legend-text">Lower deck cargo floor</span>
-      </div>
-      <div class="legend-item">
-        <span class="legend-num">07.</span>
-        <span class="legend-text">Front wall cargo containment</span>
-      </div>
-      <div class="legend-item">
-        <span class="legend-num">04.</span>
-        <span class="legend-text">Hydraulic adjustable upper deck</span>
-      </div>
-      <div class="legend-item">
-        <span class="legend-num">08.</span>
-        <span class="legend-text">Roof structure / upper deck ceiling</span>
-      </div>
+  <!-- Photo + CTA strip -->
+  <div class="comp-photo-strip">
+    <div class="comp-photo-strip-image">
+      <picture>
+        <source srcset="mediatouse/sectoren-2-31.webp" type="image/webp">
+        <img src="mediatouse/sectoren-2-31.jpg" alt="Burgers Double Deck ELC — On the Road">
+      </picture>
+    </div>
+    <div class="comp-photo-strip-text">
+      <span class="label-light" style="margin-bottom: 1.5mm;">Field Proven</span>
+      <div class="heading-medium" style="font-size: 12pt; color: var(--text-light); margin-bottom: 2mm;">DEPLOYED<br>ACROSS EUROPE.</div>
+      <p style="font-family: var(--font-tech); font-size: 7pt; font-weight: 500; text-transform: uppercase; color: rgba(255,255,255,0.6); letter-spacing: 0.05em; line-height: 1.5;">
+        Action. Zeeman. bpost. Hundreds of ELC trailers in daily operation — now available in the GCC.
+      </p>
     </div>
   </div>
 
@@ -1303,15 +1311,14 @@
       <div class="compliance-label">Width (max 2.60m)</div>
     </div>
     <div class="compliance-item">
-      <div class="compliance-value" style="color: var(--accent);">RES. 138</div>
-      <div class="compliance-label">UAE Cabinet Resolution 2023</div>
+      <div class="compliance-value" style="color: var(--accent);">40%</div>
+      <div class="compliance-label">CO&#8322; Reduction Per Pallet</div>
     </div>
   </div>
 
   <div class="specs-accent"></div>
 
-  <!-- Crosshairs -->
-  <div class="crosshair crosshair-light" style="top: 8mm; right: 8mm;"></div>
+  <div class="crosshair crosshair-dark" style="top: 8mm; right: 8mm;"></div>
   <span class="page-indicator" style="color: var(--text-muted);">03 / 04</span>
 </section>
 
@@ -1323,11 +1330,10 @@
   <div class="cta-top">
     <div class="cta-grid-pattern"></div>
 
-    <span class="label" style="color: var(--accent);">Need a Custom Specification?</span>
-    <h2 class="heading-massive cta-heading">REQUEST<br>A QUOTE.</h2>
+<span class="label" style="color: var(--accent);">Smart Investment. Immediate Deployment.</span>
+    <h2 class="heading-massive cta-heading">REQUEST<br>ELC SPECS.</h2>
     <p class="cta-subtitle">
-      Tell us about your fleet requirements. We'll prepare a tailored specification within 48 hours.
-      Our team is ready to discuss the right configuration for your fleet in the UAE and GCC region.
+      Tell us your fleet size and cargo type. We deliver a tailored ELC specification with pricing — no obligation, within 48 hours.
     </p>
 
     <div class="cta-contact-grid">
@@ -1339,16 +1345,15 @@
       <div class="contact-block">
         <span class="contact-icon" style="color: #25D366;">W</span>
         <span class="contact-label">WhatsApp</span>
-        <span class="contact-value">+971 (0) XX<br>XXX XXXX</span>
+        <span class="contact-value">+971 (0) 58<br>580 5907</span>
       </div>
       <div class="contact-block">
-        <span class="contact-icon">⌂</span>
+        <span class="contact-icon">&#9728;</span>
         <span class="contact-label">Web</span>
         <span class="contact-value">assetplusgcc.com</span>
       </div>
     </div>
 
-    <!-- Crosshairs -->
     <div class="crosshair crosshair-light" style="top: 8mm; right: 8mm; z-index: 10;"></div>
     <div class="crosshair crosshair-light" style="bottom: 12mm; left: 8mm; z-index: 10;"></div>
   </div>
@@ -1357,11 +1362,11 @@
   <div style="background: var(--bg-dark); border-top: 1px solid var(--grid-line-light); display: flex; justify-content: center; gap: 12mm; padding: 5mm 12mm;">
     <div style="text-align: center;">
       <span style="font-family: var(--font-heavy); font-weight: 700; font-size: 18pt; color: var(--accent);">2,400+</span>
-      <span style="display: block; font-family: var(--font-tech); font-size: 5pt; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.75); margin-top: 1mm;">Action Stores Supplied</span>
+      <span style="display: block; font-family: var(--font-tech); font-size: 5pt; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.75); margin-top: 1mm;">Action Trailers Supplied</span>
     </div>
     <div style="text-align: center;">
       <span style="font-family: var(--font-heavy); font-weight: 700; font-size: 18pt; color: var(--accent);">1,350+</span>
-      <span style="display: block; font-family: var(--font-tech); font-size: 5pt; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.75); margin-top: 1mm;">Zeeman Stores Supplied</span>
+      <span style="display: block; font-family: var(--font-tech); font-size: 5pt; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.75); margin-top: 1mm;">Zeeman Trailers Supplied</span>
     </div>
     <div style="text-align: center;">
       <span style="font-family: var(--font-heavy); font-weight: 700; font-size: 18pt; color: var(--accent);">100+</span>
