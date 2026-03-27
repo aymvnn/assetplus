@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Double Deck Savings Calculator | ASSET+ Fleet Solutions</title>
+  <meta name="description" content="Calculate how much your fleet saves by switching to Burgers Double Deck trailers. Live ROI calculator based on GCC market data 2026.">
+  <link rel="icon" type="image/png" href="assets/images/logo.png">
+  <link rel="canonical" href="https://www.assetplusgcc.com/savings-calculator.html">
+  <meta property="og:title" content="Double Deck Savings Calculator | ASSET+ Fleet Solutions">
+  <meta property="og:description" content="Calculate your fleet savings live. 2 Double Deck trailers replace 3 standard trailers — see exactly how much you save.">
+  <meta property="og:image" content="https://www.assetplusgcc.com/assets/images/interfleet-hero.jpeg">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.assetplusgcc.com/savings-calculator.html">
+  <meta property="og:site_name" content="ASSET+ Fleet Solutions">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+
+  <link rel="alternate" hreflang="en" href="https://www.assetplusgcc.com/savings-calculator.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.assetplusgcc.com/savings-calculator.html">
+
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/animations.css">
+
+  <style>
+    /* ── CALCULATOR PAGE ─────────────────────────────── */
+
+    /* Layout */
+    .calc-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 0;
+      align-items: start;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 5vw;
+    }
+
+    .calc-inputs-col {
+      padding-right: 5vw;
+      padding-top: 6vw;
+      padding-bottom: 6vw;
+    }
+
+    .calc-results-col {
+      position: sticky;
+      top: calc(var(--nav-height) + 2rem);
+      padding-top: 6vw;
+      padding-bottom: 6vw;
+    }
+
+    /* ── SLIDERS ─────────────────────────────────────── */
+    .slider-group {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--grid-line);
+      padding-bottom: 2.5rem;
+    }
+
+    .slider-group:last-child {
+      border-bottom: none;
+    }
+
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 1rem;
+    }
+
+    .slider-label {
+      font-family: var(--font-tech);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+    }
+
+    .slider-value-display {
+      font-family: var(--font-heavy);
+      font-size: 1.35rem;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .slider-value-display .slider-unit {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-left: 0.3rem;
+      font-weight: 400;
+    }
+
+    .slider-hint {
+      font-family: var(--font-tech);
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+      opacity: 0.7;
+    }
+
+    /* Range input styling */
+    input[type="range"].calc-range {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        var(--accent) 0%,
+        var(--accent) var(--fill, 0%),
+        rgba(0,0,0,0.12) var(--fill, 0%),
+        rgba(0,0,0,0.12) 100%
+      );
+      outline: none;
+      cursor: pointer;
+      margin: 0.75rem 0 0.5rem;
+      border-radius: 0;
+    }
+
+    input[type="range"].calc-range::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      background: var(--accent);
+      cursor: pointer;
+      border: none;
+      transform: rotate(45deg);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    input[type="range"].calc-range:hover::-webkit-slider-thumb,
+    input[type="range"].calc-range:focus::-webkit-slider-thumb {
+      transform: rotate(45deg) scale(1.2);
+    }
+
+    input[type="range"].calc-range::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      background: var(--accent);
+      cursor: pointer;
+      border: none;
+      border-radius: 0;
+      transform: rotate(45deg);
+    }
+
+    input[type="range"].calc-range::-moz-range-track {
+      height: 2px;
+      background: rgba(0,0,0,0.12);
+    }
+
+    /* ── ADVANCED TOGGLE ─────────────────────────────── */
+    .advanced-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: none;
+      border: none;
+      border-top: 1px solid var(--grid-line);
+      border-bottom: 1px solid var(--grid-line);
+      width: 100%;
+      padding: 1.1rem 0;
+      cursor: pointer;
+      font-family: var(--font-tech);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: 2.5rem;
+      text-align: left;
+      transition: color 0.2s ease;
+    }
+
+    .advanced-toggle:hover { color: var(--text-primary); }
+
+    .advanced-toggle .toggle-icon {
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid currentColor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      line-height: 1;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .advanced-toggle.open .toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    .advanced-panel {
+      display: none;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--grid-line);
+    }
+
+    .advanced-panel.open { display: block; }
+
+    /* Advanced number inputs */
+    .adv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem 2rem;
+    }
+
+    .adv-field label {
+      display: block;
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .adv-input-wrap {
+      display: flex;
+      align-items: center;
+      border-bottom: 2px solid var(--grid-line);
+      transition: border-color 0.2s ease;
+    }
+
+    .adv-input-wrap:focus-within {
+      border-bottom-color: var(--accent);
+    }
+
+    .adv-input-wrap .adv-prefix {
+      font-family: var(--font-tech);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      padding-right: 0.4rem;
+      white-space: nowrap;
+    }
+
+    .adv-input-wrap input {
+      border: none;
+      background: transparent;
+      font-family: var(--font-heavy);
+      font-size: 1.1rem;
+      color: var(--text-primary);
+      width: 100%;
+      padding: 0.4rem 0;
+      outline: none;
+    }
+
+    .adv-input-wrap .adv-suffix {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      padding-left: 0.4rem;
+      white-space: nowrap;
+    }
+
+    /* ── RESULTS PANEL ───────────────────────────────── */
+    .results-panel {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* Payback — top red banner */
+    .payback-banner {
+      background: var(--accent);
+      padding: 1.8rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .payback-label {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 0.5rem;
+    }
+
+    .payback-number {
+      font-family: var(--font-heavy);
+      font-size: clamp(3rem, 6vw, 4.5rem);
+      line-height: 0.9;
+      color: #ffffff;
+      letter-spacing: -0.03em;
+    }
+
+    .payback-number .payback-unit {
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0;
+      margin-left: 0.3rem;
+      opacity: 0.85;
+    }
+
+    .payback-sub {
+      font-family: var(--font-tech);
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 0.5rem;
+    }
+
+    /* Metric rows */
+    .result-metric {
+      padding: 1.4rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+
+    .result-metric-label {
+      font-family: var(--font-tech);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.4;
+    }
+
+    .result-metric-label .data-index-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.6rem;
+      padding: 0.1rem 0.35rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .result-metric-value {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .result-metric-main {
+      font-family: var(--font-heavy);
+      font-size: 1.5rem;
+      color: #ffffff;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .result-metric-sub {
+      font-family: var(--font-tech);
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.3rem;
+    }
+
+    /* Breakdown bars */
+    .breakdown-section {
+      padding: 1.4rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .breakdown-title {
+      font-family: var(--font-tech);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1.2rem;
+    }
+
+    .breakdown-bar-row {
+      margin-bottom: 0.9rem;
+    }
+
+    .breakdown-bar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.3rem;
+    }
+
+    .breakdown-bar-name {
+      font-family: var(--font-tech);
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .breakdown-bar-val {
+      font-family: var(--font-tech);
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .breakdown-track {
+      height: 2px;
+      background: rgba(255,255,255,0.08);
+      position: relative;
+    }
+
+    .breakdown-fill {
+      position: absolute;
+      left: 0; top: 0; height: 100%;
+      background: var(--accent);
+      transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .breakdown-fill.fuel { background: #e8a000; }
+    .breakdown-fill.driver { background: #888; }
+    .breakdown-fill.maint { background: #559; }
+    .breakdown-fill.insur { background: #396; }
+    .breakdown-fill.tires { background: #569; }
+
+    /* Investment row */
+    .investment-row {
+      padding: 1.2rem 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .investment-label {
+      font-family: var(--font-tech);
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .investment-value {
+      font-family: var(--font-tech);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* CTA in results */
+    .results-cta {
+      padding: 1.5rem 2rem;
+    }
+
+    /* ── CONCEPT EXPLAINER ───────────────────────────── */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-left: 1px solid var(--grid-line);
+    }
+
+    .concept-cell {
+      border-right: 1px solid var(--grid-line);
+      border-bottom: 1px solid var(--grid-line);
+      border-top: 1px solid var(--grid-line);
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+
+    .concept-cell .cell-num {
+      font-family: var(--font-tech);
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .concept-cell .cell-value {
+      font-family: var(--font-heavy);
+      font-size: 2.8rem;
+      color: var(--accent);
+      line-height: 0.9;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.03em;
+    }
+
+    .concept-cell .cell-desc {
+      font-family: var(--font-tech);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── MOBILE ──────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .calc-wrapper {
+        grid-template-columns: 1fr;
+        padding: 0 5vw;
+      }
+
+      .calc-inputs-col {
+        padding-right: 0;
+        padding-top: 4vw;
+        padding-bottom: 2rem;
+        order: 1;
+      }
+
+      .calc-results-col {
+        position: static;
+        order: 2;
+        padding-top: 0;
+        padding-bottom: 6vw;
+      }
+
+      .concept-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .adv-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .payback-number { font-size: 3.5rem; }
+    }
+
+    /* ── NUMBER TRANSITION ───────────────────────────── */
+    .animated-num {
+      transition: opacity 0.15s ease;
+    }
+
+    .animated-num.updating {
+      opacity: 0.4;
+    }
+
+    /* ── CURRENCY TOGGLE ────────────────────────────── */
+    .currency-bar {
+      background: var(--bg-color);
+      border-bottom: 1px solid var(--grid-line);
+      padding: 0.8rem 5vw;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .currency-toggle {
+      display: inline-flex;
+      border: 1.5px solid var(--grid-line);
+    }
+
+    .curr-btn {
+      background: none;
+      border: none;
+      border-right: 1px solid var(--grid-line);
+      padding: 0.45rem 1.6rem;
+      font-family: var(--font-tech);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: background 0.2s ease, color 0.2s ease;
+      line-height: 1;
+    }
+
+    .curr-btn:last-child { border-right: none; }
+
+    .curr-btn.active {
+      background: var(--text-primary);
+      color: var(--text-light);
+    }
+
+    .curr-btn:not(.active):hover {
+      background: var(--bg-light);
+      color: var(--text-primary);
+    }
+
+    /* Source note */
+    .source-note {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--grid-line);
+    }
+
+    .source-note p {
+      font-family: var(--font-tech);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      opacity: 0.7;
+      line-height: 1.8;
+      max-width: none;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="assets/images/ASSETPLUSlogo-web-hd-transparent-V2.png" alt="ASSET+ Fleet Solutions">
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="index.html" class="nav-link tech-hover">01. Home</a>
+      <a href="double-deck-trailer.html" class="nav-link tech-hover">02. Double Deck</a>
+      <a href="elc-trailers.html" class="nav-link tech-hover">03. ELC Trailers</a>
+      <a href="about.html" class="nav-link tech-hover">04. About</a>
+      <a href="contact.html" class="btn btn-primary" style="margin-left: 1rem;">Get a Quote</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="dark-section" style="padding-top: calc(var(--nav-height) + 6vw); padding-bottom: 6vw; padding-left: 5vw; padding-right: 5vw; position: relative; overflow: hidden;">
+    <div class="container" style="position: relative; z-index: 2;">
+      <span class="text-tech reveal" style="color: var(--accent);">FLEET ROI TOOL // UAE &amp; GCC — 2026 MARKET DATA</span>
+      <h1 class="title-large reveal reveal-delay-1" style="margin-top: var(--space-sm); color: var(--text-light); max-width: 14ch;">CALCULATE YOUR SAVINGS.</h1>
+      <p class="reveal reveal-delay-2" style="color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 54ch; margin-top: var(--space-sm); margin-bottom: var(--space-lg);">
+        2 Double Deck trailers carry the same cargo as 3 standard trailers — and eliminate 1 truck from your fleet entirely. Set your numbers. See your result live.
+      </p>
+
+      <!-- Concept strip -->
+      <div class="concept-grid reveal reveal-delay-3" style="max-width: 800px; margin-top: var(--space-md);">
+        <div class="concept-cell" style="background: rgba(255,255,255,0.03);">
+          <div class="cell-num">01 / INSTEAD OF</div>
+          <div class="cell-value">3×</div>
+          <div class="cell-desc">Standard trailers<br>+ 3 trucks + 3 drivers</div>
+        </div>
+        <div class="concept-cell" style="background: rgba(204,0,0,0.12); border-color: var(--accent);">
+          <div class="cell-num" style="color: #fff; opacity: 0.6;">02 / YOU RUN</div>
+          <div class="cell-value" style="color: #fff;">2×</div>
+          <div class="cell-desc" style="color: rgba(255,255,255,0.75);">Double Deck trailers<br>+ 2 trucks + 2 drivers</div>
+        </div>
+        <div class="concept-cell" style="background: rgba(255,255,255,0.03);">
+          <div class="cell-num">03 / YOU SAVE</div>
+          <div class="cell-value">1×</div>
+          <div class="cell-desc">Full truck + driver<br>= major annual saving</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Background grid texture -->
+    <div style="position: absolute; inset: 0; background-image: repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.015) 60px, rgba(255,255,255,0.015) 61px); pointer-events: none; z-index: 1;"></div>
+  </header>
+
+  <!-- CALCULATOR -->
+  <section style="background: var(--bg-light);">
+
+    <!-- Currency toggle bar -->
+    <div class="currency-bar">
+      <span class="text-tech" style="color: var(--text-muted); font-size: 0.72rem;">Display currency:</span>
+      <div class="currency-toggle" role="group" aria-label="Currency selection">
+        <button class="curr-btn active" id="btn-aed">AED</button>
+        <button class="curr-btn" id="btn-usd">USD</button>
+      </div>
+      <span class="text-tech" style="color: var(--text-muted); font-size: 0.65rem; opacity: 0.6;">USD/AED fixed at 3.67 — UAE Central Bank peg</span>
+    </div>
+
+    <div class="calc-wrapper">
+
+      <!-- LEFT: INPUTS -->
+      <div class="calc-inputs-col">
+        <span class="text-tech" style="color: var(--accent); display: block; margin-bottom: var(--space-md);">YOUR FLEET PROFILE</span>
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: var(--space-lg); max-width: 50ch; line-height: 1.7;">
+          Adjust the sliders to match your operation. All defaults are based on verified UAE/GCC market data. Results update live.
+        </p>
+
+        <!-- Slider 1: Annual km -->
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Annual distance per truck</span>
+            <span class="slider-value-display">
+              <span id="disp-km">80,000</span><span class="slider-unit">km / year</span>
+            </span>
+          </div>
+          <input type="range" id="sl-km" class="calc-range"
+            min="40000" max="150000" step="5000" value="80000"
+            aria-label="Annual km per truck">
+          <div style="display: flex; justify-content: space-between;">
+            <span class="slider-hint">40,000</span>
+            <span class="slider-hint">GCC avg: 80,000 km/yr</span>
+            <span class="slider-hint">150,000</span>
+          </div>
+        </div>
+
+        <!-- Slider 2: Driver cost -->
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Monthly driver cost (salary + allowances)</span>
+            <span class="slider-value-display">
+              AED <span id="disp-driver">6,000</span><span class="slider-unit">/ month</span>
+            </span>
+          </div>
+          <input type="range" id="sl-driver" class="calc-range"
+            min="3000" max="12000" step="500" value="6000"
+            aria-label="Monthly driver cost AED">
+          <div style="display: flex; justify-content: space-between;">
+            <span class="slider-hint">AED 3,000</span>
+            <span class="slider-hint">UAE mid-range: AED 6,000</span>
+            <span class="slider-hint">AED 12,000</span>
+          </div>
+        </div>
+
+        <!-- Slider 3: Fuel price -->
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Diesel fuel price</span>
+            <span class="slider-value-display">
+              AED <span id="disp-fuel">2.72</span><span class="slider-unit">/ liter</span>
+            </span>
+          </div>
+          <input type="range" id="sl-fuel" class="calc-range"
+            min="1.50" max="5.00" step="0.01" value="2.72"
+            aria-label="Diesel fuel price AED per liter">
+          <div style="display: flex; justify-content: space-between;">
+            <span class="slider-hint">AED 1.50</span>
+            <span class="slider-hint">UAE official Mar 2026: AED 2.72</span>
+            <span class="slider-hint">AED 5.00</span>
+          </div>
+        </div>
+
+        <!-- Slider 4: Truck value -->
+        <div class="slider-group">
+          <div class="slider-header">
+            <span class="slider-label">Truck purchase price (tractor unit)</span>
+            <span class="slider-value-display">
+              AED <span id="disp-truck">450,000</span>
+            </span>
+          </div>
+          <input type="range" id="sl-truck" class="calc-range"
+            min="150000" max="700000" step="10000" value="450000"
+            aria-label="Truck purchase price AED">
+          <div style="display: flex; justify-content: space-between;">
+            <span class="slider-hint">AED 150k</span>
+            <span class="slider-hint">New premium (Volvo/Mercedes): ~AED 450k</span>
+            <span class="slider-hint">AED 700k</span>
+          </div>
+        </div>
+
+        <!-- ADVANCED SETTINGS -->
+        <button class="advanced-toggle" id="advancedToggle" aria-expanded="false">
+          <span class="toggle-icon">+</span>
+          Advanced settings &mdash; trailer prices, maintenance &amp; more
+        </button>
+
+        <div class="advanced-panel" id="advancedPanel">
+          <div class="adv-grid">
+
+            <div class="adv-field">
+              <label for="adv-dd">Price per Double Deck trailer</label>
+              <div class="adv-input-wrap">
+                <span class="adv-prefix">AED</span>
+                <input type="number" id="adv-dd" value="220000" min="100000" max="500000" step="5000">
+              </div>
+            </div>
+
+            <div class="adv-field">
+              <label for="adv-std">Price per standard trailer</label>
+              <div class="adv-input-wrap">
+                <span class="adv-prefix">AED</span>
+                <input type="number" id="adv-std" value="130000" min="50000" max="300000" step="5000">
+              </div>
+            </div>
+
+            <div class="adv-field">
+              <label for="adv-maint">Annual truck maintenance saving</label>
+              <div class="adv-input-wrap">
+                <span class="adv-prefix">AED</span>
+                <input type="number" id="adv-maint" value="45000" min="10000" max="120000" step="1000">
+                <span class="adv-suffix">/ yr</span>
+              </div>
+            </div>
+
+            <div class="adv-field">
+              <label for="adv-insur">Annual insurance saving</label>
+              <div class="adv-input-wrap">
+                <span class="adv-prefix">AED</span>
+                <input type="number" id="adv-insur" value="18000" min="5000" max="60000" step="1000">
+                <span class="adv-suffix">/ yr</span>
+              </div>
+            </div>
+
+            <div class="adv-field">
+              <label for="adv-trucklife">Truck replacement cycle</label>
+              <div class="adv-input-wrap">
+                <input type="number" id="adv-trucklife" value="5" min="3" max="10" step="1">
+                <span class="adv-suffix">years</span>
+              </div>
+            </div>
+
+            <div class="adv-field">
+              <label for="adv-lifespan">Calculator lifespan</label>
+              <div class="adv-input-wrap">
+                <input type="number" id="adv-lifespan" value="10" min="3" max="15" step="1">
+                <span class="adv-suffix">years</span>
+              </div>
+            </div>
+
+          </div>
+
+          <button id="resetBtn" style="margin-top: 1.5rem; background: none; border: 1px solid var(--grid-line); padding: 0.6rem 1.2rem; font-family: var(--font-tech); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; color: var(--text-muted); transition: all 0.2s ease;"
+            onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)'"
+            onmouseout="this.style.borderColor='var(--grid-line)';this.style.color='var(--text-muted)'">
+            ↺ Reset to UAE defaults
+          </button>
+        </div>
+
+        <!-- Source note -->
+        <div class="source-note">
+          <p>
+            Defaults based on: UAE diesel price uaepetrolprices.com (Mar 2026) &nbsp;·&nbsp;
+            Driver salaries Indeed UAE / GulfTalent 2025 &nbsp;·&nbsp;
+            Truck prices AutoBeeb UAE 2025 &nbsp;·&nbsp;
+            Annual km PwC/TruKKer UAE fleet study 2025 &nbsp;·&nbsp;
+            Fuel consumption: 35 L/100km (40t GVW, GCC highways) &nbsp;·&nbsp;
+            Tyre cost: AED 0.15/km &nbsp;·&nbsp;
+            Extra DD maintenance: AED 12,000/yr &nbsp;·&nbsp;
+            CO₂ factor: 900 g/km (ICCT/GLEC framework)
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT: RESULTS (STICKY) -->
+      <div class="calc-results-col">
+        <div class="results-panel">
+
+          <!-- Payback banner -->
+          <div class="payback-banner">
+            <div class="payback-label">⏱ Payback period</div>
+            <div class="payback-number">
+              <span class="animated-num" id="res-payback">6.5</span><span class="payback-unit">months</span>
+            </div>
+            <div class="payback-sub">Your extra investment pays itself back in full</div>
+          </div>
+
+          <!-- Annual savings -->
+          <div class="result-metric">
+            <div class="result-metric-label">
+              <div class="data-index-badge">01</div><br>
+              Annual savings<br>(1 truck + 1 driver eliminated)
+            </div>
+            <div class="result-metric-value">
+              <div class="result-metric-main"><span class="curr-sym">AED</span> <span class="animated-num" id="res-annual">313,160</span></div>
+              <div class="result-metric-sub"><span class="curr-sym-alt">USD</span> <span id="res-annual-usd">85,328</span> / year</div>
+            </div>
+          </div>
+
+          <!-- Net 10-year saving -->
+          <div class="result-metric">
+            <div class="result-metric-label">
+              <div class="data-index-badge">02</div><br>
+              Net saving<br>over <span id="res-lifespan-lbl">10</span> years
+            </div>
+            <div class="result-metric-value">
+              <div class="result-metric-main"><span class="curr-sym">AED</span> <span class="animated-num" id="res-net">2,961,600</span></div>
+              <div class="result-metric-sub"><span class="curr-sym-alt">USD</span> <span id="res-net-usd">807,000</span> total</div>
+            </div>
+          </div>
+
+          <!-- CO2 -->
+          <div class="result-metric">
+            <div class="result-metric-label">
+              <div class="data-index-badge">03</div><br>
+              CO₂ saved<br>(1 truck off road)
+            </div>
+            <div class="result-metric-value">
+              <div class="result-metric-main"><span class="animated-num" id="res-co2">72</span></div>
+              <div class="result-metric-sub">tonnes CO₂ per year</div>
+            </div>
+          </div>
+
+          <!-- Breakdown bars -->
+          <div class="breakdown-section">
+            <div class="breakdown-title">Annual savings breakdown</div>
+
+            <div class="breakdown-bar-row">
+              <div class="breakdown-bar-header">
+                <span class="breakdown-bar-name">Truck capital</span>
+                <span class="breakdown-bar-val"><span class="curr-sym">AED</span> <span id="br-truck">90,000</span></span>
+              </div>
+              <div class="breakdown-track"><div class="breakdown-fill" id="bf-truck" style="width:0%"></div></div>
+            </div>
+
+            <div class="breakdown-bar-row">
+              <div class="breakdown-bar-header">
+                <span class="breakdown-bar-name">Driver</span>
+                <span class="breakdown-bar-val"><span class="curr-sym">AED</span> <span id="br-driver">72,000</span></span>
+              </div>
+              <div class="breakdown-track"><div class="breakdown-fill driver" id="bf-driver" style="width:0%"></div></div>
+            </div>
+
+            <div class="breakdown-bar-row">
+              <div class="breakdown-bar-header">
+                <span class="breakdown-bar-name">Fuel</span>
+                <span class="breakdown-bar-val"><span class="curr-sym">AED</span> <span id="br-fuel">76,160</span></span>
+              </div>
+              <div class="breakdown-track"><div class="breakdown-fill fuel" id="bf-fuel" style="width:0%"></div></div>
+            </div>
+
+            <div class="breakdown-bar-row">
+              <div class="breakdown-bar-header">
+                <span class="breakdown-bar-name">Maintenance</span>
+                <span class="breakdown-bar-val"><span class="curr-sym">AED</span> <span id="br-maint">45,000</span></span>
+              </div>
+              <div class="breakdown-track"><div class="breakdown-fill maint" id="bf-maint" style="width:0%"></div></div>
+            </div>
+
+            <div class="breakdown-bar-row">
+              <div class="breakdown-bar-header">
+                <span class="breakdown-bar-name">Insurance</span>
+                <span class="breakdown-bar-val"><span class="curr-sym">AED</span> <span id="br-insur">18,000</span></span>
+              </div>
+              <div class="breakdown-track"><div class="breakdown-fill insur" id="bf-insur" style="width:0%"></div></div>
+            </div>
+
+            <div class="breakdown-bar-row">
+              <div class="breakdown-bar-header">
+                <span class="breakdown-bar-name">Tyres</span>
+                <span class="breakdown-bar-val"><span class="curr-sym">AED</span> <span id="br-tires">12,000</span></span>
+              </div>
+              <div class="breakdown-track"><div class="breakdown-fill tires" id="bf-tires" style="width:0%"></div></div>
+            </div>
+          </div>
+
+          <!-- Additional investment row -->
+          <div class="investment-row">
+            <span class="investment-label">Total additional investment</span>
+            <span class="investment-value"><span class="curr-sym">AED</span> <span id="res-invest">170,000</span></span>
+          </div>
+
+          <!-- CTA -->
+          <div class="results-cta">
+            <a href="contact.html" class="btn" style="width: 100%; justify-content: center; border-color: var(--text-light); color: var(--text-light); margin-bottom: 0.75rem;">
+              Get a custom quote <span class="btn-arrow">&rarr;</span>
+            </a>
+            <a href="https://wa.me/971585805907" target="_blank" rel="noopener"
+              class="btn" style="width: 100%; justify-content: center; border-color: #25D366; color: #25D366;">
+              WhatsApp us these numbers
+            </a>
+          </div>
+
+        </div><!-- /results-panel -->
+
+        <!-- Disclaimer -->
+        <p style="font-family: var(--font-tech); font-size: 0.62rem; color: var(--text-muted); margin-top: 1rem; line-height: 1.7; opacity: 0.7;">
+          Indicative estimate based on GCC market benchmarks. Actual savings depend on route, cargo type, and fleet conditions. Contact ASSET+ for a tailored analysis.
+        </p>
+
+      </div><!-- /results-col -->
+    </div><!-- /calc-wrapper -->
+  </section>
+
+  <!-- CTA -->
+  <section class="dark-section" style="padding: 12vw 5vw; text-align: center;">
+    <div class="container">
+      <span class="text-tech reveal" style="color: var(--accent); font-weight: 700;">READY TO SEE YOUR REAL NUMBERS?</span>
+      <h2 class="title-massive reveal reveal-delay-1" style="margin: var(--space-md) 0;">LET'S<br>TALK.</h2>
+      <p class="reveal reveal-delay-2" style="color: rgba(255,255,255,0.75); font-size: 1.15rem; max-width: 52ch; margin: var(--space-md) auto;">
+        This calculator gives you the picture. A conversation with our team gives you the exact specification, pricing, and delivery timeline for your fleet.
+      </p>
+      <div class="reveal reveal-delay-3" style="margin-top: var(--space-lg); display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap;">
+        <a href="contact.html" class="btn" style="border-color: var(--text-light); color: var(--text-light);">Request a Quote <span class="btn-arrow">&rarr;</span></a>
+        <a href="https://wa.me/971585805907" target="_blank" rel="noopener" class="btn" style="border-color: #25D366; color: #25D366;">WhatsApp Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer-brutal">
+    <div class="footer-content">
+      <div style="border-right: 1px solid var(--grid-line-light); padding-right: 5vw;">
+        <img src="assets/images/ASSETPLUSlogo-web-hd-transparent-V2.png" alt="ASSET+ Fleet Solutions"
+          style="height: 80px; filter: brightness(200%); margin-bottom: var(--space-lg);">
+        <p class="text-tech" style="font-size: 0.7rem; max-width: 40ch; color: rgba(255,255,255,0.75);">
+          Official distributor of Burgers Carrosserie for the UAE and GCC. Doubling Capacity. Proven.
+        </p>
+      </div>
+      <div class="grid-2">
+        <div>
+          <span class="text-tech" style="color: var(--text-light); margin-bottom: var(--space-md); display:block;">NAVIGATION</span>
+          <a href="index.html" class="text-tech" style="display:block; margin-bottom: 8px;">01. Home</a>
+          <a href="double-deck-trailer.html" class="text-tech" style="display:block; margin-bottom: 8px;">02. Double Deck</a>
+          <a href="elc-trailers.html" class="text-tech" style="display:block; margin-bottom: 8px;">03. ELC Trailers</a>
+          <a href="about.html" class="text-tech" style="display:block; margin-bottom: 8px;">04. About</a>
+          <a href="contact.html" class="text-tech" style="display:block; margin-bottom: 8px;">05. Contact</a>
+          <a href="savings-calculator.html" class="text-tech" style="display:block; margin-bottom: 8px; color: var(--accent);">06. Savings Calculator</a>
+        </div>
+        <div>
+          <span class="text-tech" style="color: var(--text-light); margin-bottom: var(--space-md); display:block;">CONTACT</span>
+          <span class="text-tech" style="display:block; margin-bottom: 8px;">WhatsApp: +971 58 580 5907</span>
+          <span class="text-tech" style="display:block; margin-bottom: 8px;">info@assetplusgcc.com</span>
+        </div>
+      </div>
+    </div>
+    <div id="flickeringGridContainer" class="flickering-grid-wrapper">
+      <div class="flickering-canvas-container">
+        <canvas id="flickeringGridCanvas"></canvas>
+      </div>
+    </div>
+    <div style="border-top: 1px solid rgba(255,255,255,0.15); padding: 10px 5vw; display:flex; justify-content:space-between; flex-wrap: wrap; gap: 8px; position:relative; z-index:2; background: var(--bg-dark);">
+      <span class="text-tech" style="font-size: 0.6rem;">&copy; 2026 ASSET+ Fleet Solutions</span>
+      <span class="text-tech" style="font-size: 0.6rem;">
+        <a href="privacy-policy.html" style="color: rgba(255,255,255,0.75);">Privacy Policy</a> &nbsp;|&nbsp;
+        <a href="terms-of-service.html" style="color: rgba(255,255,255,0.75);">Terms of Service</a>
+      </span>
+      <span class="text-tech" style="font-size: 0.6rem; color: var(--accent);">DUBAI, UAE</span>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/971585805907" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <script src="js/main.js"></script>
+  <script src="js/cookie-consent.js"></script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* ── CONSTANTS (not in sliders) ─────────────────── */
+    const FUEL_CONS = 35;      // L/100km
+    const TIRE_KM   = 0.15;    // AED/km
+    const EXTRA_MAINT_YR = 12000; // AED/yr extra for DD vs std
+    const USD_RATE  = 3.67;
+    const CO2_FACTOR = 900;    // g CO₂/km
+
+    /* ── CURRENCY STATE ─────────────────────────────── */
+    let currency = 'AED';
+
+    function conv(aed)    { return currency === 'USD' ? aed / USD_RATE : aed; }
+    function altConv(aed) { return currency === 'USD' ? aed : aed / USD_RATE; }
+    function currSym()    { return currency; }
+    function altSym()     { return currency === 'USD' ? 'AED' : 'USD'; }
+
+    /* ── DEFAULTS ───────────────────────────────────── */
+    const DEFAULTS = {
+      km: 80000, driver: 6000, fuel: 2.72, truck: 450000,
+      dd: 220000, std: 130000, maint: 45000, insur: 18000,
+      trucklife: 5, lifespan: 10
+    };
+
+    /* ── HELPERS ────────────────────────────────────── */
+    function fmt(n, decimals = 0) {
+      if (isNaN(n)) return '—';
+      return Number(n.toFixed(decimals)).toLocaleString('en-US', {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      });
+    }
+
+    function getVal(id) {
+      return parseFloat(document.getElementById(id).value) || 0;
+    }
+
+    function setFill(slider) {
+      const min = parseFloat(slider.min);
+      const max = parseFloat(slider.max);
+      const val = parseFloat(slider.value);
+      const pct = ((val - min) / (max - min)) * 100;
+      slider.style.setProperty('--fill', pct.toFixed(1) + '%');
+    }
+
+    /* ── ANIMATION ──────────────────────────────────── */
+    const anims = {};
+
+    function animTo(id, target, decimals = 0) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (anims[id]) cancelAnimationFrame(anims[id]);
+
+      const from = parseFloat(el.dataset.val || target);
+      el.dataset.val = target;
+      const duration = 450;
+      const start = performance.now();
+
+      function tick(now) {
+        const t = Math.min((now - start) / duration, 1);
+        const e = 1 - Math.pow(1 - t, 3);
+        const cur = from + (target - from) * e;
+        el.textContent = fmt(cur, decimals);
+        if (t < 1) anims[id] = requestAnimationFrame(tick);
+      }
+      anims[id] = requestAnimationFrame(tick);
+    }
+
+    /* ── CORE CALCULATION ───────────────────────────── */
+    function calculate() {
+      const km        = getVal('sl-km');
+      const driver    = getVal('sl-driver');
+      const fuel      = getVal('sl-fuel');
+      const truck     = getVal('sl-truck');
+      const dd        = getVal('adv-dd');
+      const std       = getVal('adv-std');
+      const maint     = getVal('adv-maint');
+      const insur     = getVal('adv-insur');
+      const truckLife = getVal('adv-trucklife');
+      const lifespan  = getVal('adv-lifespan');
+
+      // Extra investment
+      const trailerPremium   = 2 * dd - 3 * std;
+      const extraMaintTotal  = EXTRA_MAINT_YR * lifespan;
+      const totalInvestment  = trailerPremium + extraMaintTotal;
+
+      // Annual savings
+      const s_truck  = truck / truckLife;
+      const s_driver = driver * 12;
+      const s_fuel   = (km / 100) * FUEL_CONS * fuel;
+      const s_maint  = maint;
+      const s_insur  = insur;
+      const s_tires  = km * TIRE_KM;
+      const totalAnnual = s_truck + s_driver + s_fuel + s_maint + s_insur + s_tires;
+
+      // Results
+      const grossSavings  = totalAnnual * lifespan;
+      const netSaving     = grossSavings - totalInvestment;
+      const payback       = totalAnnual > 0 ? (totalInvestment / totalAnnual) * 12 : 0;
+      const co2Annual     = (km * CO2_FACTOR) / 1_000_000;
+
+      return {
+        totalInvestment, totalAnnual, netSaving, payback, co2Annual, lifespan,
+        breakdown: { s_truck, s_driver, s_fuel, s_maint, s_insur, s_tires }
+      };
+    }
+
+    /* ── UPDATE UI ──────────────────────────────────── */
+    function updateUI() {
+      const r = calculate();
+      const { breakdown: b, totalAnnual, netSaving, payback, co2Annual, lifespan, totalInvestment } = r;
+
+      // Currency symbol spans
+      document.querySelectorAll('.curr-sym').forEach(el => el.textContent = currSym());
+      document.querySelectorAll('.curr-sym-alt').forEach(el => el.textContent = altSym());
+
+      // Main metrics (converted to active currency)
+      animTo('res-payback', payback,              1);
+      animTo('res-annual',  conv(totalAnnual),    0);
+      animTo('res-net',     conv(netSaving),      0);
+      animTo('res-co2',     co2Annual,            0);
+
+      // Sub values (opposite currency)
+      document.getElementById('res-annual-usd').textContent = fmt(altConv(totalAnnual), 0);
+      document.getElementById('res-net-usd').textContent    = fmt(altConv(netSaving), 0);
+      document.getElementById('res-invest').textContent     = fmt(conv(totalInvestment), 0);
+      document.getElementById('res-lifespan-lbl').textContent = lifespan;
+
+      // Breakdown bars
+      const items = [
+        { name: 'truck',  val: b.s_truck },
+        { name: 'driver', val: b.s_driver },
+        { name: 'fuel',   val: b.s_fuel },
+        { name: 'maint',  val: b.s_maint },
+        { name: 'insur',  val: b.s_insur },
+        { name: 'tires',  val: b.s_tires },
+      ];
+
+      const maxBar = Math.max(...items.map(i => i.val));
+      items.forEach(item => {
+        const valEl  = document.getElementById('br-' + item.name);
+        const fillEl = document.getElementById('bf-' + item.name);
+        if (valEl) valEl.textContent = fmt(conv(item.val), 0);
+        if (fillEl) fillEl.style.width = (maxBar > 0 ? (item.val / maxBar) * 100 : 0).toFixed(1) + '%';
+      });
+
+      // Slider display labels
+      document.getElementById('disp-km').textContent     = fmt(getVal('sl-km'), 0);
+      document.getElementById('disp-driver').textContent = fmt(getVal('sl-driver'), 0);
+      document.getElementById('disp-fuel').textContent   = fmt(getVal('sl-fuel'), 2);
+      document.getElementById('disp-truck').textContent  = fmt(getVal('sl-truck'), 0);
+    }
+
+    /* ── SLIDER WIRING ──────────────────────────────── */
+    ['sl-km', 'sl-driver', 'sl-fuel', 'sl-truck'].forEach(id => {
+      const slider = document.getElementById(id);
+      if (!slider) return;
+      setFill(slider);
+      slider.addEventListener('input', () => {
+        setFill(slider);
+        updateUI();
+      });
+    });
+
+    /* ── ADVANCED INPUTS ────────────────────────────── */
+    ['adv-dd', 'adv-std', 'adv-maint', 'adv-insur', 'adv-trucklife', 'adv-lifespan'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', updateUI);
+    });
+
+    /* ── ADVANCED TOGGLE ────────────────────────────── */
+    const advBtn   = document.getElementById('advancedToggle');
+    const advPanel = document.getElementById('advancedPanel');
+    if (advBtn && advPanel) {
+      advBtn.addEventListener('click', () => {
+        const open = advPanel.classList.toggle('open');
+        advBtn.classList.toggle('open', open);
+        advBtn.setAttribute('aria-expanded', open);
+      });
+    }
+
+    /* ── RESET ──────────────────────────────────────── */
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      document.getElementById('sl-km').value     = DEFAULTS.km;
+      document.getElementById('sl-driver').value = DEFAULTS.driver;
+      document.getElementById('sl-fuel').value   = DEFAULTS.fuel;
+      document.getElementById('sl-truck').value  = DEFAULTS.truck;
+      document.getElementById('adv-dd').value    = DEFAULTS.dd;
+      document.getElementById('adv-std').value   = DEFAULTS.std;
+      document.getElementById('adv-maint').value = DEFAULTS.maint;
+      document.getElementById('adv-insur').value = DEFAULTS.insur;
+      document.getElementById('adv-trucklife').value = DEFAULTS.trucklife;
+      document.getElementById('adv-lifespan').value  = DEFAULTS.lifespan;
+
+      ['sl-km', 'sl-driver', 'sl-fuel', 'sl-truck'].forEach(id => {
+        setFill(document.getElementById(id));
+      });
+      updateUI();
+    });
+
+    /* ── CURRENCY TOGGLE ────────────────────────────── */
+    ['btn-aed', 'btn-usd'].forEach(id => {
+      const btn = document.getElementById(id);
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        currency = id === 'btn-usd' ? 'USD' : 'AED';
+        document.getElementById('btn-aed').classList.toggle('active', currency === 'AED');
+        document.getElementById('btn-usd').classList.toggle('active', currency === 'USD');
+        updateUI();
+      });
+    });
+
+    /* ── INITIAL RENDER ─────────────────────────────── */
+    updateUI();
+
+    // Kick off breakdown bars after a brief delay for the entrance animation
+    setTimeout(() => {
+      ['bf-truck','bf-driver','bf-fuel','bf-maint','bf-insur','bf-tires'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.transition = 'width 0.6s cubic-bezier(0.16,1,0.3,1)';
+      });
+      updateUI();
+    }, 300);
+
+  })();
+  </script>
+
+</body>
+</html>
