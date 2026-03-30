@@ -524,13 +524,14 @@
     }
 
     /* ── CURRENCY TOGGLE ────────────────────────────── */
-    .currency-bar {
-      background: var(--bg-color);
-      border-bottom: 1px solid var(--grid-line);
-      padding: 0.8rem 5vw;
+    .currency-inline-wrap {
       display: flex;
       align-items: center;
-      gap: 1.2rem;
+      gap: 0.9rem;
+      margin-bottom: var(--space-lg);
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--grid-line);
+      flex-wrap: wrap;
     }
 
     .currency-toggle {
@@ -639,16 +640,6 @@
   <!-- CALCULATOR -->
   <section style="background: var(--bg-light);">
 
-    <!-- Currency toggle bar -->
-    <div class="currency-bar">
-      <span class="text-tech" style="color: var(--text-muted); font-size: 0.72rem;">Display currency:</span>
-      <div class="currency-toggle" role="group" aria-label="Currency selection">
-        <button class="curr-btn active" id="btn-aed">AED</button>
-        <button class="curr-btn" id="btn-usd">USD</button>
-      </div>
-      <span class="text-tech" style="color: var(--text-muted); font-size: 0.65rem; opacity: 0.6;">USD/AED fixed at 3.67 — UAE Central Bank peg</span>
-    </div>
-
     <div class="calc-wrapper">
 
       <!-- LEFT: INPUTS -->
@@ -657,6 +648,16 @@
         <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: var(--space-lg); max-width: 50ch; line-height: 1.7;">
           Adjust the sliders to match your operation. All defaults are based on verified UAE/GCC market data. Results update live.
         </p>
+
+        <!-- Currency toggle (inline) -->
+        <div class="currency-inline-wrap">
+          <span class="text-tech" style="font-size: 0.68rem; color: var(--text-muted);">Display currency:</span>
+          <div class="currency-toggle" role="group" aria-label="Currency selection">
+            <button class="curr-btn active" id="btn-aed">AED</button>
+            <button class="curr-btn" id="btn-usd">USD</button>
+          </div>
+          <span class="text-tech" style="font-size: 0.62rem; color: var(--text-muted); opacity: 0.6;">USD/AED fixed at 3.67 — UAE Central Bank peg</span>
+        </div>
 
         <!-- Slider 1: Annual km -->
         <div class="slider-group">
@@ -681,16 +682,16 @@
           <div class="slider-header">
             <span class="slider-label">Monthly driver cost (salary + allowances)</span>
             <span class="slider-value-display">
-              AED <span id="disp-driver">6,000</span><span class="slider-unit">/ month</span>
+              <span class="inp-curr-sym">AED</span> <span id="disp-driver">6,000</span><span class="slider-unit">/ month</span>
             </span>
           </div>
           <input type="range" id="sl-driver" class="calc-range"
             min="3000" max="12000" step="500" value="6000"
             aria-label="Monthly driver cost AED">
           <div style="display: flex; justify-content: space-between;">
-            <span class="slider-hint">AED 3,000</span>
-            <span class="slider-hint">UAE mid-range: AED 6,000</span>
-            <span class="slider-hint">AED 12,000</span>
+            <span class="slider-hint" id="hint-driver-min">AED 3,000</span>
+            <span class="slider-hint" id="hint-driver-mid">UAE mid-range: AED 6,000</span>
+            <span class="slider-hint" id="hint-driver-max">AED 12,000</span>
           </div>
         </div>
 
@@ -699,16 +700,16 @@
           <div class="slider-header">
             <span class="slider-label">Diesel fuel price</span>
             <span class="slider-value-display">
-              AED <span id="disp-fuel">2.72</span><span class="slider-unit">/ liter</span>
+              <span class="inp-curr-sym">AED</span> <span id="disp-fuel">2.72</span><span class="slider-unit">/ liter</span>
             </span>
           </div>
           <input type="range" id="sl-fuel" class="calc-range"
             min="1.50" max="5.00" step="0.01" value="2.72"
             aria-label="Diesel fuel price AED per liter">
           <div style="display: flex; justify-content: space-between;">
-            <span class="slider-hint">AED 1.50</span>
-            <span class="slider-hint">UAE official Mar 2026: AED 2.72</span>
-            <span class="slider-hint">AED 5.00</span>
+            <span class="slider-hint" id="hint-fuel-min">AED 1.50</span>
+            <span class="slider-hint" id="hint-fuel-mid">UAE official Mar 2026: AED 2.72</span>
+            <span class="slider-hint" id="hint-fuel-max">AED 5.00</span>
           </div>
         </div>
 
@@ -717,16 +718,16 @@
           <div class="slider-header">
             <span class="slider-label">Truck purchase price (tractor unit)</span>
             <span class="slider-value-display">
-              AED <span id="disp-truck">450,000</span>
+              <span class="inp-curr-sym">AED</span> <span id="disp-truck">450,000</span>
             </span>
           </div>
           <input type="range" id="sl-truck" class="calc-range"
             min="150000" max="700000" step="10000" value="450000"
             aria-label="Truck purchase price AED">
           <div style="display: flex; justify-content: space-between;">
-            <span class="slider-hint">AED 150k</span>
-            <span class="slider-hint">New premium (Volvo/Mercedes): ~AED 450k</span>
-            <span class="slider-hint">AED 700k</span>
+            <span class="slider-hint" id="hint-truck-min">AED 150k</span>
+            <span class="slider-hint" id="hint-truck-mid">New premium (Volvo/Mercedes): ~AED 450k</span>
+            <span class="slider-hint" id="hint-truck-max">AED 700k</span>
           </div>
         </div>
 
@@ -742,24 +743,24 @@
             <div class="adv-field">
               <label for="adv-dd">Price per Double Deck trailer</label>
               <div class="adv-input-wrap">
-                <span class="adv-prefix">AED</span>
-                <input type="number" id="adv-dd" value="220000" min="100000" max="500000" step="5000">
+                <span class="adv-prefix adv-curr-prefix">AED</span>
+                <input type="number" id="adv-dd" value="220000" data-aed="220000" min="100000" max="500000" step="5000">
               </div>
             </div>
 
             <div class="adv-field">
               <label for="adv-std">Price per standard trailer</label>
               <div class="adv-input-wrap">
-                <span class="adv-prefix">AED</span>
-                <input type="number" id="adv-std" value="130000" min="50000" max="300000" step="5000">
+                <span class="adv-prefix adv-curr-prefix">AED</span>
+                <input type="number" id="adv-std" value="130000" data-aed="130000" min="50000" max="300000" step="5000">
               </div>
             </div>
 
             <div class="adv-field">
               <label for="adv-maint">Annual truck maintenance saving</label>
               <div class="adv-input-wrap">
-                <span class="adv-prefix">AED</span>
-                <input type="number" id="adv-maint" value="45000" min="10000" max="120000" step="1000">
+                <span class="adv-prefix adv-curr-prefix">AED</span>
+                <input type="number" id="adv-maint" value="25000" data-aed="25000" min="5000" max="80000" step="1000">
                 <span class="adv-suffix">/ yr</span>
               </div>
             </div>
@@ -767,8 +768,8 @@
             <div class="adv-field">
               <label for="adv-insur">Annual insurance saving</label>
               <div class="adv-input-wrap">
-                <span class="adv-prefix">AED</span>
-                <input type="number" id="adv-insur" value="18000" min="5000" max="60000" step="1000">
+                <span class="adv-prefix adv-curr-prefix">AED</span>
+                <input type="number" id="adv-insur" value="18000" data-aed="18000" min="5000" max="60000" step="1000">
                 <span class="adv-suffix">/ yr</span>
               </div>
             </div>
@@ -806,7 +807,7 @@
             Truck prices AutoBeeb UAE 2025 &nbsp;·&nbsp;
             Annual km PwC/TruKKer UAE fleet study 2025 &nbsp;·&nbsp;
             Fuel consumption: 35 L/100km (40t GVW, GCC highways) &nbsp;·&nbsp;
-            Tyre cost: AED 0.15/km &nbsp;·&nbsp;
+            Tyre cost: AED 0.10/km (18 tyres × AED 700 / 120,000 km lifespan, 2-axle trailer + 6×4 tractor) &nbsp;·&nbsp;
             Extra DD maintenance: AED 12,000/yr &nbsp;·&nbsp;
             CO₂ factor: 900 g/km (ICCT/GLEC framework)
           </p>
@@ -834,7 +835,7 @@
             </div>
             <div class="result-metric-value">
               <div class="result-metric-main"><span class="curr-sym">AED</span> <span class="animated-num" id="res-annual">313,160</span></div>
-              <div class="result-metric-sub"><span class="curr-sym-alt">USD</span> <span id="res-annual-usd">85,328</span> / year</div>
+              <div class="result-metric-sub">≈ <span class="curr-sym">AED</span> <span id="res-annual-mo">26,097</span> / month</div>
             </div>
           </div>
 
@@ -846,7 +847,7 @@
             </div>
             <div class="result-metric-value">
               <div class="result-metric-main"><span class="curr-sym">AED</span> <span class="animated-num" id="res-net">2,961,600</span></div>
-              <div class="result-metric-sub"><span class="curr-sym-alt">USD</span> <span id="res-net-usd">807,000</span> total</div>
+              <div class="result-metric-sub">gross savings minus additional investment</div>
             </div>
           </div>
 
@@ -1016,7 +1017,7 @@
 
     /* ── CONSTANTS (not in sliders) ─────────────────── */
     const FUEL_CONS = 35;      // L/100km
-    const TIRE_KM   = 0.15;    // AED/km
+    const TIRE_KM   = 0.10;    // AED/km — 18 tyres × AED 700 / 120,000 km lifespan
     const EXTRA_MAINT_YR = 12000; // AED/yr extra for DD vs std
     const USD_RATE  = 3.67;
     const CO2_FACTOR = 900;    // g CO₂/km
@@ -1032,7 +1033,7 @@
     /* ── DEFAULTS ───────────────────────────────────── */
     const DEFAULTS = {
       km: 80000, driver: 6000, fuel: 2.72, truck: 450000,
-      dd: 220000, std: 130000, maint: 45000, insur: 18000,
+      dd: 220000, std: 130000, maint: 25000, insur: 18000,
       trucklife: 5, lifespan: 10
     };
 
@@ -1080,16 +1081,62 @@
       anims[id] = requestAnimationFrame(tick);
     }
 
+    /* ── ADV INPUT HELPERS (always returns AED) ─────── */
+    function advGetAed(id) {
+      const el = document.getElementById(id);
+      if (!el) return 0;
+      return parseFloat(el.dataset.aed || el.value) || 0;
+    }
+
+    /* ── REFRESH INPUT DISPLAYS ─────────────────────── */
+    function refreshInputDisplays() {
+      // Currency prefix labels
+      document.querySelectorAll('.inp-curr-sym').forEach(el => el.textContent = currSym());
+      document.querySelectorAll('.adv-curr-prefix').forEach(el => el.textContent = currSym());
+
+      // Convert adv monetary inputs to display currency
+      ['adv-dd', 'adv-std', 'adv-maint', 'adv-insur'].forEach(id => {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const aed = parseFloat(el.dataset.aed) || 0;
+        el.value = currency === 'USD' ? Math.round(aed / USD_RATE) : Math.round(aed);
+      });
+
+      // Update slider hints
+      const h = (n, d) => fmt(conv(n), d !== undefined ? d : 0);
+
+      const dMin = document.getElementById('hint-driver-min');
+      const dMid = document.getElementById('hint-driver-mid');
+      const dMax = document.getElementById('hint-driver-max');
+      if (dMin) dMin.textContent = currSym() + ' ' + h(3000);
+      if (dMid) dMid.textContent = 'UAE mid-range: ' + currSym() + ' ' + h(6000);
+      if (dMax) dMax.textContent = currSym() + ' ' + h(12000);
+
+      const fMin = document.getElementById('hint-fuel-min');
+      const fMid = document.getElementById('hint-fuel-mid');
+      const fMax = document.getElementById('hint-fuel-max');
+      if (fMin) fMin.textContent = currSym() + ' ' + fmt(conv(1.50), 2);
+      if (fMid) fMid.textContent = 'UAE official Mar 2026: ' + currSym() + ' ' + fmt(conv(2.72), 2);
+      if (fMax) fMax.textContent = currSym() + ' ' + fmt(conv(5.00), 2);
+
+      const tMin = document.getElementById('hint-truck-min');
+      const tMid = document.getElementById('hint-truck-mid');
+      const tMax = document.getElementById('hint-truck-max');
+      if (tMin) tMin.textContent = currency === 'USD' ? ('$ ' + h(150000)) : 'AED 150k';
+      if (tMid) tMid.textContent = 'New premium (Volvo/Mercedes): ~' + (currency === 'USD' ? ('$ ' + h(450000)) : 'AED 450k');
+      if (tMax) tMax.textContent = currency === 'USD' ? ('$ ' + h(700000)) : 'AED 700k';
+    }
+
     /* ── CORE CALCULATION ───────────────────────────── */
     function calculate() {
       const km        = getVal('sl-km');
       const driver    = getVal('sl-driver');
       const fuel      = getVal('sl-fuel');
       const truck     = getVal('sl-truck');
-      const dd        = getVal('adv-dd');
-      const std       = getVal('adv-std');
-      const maint     = getVal('adv-maint');
-      const insur     = getVal('adv-insur');
+      const dd        = advGetAed('adv-dd');
+      const std       = advGetAed('adv-std');
+      const maint     = advGetAed('adv-maint');
+      const insur     = advGetAed('adv-insur');
       const truckLife = getVal('adv-trucklife');
       const lifespan  = getVal('adv-lifespan');
 
@@ -1121,6 +1168,8 @@
 
     /* ── UPDATE UI ──────────────────────────────────── */
     function updateUI() {
+      refreshInputDisplays();
+
       const r = calculate();
       const { breakdown: b, totalAnnual, netSaving, payback, co2Annual, lifespan, totalInvestment } = r;
 
@@ -1134,10 +1183,9 @@
       animTo('res-net',     conv(netSaving),      0);
       animTo('res-co2',     co2Annual,            0);
 
-      // Sub values (opposite currency)
-      document.getElementById('res-annual-usd').textContent = fmt(altConv(totalAnnual), 0);
-      document.getElementById('res-net-usd').textContent    = fmt(altConv(netSaving), 0);
-      document.getElementById('res-invest').textContent     = fmt(conv(totalInvestment), 0);
+      // Sub values
+      document.getElementById('res-annual-mo').textContent = fmt(conv(totalAnnual / 12), 0);
+      document.getElementById('res-invest').textContent    = fmt(conv(totalInvestment), 0);
       document.getElementById('res-lifespan-lbl').textContent = lifespan;
 
       // Breakdown bars
@@ -1158,11 +1206,11 @@
         if (fillEl) fillEl.style.width = (maxBar > 0 ? (item.val / maxBar) * 100 : 0).toFixed(1) + '%';
       });
 
-      // Slider display labels
+      // Slider display labels (km stays as-is; monetary values convert)
       document.getElementById('disp-km').textContent     = fmt(getVal('sl-km'), 0);
-      document.getElementById('disp-driver').textContent = fmt(getVal('sl-driver'), 0);
-      document.getElementById('disp-fuel').textContent   = fmt(getVal('sl-fuel'), 2);
-      document.getElementById('disp-truck').textContent  = fmt(getVal('sl-truck'), 0);
+      document.getElementById('disp-driver').textContent = fmt(conv(getVal('sl-driver')), 0);
+      document.getElementById('disp-fuel').textContent   = fmt(conv(getVal('sl-fuel')), 2);
+      document.getElementById('disp-truck').textContent  = fmt(conv(getVal('sl-truck')), 0);
     }
 
     /* ── SLIDER WIRING ──────────────────────────────── */
@@ -1177,7 +1225,17 @@
     });
 
     /* ── ADVANCED INPUTS ────────────────────────────── */
-    ['adv-dd', 'adv-std', 'adv-maint', 'adv-insur', 'adv-trucklife', 'adv-lifespan'].forEach(id => {
+    ['adv-dd', 'adv-std', 'adv-maint', 'adv-insur'].forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.addEventListener('input', () => {
+        const raw = parseFloat(el.value) || 0;
+        el.dataset.aed = currency === 'USD' ? raw * USD_RATE : raw;
+        updateUI();
+      });
+    });
+
+    ['adv-trucklife', 'adv-lifespan'].forEach(id => {
       const el = document.getElementById(id);
       if (el) el.addEventListener('input', updateUI);
     });
@@ -1199,10 +1257,13 @@
       document.getElementById('sl-driver').value = DEFAULTS.driver;
       document.getElementById('sl-fuel').value   = DEFAULTS.fuel;
       document.getElementById('sl-truck').value  = DEFAULTS.truck;
-      document.getElementById('adv-dd').value    = DEFAULTS.dd;
-      document.getElementById('adv-std').value   = DEFAULTS.std;
-      document.getElementById('adv-maint').value = DEFAULTS.maint;
-      document.getElementById('adv-insur').value = DEFAULTS.insur;
+      ['adv-dd', 'adv-std', 'adv-maint', 'adv-insur'].forEach(id => {
+        const key = id.replace('adv-', '');
+        const el = document.getElementById(id);
+        if (!el) return;
+        el.dataset.aed = DEFAULTS[key];
+        el.value = currency === 'USD' ? Math.round(DEFAULTS[key] / USD_RATE) : DEFAULTS[key];
+      });
       document.getElementById('adv-trucklife').value = DEFAULTS.trucklife;
       document.getElementById('adv-lifespan').value  = DEFAULTS.lifespan;
 
