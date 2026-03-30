@@ -823,7 +823,7 @@
           <div class="payback-banner">
             <div class="payback-label">⏱ Payback period</div>
             <div class="payback-number">
-              <span class="animated-num" id="res-payback">6.5</span><span class="payback-unit">months</span>
+              <span class="animated-num" id="res-payback">7</span><span class="payback-unit">months</span>
             </div>
             <div class="payback-sub">Your extra investment pays itself back in full</div>
           </div>
@@ -1179,7 +1179,7 @@
       document.querySelectorAll('.curr-sym-alt').forEach(el => el.textContent = altSym());
 
       // Main metrics (converted to active currency)
-      animTo('res-payback', payback,              1);
+      animTo('res-payback', Math.ceil(payback),   0);
       animTo('res-annual',  conv(totalAnnual),    0);
       animTo('res-net',     conv(netSaving),      0);
       animTo('res-co2',     co2Annual,            0);
