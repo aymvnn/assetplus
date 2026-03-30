@@ -43,6 +43,7 @@
       <a href="double-deck-trailer.html" class="nav-link tech-hover">02. Double Deck</a>
       <a href="elc-trailers.html" class="nav-link tech-hover">03. ELC Trailers</a>
       <a href="about.html" class="nav-link tech-hover">04. About</a>
+      <a href="savings-calculator.html" class="nav-link tech-hover">05. Calculator</a>
       <a href="contact.html" class="btn btn-primary" style="margin-left: 1rem;">Get a Quote</a>
     </div>
   </nav>
@@ -95,11 +96,9 @@
           <p style="font-family: var(--font-tech); font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); margin-bottom: var(--space-md); line-height: 1.6;">
             Custom specification within 48 hours. No obligation.
           </p>
-          <form id="contactForm" action="https://formsubmit.co/info@assetplusgcc.com" method="POST">
+          <form id="contactForm" action="https://formspree.io/f/xvzwvrjr" method="POST">
             <input type="hidden" name="_subject" value="New ASSET+ Website Inquiry">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="text" name="_honey" style="display:none">
+            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
             <div class="form-group">
               <label for="name" class="form-label">Name</label>
@@ -172,8 +171,8 @@
               <span class="trust-badge"><span class="trust-icon">&#10003;</span> Data never shared</span>
             </div>
 
-            <div id="formStatus" class="text-tech" style="margin-top: 1rem; color: var(--accent); display:none;">MESSAGE
-              SENT SUCCESSFULLY. WE WILL RESPOND WITHIN 48 HOURS.</div>
+            <div id="formStatus" class="text-tech" style="margin-top: 1rem; color: var(--accent); display:none;">MESSAGE SENT SUCCESSFULLY. WE WILL RESPOND WITHIN 48 HOURS.</div>
+            <div id="formError" class="text-tech" style="margin-top: 1rem; color: #e74c3c; display:none;">SOMETHING WENT WRONG. PLEASE TRY AGAIN OR EMAIL US DIRECTLY AT INFO@ASSETPLUSGCC.COM.</div>
           </form>
         </div>
       </div>
