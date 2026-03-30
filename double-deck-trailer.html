@@ -157,19 +157,22 @@
   </section>
 
   <!-- INTERIOR VIEW — Photo-based layout -->
-  <section class="feature-section layout-c" style="background: var(--bg-color); grid-template-columns: 68% 32%;">
-    <div class="feature-visual">
-      <div class="image-section reveal-scale"
-        style="height: 100%; min-height: 680px;" data-parallax="0.03">
-        <picture><source srcset="mediatouse/must-use/Double-deck-2layers.webp" type="image/webp"><img src="mediatouse/must-use/Double-deck-2layers.jpg" alt="Double Deck Two Layers Interior"
-          style="width:100%; height:100%; object-fit:cover;" loading="lazy"></picture>
-      </div>
-    </div>
-    <div class="feature-text">
-      <div class="reveal">
-        <span class="text-tech" style="color: var(--accent);">INTERIOR</span>
-        <h2 class="title-large" style="margin: var(--space-sm) 0 var(--space-lg);">DUAL LEVEL<br>LOADING.</h2>
-        <ul class="feature-list" style="font-family: var(--font-tech);">
+  <!-- INTERIOR — Full-bleed photo with text overlay -->
+  <section style="position: relative; height: 85vh; min-height: 580px; overflow: hidden;">
+    <!-- Full-bleed photo -->
+    <picture>
+      <source srcset="mediatouse/must-use/Double-deck-2layers.webp" type="image/webp">
+      <img src="mediatouse/must-use/Double-deck-2layers.jpg" alt="Double Deck Two Layers Interior"
+        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+    </picture>
+    <!-- Left-side gradient for text legibility -->
+    <div style="position: absolute; inset: 0; background: linear-gradient(to right, rgba(10,10,10,0.88) 38%, rgba(10,10,10,0.3) 65%, transparent 100%);"></div>
+    <!-- Text overlay -->
+    <div class="reveal" style="position: relative; z-index: 2; height: 100%; display: flex; align-items: center; padding: 0 5vw; max-width: 560px;">
+      <div>
+        <span class="text-tech" style="color: var(--accent); display: block; margin-bottom: var(--space-sm);">INTERIOR</span>
+        <h2 class="title-large" style="color: var(--text-light); margin: 0 0 var(--space-lg);">DUAL LEVEL<br>LOADING.</h2>
+        <ul class="feature-list" style="font-family: var(--font-tech); color: rgba(255,255,255,0.8);">
           <li>Full rear-door opening with fold-down ramp.</li>
           <li>Both deck levels accessible from ground level.</li>
           <li>Integrated cargo securing with lashing rails.</li>
