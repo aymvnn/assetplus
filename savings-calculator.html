@@ -1179,7 +1179,7 @@
       document.querySelectorAll('.curr-sym-alt').forEach(el => el.textContent = altSym());
 
       // Main metrics (converted to active currency)
-      animTo('res-payback', Math.ceil(payback),   0);
+      animTo('res-payback', Math.floor(payback),  0);
       animTo('res-annual',  conv(totalAnnual),    0);
       animTo('res-net',     conv(netSaving),      0);
       animTo('res-co2',     co2Annual,            0);
