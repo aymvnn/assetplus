@@ -1,13 +1,15 @@
 /* ========================================
    ASSET+ — Contact Form JS
-   Validation + button feedback for FormSubmit.co
+   Validation + AJAX submission via Formspree
 ======================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  form.addEventListener('submit', (e) => {
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
     const required = form.querySelectorAll('[required]');
     let valid = true;
 
@@ -23,14 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Block submission if invalid
-    if (!valid) {
-      e.preventDefault();
-      return;
-    }
+    if (!valid) return;
 
-    // Valid: update button state and let form submit to FormSubmit.co
     const btn = form.querySelector('button[type="submit"]');
+    const statusEl = document.getElementById('formStatus');
+    const errorEl = document.getElementById('formError');
+
+    // Update button state
     if (btn) {
       btn.textContent = 'SENDING...';
       btn.style.opacity = '0.6';
@@ -38,14 +39,51 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.style.pointerEvents = 'none';
     }
 
-    // GA4 conversion event — fires when form is successfully submitted
-    // Will activate once GA4 is installed (Item 1 — comes later)
-    if (typeof gtag === 'function') {
-      gtag('event', 'generate_lead', {
-        event_category: 'form',
-        event_label: form.querySelector('#interest')?.value || 'general',
-        value: 1
+    // Hide previous messages
+    if (statusEl) statusEl.style.display = 'none';
+    if (errorEl) errorEl.style.display = 'none';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
       });
+
+      if (response.ok) {
+        // Success
+        form.reset();
+        if (statusEl) statusEl.style.display = 'block';
+
+        // GA4 conversion event
+        if (typeof gtag === 'function') {
+          gtag('event', 'generate_lead', {
+            event_category: 'form',
+            event_label: form.querySelector('#interest')?.value || 'general',
+            value: 1
+          });
+        }
+
+        // Reset button
+        if (btn) {
+          btn.textContent = 'Request Custom Specification →';
+          btn.style.opacity = '';
+          btn.disabled = false;
+          btn.style.pointerEvents = '';
+        }
+      } else {
+        throw new Error('Server error');
+      }
+    } catch {
+      if (errorEl) errorEl.style.display = 'block';
+
+      // Reset button
+      if (btn) {
+        btn.textContent = 'Request Custom Specification →';
+        btn.style.opacity = '';
+        btn.disabled = false;
+        btn.style.pointerEvents = '';
+      }
     }
   });
 });
