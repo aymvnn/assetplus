@@ -40,6 +40,17 @@ function initMobileMenu() {
   const nav = document.getElementById('navLinks');
   if (!toggle || !nav) return;
 
+  // Inject contact info at bottom of mobile menu (phone + email only)
+  if (window.innerWidth <= 1024 && !nav.querySelector('.mobile-nav-contact')) {
+    const contactBlock = document.createElement('div');
+    contactBlock.className = 'mobile-nav-contact';
+    contactBlock.innerHTML =
+      '<a href="tel:+971585805907" style="display:block;font-family:var(--font-tech);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);padding:0.5rem 0;">+971 58 580 5907</a>' +
+      '<a href="mailto:info@assetplusgcc.com" style="display:block;font-family:var(--font-tech);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);padding:0.5rem 0;">info@assetplusgcc.com</a>';
+    contactBlock.style.cssText = 'margin-top:auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.15);';
+    nav.appendChild(contactBlock);
+  }
+
   toggle.addEventListener('click', () => {
     toggle.classList.toggle('open');
     nav.classList.toggle('open');

@@ -99,69 +99,74 @@
             <input type="hidden" name="_subject" value="New ASSET+ Website Inquiry">
             <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
-            <div class="form-group">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" id="name" name="name" class="form-control" required placeholder="Your name">
+            <!-- Progress indicator -->
+            <div class="form-progress">
+              <span class="form-progress-dot active" id="dot1"></span>
+              <span class="form-progress-line"></span>
+              <span class="form-progress-dot" id="dot2"></span>
             </div>
 
-            <div class="form-group">
-              <label for="company" class="form-label">Company</label>
-              <input type="text" id="company" name="company" class="form-control" required placeholder="Company name">
-            </div>
+            <!-- Step 1: Contact Info -->
+            <div class="form-step active" id="formStep1">
+              <div class="form-group">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" name="name" class="form-control" required placeholder="Your name">
+              </div>
 
-            <div class="form-row-2">
+              <div class="form-group">
+                <label for="company" class="form-label">Company</label>
+                <input type="text" id="company" name="company" class="form-control" required placeholder="Company name">
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">Phone / WhatsApp</label>
+                <input type="tel" id="phone" name="phone" class="form-control" required placeholder="+971 XX XXX XXXX">
+              </div>
+
               <div class="form-group">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" id="email" name="email" class="form-control" required placeholder="Your email">
               </div>
-              <div class="form-group">
-                <label for="phone" class="form-label">Phone / WhatsApp</label>
-                <input type="tel" id="phone" name="phone" class="form-control" placeholder="+971 XX XXX XXXX">
+
+              <button type="button" id="formNext" class="btn btn-primary" style="width: 100%;">Continue <span class="btn-arrow">&rarr;</span></button>
+            </div>
+
+            <!-- Step 2: Fleet Details -->
+            <div class="form-step" id="formStep2">
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="fleet-size" class="form-label">Fleet Size</label>
+                  <select id="fleet-size" name="fleet_size" class="form-select">
+                    <option value="" disabled selected>Select fleet size</option>
+                    <option value="1-10">1 - 10 units</option>
+                    <option value="11-50">11 - 50 units</option>
+                    <option value="51-200">51 - 200 units</option>
+                    <option value="200+">200+ units</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="sector" class="form-label">Sector</label>
+                  <select id="sector" name="sector" class="form-select">
+                    <option value="" disabled selected>Select sector</option>
+                    <option value="retail-dry">Retail / Dry Goods</option>
+                    <option value="frozen-chilled">Frozen / Chilled</option>
+                    <option value="pharma">Pharmaceutical</option>
+                    <option value="ecommerce">E-Commerce / Parcel</option>
+                    <option value="fmcg">FMCG / Consumer Goods</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
               </div>
-            </div>
 
-            <div class="form-group">
-              <label for="interest" class="form-label">Interest</label>
-              <select id="interest" name="interest" class="form-select">
-                <option value="" disabled selected>What are you interested in?</option>
-                <option value="elc">ELC Trailers (Factory Renewed)</option>
-                <option value="new">New Double Deck Trailers</option>
-                <option value="both">Both — ELC & New</option>
-              </select>
-            </div>
-
-            <div class="form-row-2">
               <div class="form-group">
-                <label for="fleet-size" class="form-label">Fleet Size</label>
-                <select id="fleet-size" name="fleet_size" class="form-select">
-                  <option value="" disabled selected>Select fleet size</option>
-                  <option value="1-10">1 - 10 units</option>
-                  <option value="11-50">11 - 50 units</option>
-                  <option value="51-200">51 - 200 units</option>
-                  <option value="200+">200+ units</option>
-                </select>
+                <label for="message" class="form-label">Message <span style="font-weight:400; color: var(--text-muted);">(optional)</span></label>
+                <textarea id="message" name="message" class="form-control"
+                  placeholder="Tell us about your fleet requirements, routes, and cargo type..."></textarea>
               </div>
-              <div class="form-group">
-                <label for="sector" class="form-label">Sector</label>
-                <select id="sector" name="sector" class="form-select">
-                  <option value="" disabled selected>Select sector</option>
-                  <option value="retail-dry">Retail / Dry Goods</option>
-                  <option value="frozen-chilled">Frozen / Chilled</option>
-                  <option value="pharma">Pharmaceutical</option>
-                  <option value="ecommerce">E-Commerce / Parcel</option>
-                  <option value="fmcg">FMCG / Consumer Goods</option>
-                  <option value="other">Other</option>
-                </select>
-              </div>
-            </div>
 
-            <div class="form-group">
-              <label for="message" class="form-label">Message</label>
-              <textarea id="message" name="message" class="form-control" required
-                placeholder="Tell us about your fleet requirements, routes, and cargo type..."></textarea>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Send Request <span class="btn-arrow">&rarr;</span></button>
+              <button type="button" id="formBack" class="btn btn-outline" style="width: 100%; margin-top: var(--space-sm);">&larr; Back</button>
             </div>
-
-            <button type="submit" class="btn btn-primary" style="width: 100%;">Request Custom Specification <span class="btn-arrow">&rarr;</span></button>
 
             <!-- Trust indicators -->
             <div style="margin-top: var(--space-md); display: flex; flex-wrap: wrap; gap: 0.8rem;">
@@ -224,18 +229,54 @@
       <span class="text-tech" style="font-size: 0.6rem; color: var(--accent);">DUBAI, UAE</span>
     </div>
   </footer>
+  <!-- Mobile Bottom Bar -->
+  <div class="mobile-bottom-bar">
+    <a href="https://wa.me/971585805907" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: #25D366;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      WhatsApp
+    </a>
+    <a href="contact.html">Request Quote &rarr;</a>
+  </div>
 
-  <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/971585805907" target="_blank" rel="noopener" class="whatsapp-float"
-    aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-    </svg>
-  </a>
   <script src="js/main.js"></script>
   <script src="js/contact.js"></script>
   <script src="js/cookie-consent.js"></script>
+
+  <!-- 2-Step Form Logic -->
+  <script>
+  (function() {
+    const step1 = document.getElementById('formStep1');
+    const step2 = document.getElementById('formStep2');
+    const dot1 = document.getElementById('dot1');
+    const dot2 = document.getElementById('dot2');
+    const nextBtn = document.getElementById('formNext');
+    const backBtn = document.getElementById('formBack');
+
+    if (!nextBtn || !backBtn) return;
+
+    nextBtn.addEventListener('click', function() {
+      // Validate step 1 fields
+      const fields = step1.querySelectorAll('[required]');
+      let valid = true;
+      fields.forEach(function(f) {
+        if (!f.value.trim()) { f.focus(); valid = false; }
+      });
+      if (!valid) return;
+
+      step1.classList.remove('active');
+      step2.classList.add('active');
+      dot1.classList.remove('active');
+      dot2.classList.add('active');
+    });
+
+    backBtn.addEventListener('click', function() {
+      step2.classList.remove('active');
+      step1.classList.add('active');
+      dot2.classList.remove('active');
+      dot1.classList.add('active');
+    });
+  })();
+  </script>
 </body>
 
 </html>

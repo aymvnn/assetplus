@@ -1162,16 +1162,86 @@
     right: 8px;
   }
 
-  /* WhatsApp float — slightly smaller on mobile */
+  /* WhatsApp float — hide on mobile (replaced by sticky bar) */
   .whatsapp-float {
-    width: 52px;
-    height: 52px;
-    bottom: 1.5rem;
-    right: 1.5rem;
+    display: none;
   }
 
-  .whatsapp-float svg {
-    width: 26px;
-    height: 26px;
+  /* Sticky mobile bottom bar */
+  .mobile-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    background: var(--bg-dark);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    z-index: 998;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .mobile-bottom-bar a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-family: var(--font-tech);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: background 0.2s ease;
+  }
+
+  .mobile-bottom-bar a:first-child {
+    border-right: 1px solid rgba(255,255,255,0.1);
+    color: #25D366;
+  }
+
+  .mobile-bottom-bar a:last-child {
+    background: var(--accent);
+    color: var(--text-light);
+  }
+
+  .mobile-bottom-bar a:active {
+    opacity: 0.85;
+  }
+
+  .mobile-bottom-bar svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Offset body so footer isn't hidden behind sticky bar */
+  body {
+    padding-bottom: 56px;
+  }
+
+  /* Buttons — ensure min 50px touch target on mobile */
+  .btn {
+    min-height: 50px;
+  }
+}
+
+/* ========== SMALL SCREENS (480px) ========== */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: clamp(2.2rem, 12vw, 3.5rem);
+  }
+
+  .roi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Hero trust strip — single column */
+  .hero-trust-strip {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Tighter section padding */
+  .section {
+    padding: var(--space-lg) 4vw;
   }
 }
