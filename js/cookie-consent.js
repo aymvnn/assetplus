@@ -39,8 +39,8 @@
       left: 0;
       right: 0;
       z-index: 10000;
-      background: #0A0A0A;
-      border-top: 1px solid rgba(204, 0, 0, 0.3);
+      background: var(--bg-dark, #0A0A0A);
+      border-top: 1px solid var(--accent-30, rgba(204, 0, 0, 0.3));
       padding: 1rem 5vw;
       transform: translateY(100%);
       animation: cookieSlideUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) 1.5s forwards;
@@ -70,7 +70,7 @@
     }
 
     .cookie-link {
-      color: #CC0000;
+      color: var(--accent, #CC0000);
       text-decoration: none;
     }
 
@@ -97,12 +97,12 @@
     }
 
     .cookie-btn-accept {
-      border-color: #CC0000;
-      color: #CC0000;
+      border-color: var(--accent, #CC0000);
+      color: var(--accent, #CC0000);
     }
 
     .cookie-btn-accept:hover {
-      background: #CC0000;
+      background: var(--accent, #CC0000);
       color: #fff;
     }
 

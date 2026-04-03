@@ -83,7 +83,7 @@
 
 .dark-section .btn:hover {
   background: transparent;
-  color: var(--bg-dark) !important;
+  color: var(--bg-dark);
 }
 
 /* ========== DATA MODULES ========== */
@@ -186,7 +186,7 @@
   outline: none;
   border-color: var(--accent);
   background: var(--bg-color);
-  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.08);
+  box-shadow: 0 0 0 3px var(--accent-08);
 }
 
 textarea.form-control { min-height: 150px; resize: vertical; }
@@ -288,7 +288,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
 .faq-question:hover {
   color: var(--accent);
-  background: rgba(204, 0, 0, 0.03);
+  background: var(--accent-03);
 }
 
 .faq-item.open .faq-question {
@@ -303,7 +303,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   font-weight: 700;
   flex-shrink: 0;
   margin-left: 1rem;
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.4s var(--ease-snap);
 }
 
 .faq-item.open .faq-question::after {
@@ -436,7 +436,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   outline: none;
   border-color: var(--accent);
   background-color: var(--bg-color);
-  box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.08);
+  box-shadow: 0 0 0 3px var(--accent-08);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23CC0000' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
 }
 
@@ -494,15 +494,15 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   right: 12px;
   width: 16px;
   height: 16px;
-  border-right: 1px solid rgba(204, 0, 0, 0.2);
-  border-bottom: 1px solid rgba(204, 0, 0, 0.2);
+  border-right: 1px solid var(--accent-20);
+  border-bottom: 1px solid var(--accent-20);
   transition: border-color 0.3s ease;
   pointer-events: none;
 }
 
 /* Hover — subtle background shift + accent corners */
 .roi-item:hover {
-  background: rgba(204, 0, 0, 0.02);
+  background: var(--accent-02);
 }
 
 .roi-item:hover::after {
@@ -531,7 +531,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   width: 40px;
   height: 2px;
   background: var(--accent);
-  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: width 0.6s var(--ease-snap);
 }
 
 .roi-item:hover .roi-value::after {
@@ -553,10 +553,10 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 .dark-section .roi-item { border-right-color: var(--grid-line-light); }
 .dark-section .roi-label { color: rgba(255,255,255,0.5); }
 .dark-section .roi-item::after {
-  border-color: rgba(204, 0, 0, 0.15);
+  border-color: var(--accent-15);
 }
 .dark-section .roi-item:hover {
-  background: rgba(204, 0, 0, 0.04);
+  background: var(--accent-04);
 }
 .dark-section .roi-item:hover::after {
   border-color: var(--accent);
@@ -601,14 +601,14 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   right: 12px;
   width: 16px;
   height: 16px;
-  border-right: 1px solid rgba(204, 0, 0, 0.15);
-  border-bottom: 1px solid rgba(204, 0, 0, 0.15);
+  border-right: 1px solid var(--accent-15);
+  border-bottom: 1px solid var(--accent-15);
   transition: border-color 0.3s ease;
   pointer-events: none;
 }
 
 .elc-step:hover {
-  background: rgba(204, 0, 0, 0.04);
+  background: var(--accent-04);
 }
 
 .elc-step:hover::after {
@@ -645,7 +645,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
 @media (max-width: 768px) {
   .boxed-grid-4 { grid-template-columns: 1fr; }
-  .elc-step { border-right: none !important; border-bottom: 1px solid var(--grid-line-light); }
+  .elc-step { border-right: none; border-bottom: 1px solid var(--grid-line-light); }
   .elc-step:last-child { border-bottom: none; }
 }
 
@@ -656,9 +656,16 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   .roi-item:last-child { border-bottom: none; }
   .dark-section .roi-item { border-bottom-color: var(--grid-line-light); }
 
+  .comparison-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
   .comparison-table th, .comparison-table td {
-    padding: 0.8rem 0.5rem;
-    font-size: 0.72rem;
+    padding: 0.8rem 0.8rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
   }
 
   .faq-question { font-size: 0.95rem; padding: 1.2rem 0; }
@@ -752,7 +759,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
 .form-step.active {
   display: block;
-  animation: formStepIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: formStepIn 0.4s var(--ease-snap);
 }
 
 @keyframes formStepIn {
@@ -934,6 +941,6 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
 @media (max-width: 768px) {
   .why-us-grid { grid-template-columns: 1fr; }
-  .why-us-item { border-right: none !important; border-bottom: 1px solid var(--grid-line); }
+  .why-us-item { border-right: none; border-bottom: 1px solid var(--grid-line); }
   .why-us-item:last-child { border-bottom: none; }
 }

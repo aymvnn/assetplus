@@ -5,6 +5,7 @@
   src: url('../assets/fonts/SpaceGrotesk-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
   src: url('../assets/fonts/SpaceGrotesk-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -19,6 +21,7 @@
   src: url('../assets/fonts/SpaceGrotesk-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -26,6 +29,7 @@
   src: url('../assets/fonts/SpaceGrotesk-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 /* ========================================
@@ -46,6 +50,21 @@
   --grid-line: rgba(0, 0, 0, 0.08);
   --grid-line-light: rgba(255, 255, 255, 0.1);
   --surface: #F0F0F0;
+
+  /* Accent opacity variants */
+  --accent-02: rgba(204, 0, 0, 0.02);
+  --accent-03: rgba(204, 0, 0, 0.03);
+  --accent-04: rgba(204, 0, 0, 0.04);
+  --accent-08: rgba(204, 0, 0, 0.08);
+  --accent-15: rgba(204, 0, 0, 0.15);
+  --accent-20: rgba(204, 0, 0, 0.2);
+  --accent-30: rgba(204, 0, 0, 0.3);
+
+  /* Easing */
+  --ease-snap: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Mobile bar */
+  --mobile-bar-height: 56px;
 
   /* Typography */
   --font-heavy: 'Space Grotesk', sans-serif;
@@ -314,7 +333,7 @@ a {
 ======================================== */
 
 body {
-  animation: pageIn 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: pageIn 0.5s var(--ease-snap);
 }
 
 @keyframes pageIn {
@@ -327,4 +346,17 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ========================================
+   FOCUS-VISIBLE — Keyboard accessibility
+======================================== */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Remove default outline for mouse users */
+:focus:not(:focus-visible) {
+  outline: none;
 }

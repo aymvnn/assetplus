@@ -78,7 +78,7 @@
 }
 
 .nav-links .btn {
-  margin-left: 0 !important;
+  margin-left: 0;
   border-radius: 0;
   border-left: 1px solid var(--grid-line);
   border-top: none;
@@ -811,7 +811,7 @@
   width: 0;
   height: 1px;
   background: var(--accent);
-  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: width 0.3s var(--ease-snap);
 }
 
 .footer-brutal .footer-content a:hover::after {
@@ -913,7 +913,7 @@
   }
 
   .nav-links .btn {
-    margin-left: 0 !important;
+    margin-left: 0;
     margin-top: var(--space-md);
     height: auto;
     padding: 1rem 2.5rem;
@@ -972,12 +972,12 @@
 
   .feature-section.layout-a .feature-text,
   .feature-section.layout-c .feature-text {
-    padding: 10vw 6vw !important;
+    padding: 10vw 6vw;
   }
 
   .feature-section.layout-a .feature-visual,
   .feature-section.layout-c .feature-visual {
-    padding: 0 !important;
+    padding: 0;
     min-height: 260px;
   }
 
@@ -1007,7 +1007,7 @@
   }
 
   .render-float img {
-    width: 100% !important;
+    width: 100%;
   }
 
   .render-section .section-details,
@@ -1033,7 +1033,7 @@
 
   /* Video heading — large, centered, full width on mobile */
   .video-bg-section .video-content h2 {
-    font-size: clamp(2.2rem, 10vw, 3.5rem) !important;
+    font-size: clamp(2.2rem, 10vw, 3.5rem);
     text-align: center;
     width: 100%;
   }
@@ -1049,7 +1049,7 @@
   }
 
   .cinematic-video-header h2 {
-    font-size: clamp(1.6rem, 7vw, 2.4rem) !important;
+    font-size: clamp(1.6rem, 7vw, 2.4rem);
   }
 
   .cinematic-video-wrapper {
@@ -1072,7 +1072,7 @@
   }
 
   .footer-content > div:first-child {
-    border-right: none !important;
+    border-right: none;
     border-bottom: 1px solid var(--grid-line-light);
     padding-right: 0;
     padding-bottom: var(--space-lg);
@@ -1086,13 +1086,13 @@
 
   /* Contact page — prevent long text overflow */
   .contact-col-info h3 {
-    font-size: 1.1rem !important;
+    font-size: 1.1rem;
     word-break: break-word;
   }
 
   /* Data module in hero visual — hide on mobile so video is fully visible */
   .hero-split-visual .data-module {
-    display: none !important;
+    display: none;
   }
 
   /* Stats grid — center text on mobile */
@@ -1129,7 +1129,7 @@
   }
 
   .boxed-grid-3 > div {
-    border-right: none !important;
+    border-right: none;
     border-bottom: 1px solid var(--grid-line);
   }
 
@@ -1139,7 +1139,7 @@
 
   /* Feature images — constrain inline min-heights on mobile */
   .feature-section .feature-visual .image-section {
-    min-height: 240px !important;
+    min-height: 240px;
     max-height: 50vh;
   }
 
@@ -1178,7 +1178,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 56px;
+    height: var(--mobile-bar-height);
     background: var(--bg-dark);
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1221,7 +1221,7 @@
 
   /* Offset body so footer isn't hidden behind sticky bar */
   body {
-    padding-bottom: 56px;
+    padding-bottom: var(--mobile-bar-height);
   }
 
   /* Buttons — ensure min 50px touch target on mobile */
@@ -1242,7 +1242,7 @@
 
   /* Hero trust strip — single column */
   .hero-trust-strip {
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
   }
 
   /* Tighter section padding */

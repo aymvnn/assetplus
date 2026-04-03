@@ -33,10 +33,11 @@ npx vercel --prod --yes       # Manual Vercel deploy
 
 **Pure static site** — vanilla HTML5, CSS3, ES6+ JavaScript. No React, no jQuery, no bundler.
 
-### Pages (12 HTML files)
+### Pages (13 HTML files)
 All pages share the same navbar, footer, flickering grid background, and cookie consent banner. Each page includes identical `<head>` boilerplate (fonts, preconnect, hreflang, OG tags, canonical).
 
 - Core: `index.html`, `double-deck-trailer.html`, `elc-trailers.html`, `about.html`, `contact.html`
+- Tools: `savings-calculator.html`
 - Marketing: `double-deck-brochure.html`, `elc-brochure.html`, `elc-onepager.html`
 - Legal: `privacy-policy.html`, `terms-of-service.html`
 - Error: `404.html`

@@ -45,8 +45,7 @@ function initMobileMenu() {
     const contactBlock = document.createElement('div');
     contactBlock.className = 'mobile-nav-contact';
     contactBlock.innerHTML =
-      '<a href="tel:+971585805907" style="display:block;font-family:var(--font-tech);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);padding:0.5rem 0;">+971 58 580 5907</a>' +
-      '<a href="mailto:info@assetplusgcc.com" style="display:block;font-family:var(--font-tech);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);padding:0.5rem 0;">info@assetplusgcc.com</a>';
+      '<a href="tel:+971585805907" style="display:block;font-family:var(--font-tech);font-size:0.8rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-light);padding:0.5rem 0;">+971 58 580 5907</a>';
     contactBlock.style.cssText = 'margin-top:auto;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.15);';
     nav.appendChild(contactBlock);
   }
@@ -229,20 +228,30 @@ function initFaqAccordion() {
   const questions = document.querySelectorAll('.faq-question');
   if (!questions.length) return;
 
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+
+    // Close all other items in the same FAQ section
+    const parent = item.parentElement;
+    parent.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      openItem.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+    });
+
+    // Toggle clicked item
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
   questions.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-
-      // Close all other items in the same FAQ section
-      const parent = item.parentElement;
-      parent.querySelectorAll('.faq-item.open').forEach(openItem => {
-        openItem.classList.remove('open');
-      });
-
-      // Toggle clicked item
-      if (!isOpen) {
-        item.classList.add('open');
+    btn.addEventListener('click', () => toggleFaq(btn));
+    btn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleFaq(btn);
       }
     });
   });
