@@ -61,9 +61,8 @@
 
     .cookie-text {
       font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
       color: rgba(255, 255, 255, 0.6);
       line-height: 1.6;
       margin: 0;
@@ -86,9 +85,9 @@
 
     .cookie-btn {
       font-family: 'Space Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.9rem;
       text-transform: uppercase;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.08em;
       padding: 0.6rem 1.2rem;
       border: 1px solid;
       cursor: pointer;

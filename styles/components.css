@@ -9,10 +9,10 @@
   justify-content: center;
   gap: 0.6rem;
   font-family: var(--font-tech);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   padding: 1rem 2.2rem;
   border: 2px solid var(--text-primary);
   background: transparent;
@@ -109,7 +109,7 @@
   background: var(--accent);
   color: var(--text-light);
   font-family: var(--font-tech);
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   padding: 0.25rem 0.6rem;
 }
 
@@ -118,8 +118,8 @@
   color: var(--accent);
   margin-bottom: var(--space-sm);
   display: block;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
 }
 
 /* ========== SPEC TABLES ========== */
@@ -127,7 +127,7 @@
   width: 100%;
   border-collapse: collapse;
   font-family: var(--font-tech);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
 
 .spec-table th, .spec-table td {
@@ -139,9 +139,8 @@
 .spec-table th {
   color: var(--text-muted);
   font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  font-size: 0.9rem;
 }
 
 .spec-table td { color: var(--text-primary); }
@@ -163,11 +162,10 @@
 .form-label {
   display: block;
   font-family: var(--font-tech);
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
   margin-bottom: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
 }
 
 .form-control {
@@ -274,7 +272,6 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   margin: 0 -1rem;
   font-family: var(--font-heavy);
   font-size: clamp(1rem, 1.4vw, 1.25rem);
-  text-transform: uppercase;
   font-weight: 700;
   color: var(--text-primary);
   cursor: pointer;
@@ -339,16 +336,15 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   width: 100%;
   border-collapse: collapse;
   font-family: var(--font-tech);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
 
 .comparison-table th {
   padding: 1.2rem 1rem;
   text-align: left;
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  font-size: 0.95rem;
   border-bottom: 2px solid var(--grid-line);
 }
 
@@ -363,14 +359,13 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 .comparison-table td {
   padding: 1rem;
   border-bottom: 1px solid var(--grid-line);
-  text-transform: uppercase;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 .comparison-table td:first-child {
   color: var(--text-muted);
   font-weight: 400;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .comparison-table td.standard-val { color: var(--text-primary); }
@@ -397,9 +392,8 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   align-items: center;
   gap: 0.5rem;
   font-family: var(--font-tech);
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
   color: var(--text-muted);
   padding: 0.6rem 1rem;
   border: 1px solid var(--grid-line);
@@ -409,7 +403,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 .trust-badge .trust-icon {
   color: var(--accent);
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
 }
 
 /* ========== FORM SELECT (styled dropdown) ========== */
@@ -480,8 +474,8 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   background: var(--accent);
   color: var(--text-light);
   font-family: var(--font-tech);
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
   padding: 0.3rem 0.7rem;
   z-index: 2;
 }
@@ -540,9 +534,8 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
 .roi-label {
   font-family: var(--font-tech);
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
   color: var(--text-muted);
   display: block;
   line-height: 1.6;
@@ -587,8 +580,8 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   background: var(--accent);
   color: var(--text-light);
   font-family: var(--font-tech);
-  font-size: 0.6rem;
-  letter-spacing: 0.15em;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
   padding: 0.3rem 0.7rem;
   z-index: 2;
 }
@@ -630,8 +623,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
 .elc-step-desc {
   font-family: var(--font-tech);
-  font-size: 0.8rem;
-  text-transform: uppercase;
+  font-size: 0.95rem;
   line-height: 1.8;
   color: rgba(255,255,255,0.5);
 }
@@ -664,7 +656,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
   .comparison-table th, .comparison-table td {
     padding: 0.8rem 0.8rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     white-space: nowrap;
   }
 
@@ -684,9 +676,8 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   align-items: center;
   gap: 0.5rem;
   font-family: var(--font-tech);
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
   color: var(--text-muted);
   line-height: 1.4;
 }
@@ -694,7 +685,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 .hero-trust-strip .trust-check {
   color: var(--accent);
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   flex-shrink: 0;
 }
 
@@ -719,9 +710,8 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
 .partner-lockup .partner-label {
   font-family: var(--font-tech);
-  font-size: 0.62rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
   color: var(--text-muted);
   line-height: 1.5;
   border-left: 1px solid var(--grid-line);
@@ -737,9 +727,8 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
 .section-cta-link a {
   font-family: var(--font-tech);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
   color: var(--accent);
   transition: opacity 0.3s ease;
 }
@@ -816,9 +805,9 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
 .elc-comparison-card .compare-heading {
   font-family: var(--font-tech);
-  font-size: 0.75rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   margin-bottom: var(--space-md);
   display: block;
 }
@@ -828,8 +817,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
 .elc-comparison-card .compare-row {
   font-family: var(--font-tech);
-  font-size: 0.78rem;
-  text-transform: uppercase;
+  font-size: 0.95rem;
   padding: 0.6rem 0;
   border-bottom: 1px solid var(--grid-line-light);
   color: rgba(255,255,255,0.7);
@@ -924,8 +912,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
 .why-us-item p {
   font-family: var(--font-tech);
-  font-size: 0.78rem;
-  text-transform: uppercase;
+  font-size: 0.95rem;
   color: var(--text-muted);
   line-height: 1.8;
   max-width: none;

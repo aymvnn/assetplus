@@ -54,10 +54,10 @@
 
 .nav-link {
   font-family: var(--font-tech);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   position: relative;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   padding: 0 1.5rem;
   color: var(--text-primary);
   transition: color 0.3s ease, background 0.3s ease;
@@ -166,7 +166,7 @@
 .hero-title {
   font-family: var(--font-heavy);
   font-size: clamp(2.8rem, 6vw, 7rem);
-  line-height: 0.9;
+  line-height: 1.0;
   text-transform: uppercase;
   letter-spacing: -0.02em;
   font-weight: 700;
@@ -275,10 +275,10 @@
 
 .render-section .section-label {
   font-family: var(--font-tech);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   color: var(--accent);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   margin-bottom: var(--space-sm);
   display: block;
   padding: 0 5vw;
@@ -287,7 +287,7 @@
 .render-section .overlap-title {
   font-family: var(--font-heavy);
   font-size: clamp(3.5rem, 7vw, 7.5rem);
-  line-height: 0.88;
+  line-height: 1.0;
   text-transform: uppercase;
   color: var(--text-primary);
   position: relative;
@@ -385,9 +385,9 @@
   bottom: 6%;
   left: 6%;
   font-family: var(--font-tech);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   color: rgba(255, 255, 255, 0.55);
 }
 
@@ -479,9 +479,9 @@
 
 .scroll-indicator .scroll-text {
   font-family: var(--font-tech);
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.08em;
   color: var(--text-muted);
 }
 
@@ -522,9 +522,9 @@
   background: var(--bg-dark);
   color: var(--text-light);
   font-family: var(--font-tech);
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   padding: 0.5rem 0.9rem;
   white-space: nowrap;
   opacity: 0;
@@ -731,9 +731,9 @@
 
 .product-card .product-label {
   font-family: var(--font-tech);
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.25em;
+  letter-spacing: 0.1em;
   color: var(--accent);
   display: block;
 }
@@ -1103,7 +1103,7 @@
   /* Hero buttons — larger touch targets, more prominent */
   .hero-split-text .btn {
     padding: 1rem 1.8rem;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     min-width: 140px;
     text-align: center;
   }
@@ -1192,9 +1192,9 @@
     justify-content: center;
     gap: 0.5rem;
     font-family: var(--font-tech);
-    font-size: 0.72rem;
+    font-size: 0.9rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     color: var(--text-light);
     text-decoration: none;
     transition: background 0.2s ease;
