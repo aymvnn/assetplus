@@ -12,9 +12,9 @@
   height: var(--nav-height);
   z-index: 1000;
   border-bottom: 1px solid var(--grid-line);
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(16px) saturate(1.2);
-  -webkit-backdrop-filter: blur(16px) saturate(1.2);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(24px) saturate(1.4);
+  -webkit-backdrop-filter: blur(24px) saturate(1.4);
   display: flex;
   justify-content: space-between;
   align-items: stretch;
@@ -26,6 +26,7 @@
   box-shadow: 0 2px 30px rgba(0, 0, 0, 0.06);
   height: 72px;
   border-bottom-color: rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 /* Logo fills the header — the image has built-in whitespace */

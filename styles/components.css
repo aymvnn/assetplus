@@ -19,14 +19,14 @@
   color: var(--text-primary);
   position: relative;
   overflow: hidden;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
   z-index: 1;
 }
 
 /* Arrow icon in buttons — slides right on hover */
 .btn .btn-arrow {
   display: inline-block;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
   font-size: 1em;
   line-height: 1;
 }
@@ -44,11 +44,11 @@
   z-index: -1;
   transform: scaleY(0);
   transform-origin: bottom;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .btn:hover::before { transform: scaleY(1); }
-.btn:hover { color: var(--text-light); }
+.btn:hover { color: var(--text-light); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12); }
 
 /* Primary — red fill, dark sweep */
 .btn-primary {
@@ -58,7 +58,7 @@
 }
 
 .btn-primary::before { background: var(--text-primary); }
-.btn-primary:hover { color: var(--text-light); border-color: var(--text-primary); }
+.btn-primary:hover { color: var(--text-light); border-color: var(--text-primary); box-shadow: 0 4px 20px var(--accent-20); }
 
 /* Outline — muted border, dark sweep */
 .btn-outline {
@@ -496,7 +496,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 
 /* Hover — subtle background shift + accent corners */
 .roi-item:hover {
-  background: var(--accent-02);
+  background: radial-gradient(circle at 50% 50%, var(--accent-04), transparent 12rem);
 }
 
 .roi-item:hover::after {
@@ -549,7 +549,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
   border-color: var(--accent-15);
 }
 .dark-section .roi-item:hover {
-  background: var(--accent-04);
+  background: radial-gradient(circle at 50% 50%, var(--accent-08), transparent 12rem);
 }
 .dark-section .roi-item:hover::after {
   border-color: var(--accent);
@@ -601,7 +601,7 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 }
 
 .elc-step:hover {
-  background: var(--accent-04);
+  background: radial-gradient(circle at 50% 50%, var(--accent-04), transparent 12rem);
 }
 
 .elc-step:hover::after {
@@ -894,6 +894,14 @@ textarea.form-control { min-height: 150px; resize: vertical; }
 }
 
 .why-us-item:last-child { border-right: none; }
+
+.why-us-item {
+  transition: background 0.4s ease;
+}
+
+.why-us-item:hover {
+  background: radial-gradient(circle at 50% 50%, var(--accent-03), transparent 12rem);
+}
 
 .why-us-item .why-label {
   font-family: var(--font-tech);

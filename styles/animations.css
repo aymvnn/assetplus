@@ -104,6 +104,18 @@
   transition: transform 0.1s linear;
 }
 
+/* ========== SECTION LABEL PULSE — accent color reveal ========== */
+@keyframes labelPulse {
+  0% { color: var(--text-muted); }
+  40% { color: var(--accent); }
+  100% { color: var(--accent); }
+}
+
+.section-label.visible,
+.render-section .section-label.visible {
+  animation: labelPulse 1.2s var(--ease-snap) forwards;
+}
+
 /* ========== SMOOTH SECTION TRANSITIONS ========== */
 .dark-section,
 .light-section,

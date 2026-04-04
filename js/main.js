@@ -3,7 +3,11 @@
    Smooth scroll reveals, parallax, counters
 ======================================== */
 
+/* ========== Lenis Smooth Scroll — desktop only ========== */
+let lenis = null;
+
 document.addEventListener('DOMContentLoaded', () => {
+  initLenis();
   initNavbar();
   initMobileMenu();
   initScrollReveal();
@@ -13,6 +17,25 @@ document.addEventListener('DOMContentLoaded', () => {
   initFlickeringGrid();
   initFaqAccordion();
 });
+
+function initLenis() {
+  if (typeof Lenis === 'undefined') return;
+
+  lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smoothWheel: true,
+    syncTouch: true,
+    syncTouchLerp: 0.06,
+    touchMultiplier: 1.5,
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+}
 
 /* ========== Navbar — shrink on scroll ========== */
 function initNavbar() {
@@ -90,17 +113,11 @@ function initParallax() {
   const items = document.querySelectorAll('[data-parallax]');
   if (!items.length) return;
 
-  let ticking = false;
-
   function updateParallax() {
-    const scrollY = window.scrollY;
     const viewH = window.innerHeight;
-
     items.forEach(el => {
       const rect = el.getBoundingClientRect();
       const speed = parseFloat(el.dataset.parallax) || 0.1;
-
-      // Only apply when element is near viewport
       if (rect.top < viewH + 200 && rect.bottom > -200) {
         const offset = (rect.top - viewH / 2) * speed;
         el.style.transform = `translateY(${offset}px)`;
@@ -108,15 +125,19 @@ function initParallax() {
     });
   }
 
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        updateParallax();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  }, { passive: true });
+  if (lenis) {
+    // Lenis fires on every interpolated frame — silky smooth parallax
+    lenis.on('scroll', updateParallax);
+  } else {
+    // Fallback for mobile / no Lenis
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => { updateParallax(); ticking = false; });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
 }
 
 /* ========== Video Autoplay — ensure all videos play ========== */
