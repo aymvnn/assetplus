@@ -86,8 +86,7 @@ ErrorDocument 404 /404.html
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
 
   # HSTS — force HTTPS for 1 year
-  # NOTE: Uncomment when real domain + SSL is active
-  # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
   # Cache control for HTML
   <FilesMatch "\.(html|htm)$">
