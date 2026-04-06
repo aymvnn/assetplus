@@ -9,7 +9,7 @@ ASSET+ Fleet Solutions — official Burgers Carrosserie distributor website for 
 - **Primary domain:** assetplusgcc.com
 - **Secondary domain:** assetplus.ae (301 redirects to primary)
 - **Repository:** github.com/aymvnn/assetplus
-- **Hosting:** Vercel (primary), Cloudways Apache (secondary)
+- **Hosting:** Cloudways Apache (production)
 
 ## Development
 
@@ -24,9 +24,8 @@ No build step, no package.json, no npm. Edit HTML/CSS/JS directly.
 ## Deployment
 
 ```bash
-git push origin main          # Triggers Vercel auto-deploy
-npx vercel --prod --yes       # Manual Vercel deploy
-# Cloudways: pulls from GitHub via Git Deployment (webhook or manual)
+git push origin main          # Push to GitHub
+# Then: Cloudways dashboard → Git Deployment → Pull (manual)
 ```
 
 ## Architecture
@@ -80,5 +79,5 @@ Key variables: `--accent: #CC0000`, `--bg-dark: #0A0A0A`, `--bg-light: #F5F5F3`,
 ## Media
 
 - `assets/images/` — Logos, hero images, product renders (tracked in git)
-- `mediatouse/` — Photography, partner logos, videos (1.4GB, large videos git-ignored via .vercelignore)
+- `mediatouse/` — Photography, partner logos, videos (1.4GB, large videos git-ignored)
 - WebP versions sit alongside originals (same name, .webp extension)
