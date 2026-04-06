@@ -250,15 +250,18 @@
       align-items: center;
       justify-content: center;
       position: relative;
-      padding: 0 8mm;
-      margin-top: -8mm;
+      padding: 4mm 12mm;
+      margin-top: 0;
     }
 
     .cover-visual img {
-      width: 88%;
-      max-height: 130mm;
-      object-fit: contain;
-      filter: drop-shadow(0 15px 50px rgba(0,0,0,0.6));
+      width: 100%;
+      height: 118mm;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      border-radius: 2px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
       position: relative;
       z-index: 2;
     }
@@ -555,7 +558,7 @@
     .specs-tables {
       padding: 6mm 12mm;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 6mm;
     }
 
@@ -661,7 +664,7 @@
     .compliance-bar {
       margin-top: auto;
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(4, 1fr);
       border-top: 1px solid var(--grid-line-light);
       background: var(--bg-dark);
     }
@@ -970,7 +973,7 @@
     .cover-burgers-logo {
       position: absolute;
       bottom: 5mm;
-      left: 12mm;
+      right: 12mm;
       z-index: 20;
       display: flex;
       align-items: center;
@@ -1023,7 +1026,7 @@
   </div>
 
   <div class="cover-visual" style="z-index: 10; position: relative;">
-    <picture><source srcset="mediatouse/bloemen-burgers-3-2-1-1536x1044.webp" type="image/webp"><img src="mediatouse/bloemen-burgers-3-2-1-1536x1044.png" alt="Royal Burgers Double Deck Trailer"></picture>
+    <picture><source srcset="mediatouse/must-use/Double-deck-2layers.webp" type="image/webp"><img src="mediatouse/must-use/Double-deck-2layers.jpg" alt="Royal Burgers Double Deck Trailer — Dual Level Interior"></picture>
   </div>
 
   <div class="cover-bottom" style="z-index: 10; position: relative;">
@@ -1046,10 +1049,6 @@
       <div class="cover-stat">
         <span class="stat-value">100+</span>
         <span class="stat-label">Years<br>Engineering</span>
-      </div>
-      <div class="cover-stat" style="margin-left: auto;">
-        <span class="stat-value" style="font-size: 11pt; color: var(--text-muted);">UAE CABINET<br>RES. 138/2023</span>
-        <span class="stat-label" style="color: var(--accent);">Fully Compliant</span>
       </div>
     </div>
   </div>
@@ -1191,48 +1190,39 @@
       <table class="spec-table">
         <thead>
           <tr>
-            <th>Class</th>
-            <th>Length</th>
-            <th>Axles</th>
-            <th>Payload</th>
+            <th>Parameter</th>
+            <th>Value</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Standard</td>
-            <td>13.60m</td>
-            <td>2</td>
+            <td>Length</td>
+            <td class="highlight">13.60m</td>
+          </tr>
+          <tr>
+            <td>Height</td>
+            <td class="highlight">4.00m</td>
+          </tr>
+          <tr>
+            <td>Width</td>
+            <td class="highlight">2.55m</td>
+          </tr>
+          <tr>
+            <td>Axles</td>
+            <td class="highlight">2</td>
+          </tr>
+          <tr>
+            <td>Load weight</td>
+            <td class="highlight">33 ton</td>
+          </tr>
+          <tr>
+            <td>Payload</td>
             <td class="highlight">40 Block Pallets</td>
           </tr>
         </tbody>
       </table>
     </div>
 
-    <div class="spec-table-wrap">
-      <h3>Application<br>Matrix</h3>
-      <table class="spec-table">
-        <thead>
-          <tr>
-            <th>Environment</th>
-            <th>Configuration</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Retail / Dry</td>
-            <td>Plywood or dry lining. External elevator.</td>
-          </tr>
-          <tr>
-            <td>Frozen / Chilled</td>
-            <td>Cooled config. Dual-zone temperature.</td>
-          </tr>
-          <tr>
-            <td>Racetrailer</td>
-            <td>Insulated. GxP thermal retention.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
   </div>
 
   <!-- Cutaway diagram -->
@@ -1278,6 +1268,10 @@
 
   <!-- Compliance bar -->
   <div class="compliance-bar">
+    <div class="compliance-item">
+      <div class="compliance-value">13.60<span style="font-size: 8pt; color: rgba(255,255,255,0.7);">m</span></div>
+      <div class="compliance-label">Length</div>
+    </div>
     <div class="compliance-item">
       <div class="compliance-value">4.00<span style="font-size: 8pt; color: rgba(255,255,255,0.7);">m</span></div>
       <div class="compliance-label">Height (max 4.30m)</div>
