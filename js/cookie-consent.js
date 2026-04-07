@@ -20,7 +20,7 @@
   banner.innerHTML = `
     <div class="cookie-content">
       <p class="cookie-text">
-        This website uses essential cookies to ensure proper functionality. We do not use tracking or advertising cookies.
+        This website uses essential cookies and Google Analytics to improve your experience. Analytics cookies are only placed after your consent.
         <a href="privacy-policy.html" class="cookie-link">Privacy Policy</a>
       </p>
       <div class="cookie-actions">
@@ -135,11 +135,19 @@
   // Event listeners
   document.getElementById('cookieAccept').addEventListener('click', function () {
     setCookie(COOKIE_NAME, 'accepted', COOKIE_DAYS);
+    // Grant analytics consent to Google
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
     closeBanner();
   });
 
   document.getElementById('cookieDecline').addEventListener('click', function () {
     setCookie(COOKIE_NAME, 'declined', COOKIE_DAYS);
+    // Ensure analytics stays denied
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { 'analytics_storage': 'denied' });
+    }
     closeBanner();
   });
 

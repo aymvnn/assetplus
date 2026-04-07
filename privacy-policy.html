@@ -2,13 +2,23 @@
 <html lang="en">
 
 <head>
-  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) with Consent Mode -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LMZRNCHS3V"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
+    // Default: deny analytics until user consents
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied'
+    });
+
+    // If user previously accepted, grant immediately
+    if (document.cookie.indexOf('assetplus_consent=accepted') !== -1) {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+
+    gtag('js', new Date());
     gtag('config', 'G-LMZRNCHS3V');
   </script>
   <meta charset="UTF-8">
@@ -66,7 +76,7 @@
 
       <span class="text-tech reveal" style="color: var(--accent); display: block; margin-bottom: var(--space-sm);">LEGAL // PRIVACY POLICY</span>
       <h1 class="title-large reveal reveal-delay-1" style="margin-bottom: var(--space-sm);">PRIVACY<br>POLICY.</h1>
-      <p class="text-tech reveal reveal-delay-2" style="color: rgba(255,255,255,0.75); margin-bottom: var(--space-xl);">Last updated: 15 March 2026</p>
+      <p class="text-tech reveal reveal-delay-2" style="color: rgba(255,255,255,0.75); margin-bottom: var(--space-xl);">Last updated: 6 April 2026</p>
 
       <!-- Introduction -->
       <div class="reveal" style="margin-bottom: var(--space-xl);">
@@ -122,7 +132,10 @@
         <span class="text-tech" style="color: var(--accent); display: block; margin-bottom: var(--space-sm);">04 // THIRD PARTIES &amp; DATA STORAGE</span>
         <h2 class="title-large" style="font-size: clamp(1.4rem, 2.5vw, 2rem); margin-bottom: var(--space-md);">DATA PROCESSING &amp; STORAGE</h2>
         <p style="font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.7); margin-bottom: var(--space-md);">
-          Form submissions on our website are processed through <strong style="color: var(--text-light);">FormSubmit.co</strong>, a third-party form handling service. When you submit a form, your data is transmitted via FormSubmit.co to our email inbox. FormSubmit.co acts as a data processor on our behalf and does not store your submission data permanently. You can review their privacy practices at <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener" style="color: var(--accent);">formsubmit.co/privacy</a>.
+          Form submissions on our website are processed through <strong style="color: var(--text-light);">Formspree</strong>, a third-party form handling service. When you submit a form, your data is transmitted via Formspree to our email inbox. Formspree acts as a data processor on our behalf. You can review their privacy practices at <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener" style="color: var(--accent);">formspree.io/legal/privacy-policy</a>.
+        </p>
+        <p style="font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.7); margin-top: var(--space-md);">
+          We also use <strong style="color: var(--text-light);">Google Analytics 4</strong> (provided by Google LLC, USA) as a data processor for website analytics. Data processed by Google may be transferred to and stored on servers in the United States. Google is certified under the EU-U.S. Data Privacy Framework.
         </p>
         <p style="font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.7);">
           Once received, your data is stored in our business email systems and internal records. We retain your information only for as long as necessary to fulfil the purpose for which it was collected, or as required by applicable law. We implement appropriate technical and organisational measures to protect your data against unauthorised access, alteration, or loss.
@@ -131,13 +144,19 @@
 
       <!-- Cookies -->
       <div class="reveal" style="margin-bottom: var(--space-xl);">
-        <span class="text-tech" style="color: var(--accent); display: block; margin-bottom: var(--space-sm);">05 // COOKIES</span>
-        <h2 class="title-large" style="font-size: clamp(1.4rem, 2.5vw, 2rem); margin-bottom: var(--space-md);">COOKIE USAGE</h2>
+        <span class="text-tech" style="color: var(--accent); display: block; margin-bottom: var(--space-sm);">05 // COOKIES &amp; ANALYTICS</span>
+        <h2 class="title-large" style="font-size: clamp(1.4rem, 2.5vw, 2rem); margin-bottom: var(--space-md);">COOKIE &amp; ANALYTICS USAGE</h2>
         <p style="font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.7); margin-bottom: var(--space-md);">
-          Our website currently uses only <strong style="color: var(--text-light);">essential cookies</strong> that are strictly necessary for the website to function correctly. These cookies do not track your browsing activity or collect personal data.
+          Our website uses <strong style="color: var(--text-light);">essential cookies</strong> that are strictly necessary for the website to function correctly, as well as <strong style="color: var(--text-light);">analytics cookies</strong> to help us understand how visitors interact with our website.
+        </p>
+        <p style="font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.7); margin-bottom: var(--space-md);">
+          We use <strong style="color: var(--text-light);">Google Analytics 4 (GA4)</strong>, provided by Google LLC, to collect anonymised data about page views, visitor behaviour, and website performance. GA4 uses cookies to distinguish unique users and sessions. The data collected includes pages visited, time spent on the site, approximate geographic location (country/city level), device and browser type, and referral source. This data helps us improve our website and better serve our visitors.
+        </p>
+        <p style="font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.7); margin-bottom: var(--space-md);">
+          Google Analytics cookies are only activated <strong style="color: var(--text-light);">after you give your consent</strong> via the cookie banner displayed on your first visit. If you decline, no analytics cookies will be placed on your device and no data will be shared with Google. You can learn more about how Google handles data at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color: var(--accent);">Google's Privacy Policy</a>.
         </p>
         <p style="font-size: 1rem; line-height: 2; color: rgba(255,255,255,0.7);">
-          In the future, we may implement analytics cookies (such as Google Analytics) to understand how visitors interact with our website and to improve our content and user experience. If we introduce analytics or any non-essential cookies, we will update this policy and provide you with clear notice and the ability to manage your cookie preferences before any such cookies are placed on your device.
+          You can withdraw your cookie consent at any time by clearing your browser cookies for this website. On your next visit, the consent banner will appear again.
         </p>
       </div>
 
