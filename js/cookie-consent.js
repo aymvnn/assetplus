@@ -63,7 +63,7 @@
       font-family: 'Space Mono', monospace;
       font-size: 0.9rem;
       letter-spacing: 0.04em;
-      color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.8);
       line-height: 1.6;
       margin: 0;
     }
@@ -106,13 +106,13 @@
     }
 
     .cookie-btn-decline {
-      border-color: rgba(255, 255, 255, 0.2);
-      color: rgba(255, 255, 255, 0.4);
+      border-color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .cookie-btn-decline:hover {
-      border-color: rgba(255, 255, 255, 0.4);
-      color: rgba(255, 255, 255, 0.6);
+      border-color: rgba(255, 255, 255, 0.6);
+      color: rgba(255, 255, 255, 0.9);
     }
 
     @media (max-width: 768px) {
