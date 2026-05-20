@@ -9,7 +9,7 @@ ASSET+ Fleet Solutions — official Burgers Carrosserie distributor website for 
 - **Primary domain:** assetplusgcc.com
 - **Secondary domain:** assetplus.ae (301 redirects to primary)
 - **Repository:** github.com/aymvnn/assetplus
-- **Hosting:** Cloudways Apache (production)
+- **Hosting:** Vercel (auto-deploys from `main`)
 
 ## Development
 
@@ -24,9 +24,10 @@ No build step, no package.json, no npm. Edit HTML/CSS/JS directly.
 ## Deployment
 
 ```bash
-git push origin main          # Push to GitHub
-# Then: Cloudways dashboard → Git Deployment → Pull (manual)
+git push origin main          # Vercel auto-deploys main to production within ~1 min
 ```
+
+Preview deploys are created automatically for every branch push (URL: `assetplus-git-<branch>-aymadvies-2742s-projects.vercel.app`, auth-gated by Vercel Deployment Protection).
 
 ## Architecture
 
@@ -56,8 +57,7 @@ Key variables: `--accent: #CC0000`, `--bg-dark: #0A0A0A`, `--bg-light: #F5F5F3`,
 - **cookie-consent.js** — Self-contained IIFE, localStorage consent, brutalist design
 
 ### Server config
-- **.htaccess** — www→non-www redirect, assetplus.ae→assetplusgcc.com redirect, GZIP, browser caching, security headers. HTTPS is handled by Cloudways Nginx (not .htaccess).
-- **index.php** — Cloudways override to serve index.html instead of PHP default
+- **vercel.json** — Security headers (X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy). HTTPS, HSTS, GZIP/Brotli, asset caching, and the apex→www + assetplus.ae→assetplusgcc.com redirects are handled by Vercel itself (domain settings + edge defaults).
 
 ## Key conventions
 
